@@ -5,13 +5,20 @@ extends Node2D
 @onready var option2_button = $Option2Button
 @onready var submit_button = $SubmitButton
 @onready var feedback_label = $FeedbackLabel
+@onready var hp_label = $HPLabel
+@onready var timer_label = $TimerLabel
+@onready var question_timer = $QuestionTimer
 
 var lesson: Lesson
 var current_item: LessonItem
 var selected_option: int = -1  # 0 for option1, 1 for option2
-var question_type: int = 0  # 0=show definition, 1=show keyword, 2=show term
+var question_type: int = 0  # 0=keyword, 1=simple_terms, 2=definition
 var option1_value: String = ""
 var option2_value: String = ""
+var hp: int = 100
+var max_hp: int = 100
+var time_remaining: int = 30
+var max_time: int = 30
 
 func _ready() -> void:
 	# Load the OOP lesson
@@ -21,6 +28,7 @@ func _ready() -> void:
 	option1_button.pressed.connect(_on_option1_pressed)
 	option2_button.pressed.connect(_on_option2_pressed)
 	submit_button.pressed.connect(_on_submit_pressed)
+	question_timer.timeout.connect(_on_timer_tick)
 	
 	# Load first question
 	load_next_question()
@@ -38,7 +46,7 @@ func load_next_question() -> void:
 		question.text = "No lesson items available!"
 		return
 	
-	# Randomly choose what to display (0=keyword, 1=simple_terms, 2=term)
+	# Randomly choose what to display (0=keyword, 1=simple_terms, 2=definition)
 	question_type = randi() % 3
 	
 	# Set up the question text
@@ -48,8 +56,8 @@ func load_next_question() -> void:
 			display_text = current_item.keyword
 		1:  # Show simple_terms
 			display_text = current_item.simple_terms
-		2:  # Show term
-			display_text = current_item.term
+		2:  # Show definition
+			display_text = current_item.definition
 	
 	# Find second term (either related or random)
 	var second_term = find_related_or_random_term()
@@ -66,6 +74,10 @@ func load_next_question() -> void:
 	question.text = "What is this?\n\n" + display_text
 	option1_button.text = option1_value
 	option2_button.text = option2_value
+	
+	# Start timer
+	time_remaining = max_time
+	question_timer.start(1.0)
 
 func _on_option1_pressed() -> void:
 	selected_option = 0
@@ -107,6 +119,8 @@ func _on_submit_pressed() -> void:
 		feedback_label.modulate = Color.WHITE
 		return
 	
+	question_timer.stop()
+	
 	var selected_value = option1_value if selected_option == 0 else option2_value
 	var is_correct = (selected_value == current_item.term)
 	
@@ -116,5 +130,48 @@ func _on_submit_pressed() -> void:
 		await get_tree().create_timer(1.5).timeout
 		load_next_question()
 	else:
-		feedback_label.text = "✗ Incorrect. The answer was: " + current_item.term
+		hp -= 10
+		update_hp_display()
+		feedback_label.text = "✗ Incorrect! (-10 HP) The answer was: " + current_item.term
 		feedback_label.modulate = Color.RED
+		
+		# Check for game over
+		if hp <= 0:
+			await get_tree().create_timer(2.0).timeout
+			game_over()
+		else:
+			await get_tree().create_timer(2.0).timeout
+			load_next_question()
+
+func _on_timer_tick() -> void:
+	time_remaining -= 1
+	timer_label.text = "Time: " + str(time_remaining) + "s"
+	
+	if time_remaining <= 0:
+		question_timer.stop()
+		# Time's up, treat as incorrect
+		selected_option = 0  # Fake select for the check
+		hp -= 10
+		update_hp_display()
+		feedback_label.text = "⏱ Time's up! (-10 HP) The answer was: " + current_item.term
+		feedback_label.modulate = Color.RED
+		
+		if hp <= 0:
+			await get_tree().create_timer(2.0).timeout
+			game_over()
+		else:
+			await get_tree().create_timer(2.0).timeout
+			load_next_question()
+
+func update_hp_display() -> void:
+	hp_label.text = "HP: " + str(hp) + "/" + str(max_hp)
+
+func game_over() -> void:
+	question.text = "GAME OVER!"
+	option1_button.disabled = true
+	option2_button.disabled = true
+	submit_button.disabled = true
+	feedback_label.text = "Final HP: " + str(hp) + "\n\nReturning to menu..."
+	feedback_label.modulate = Color.RED
+	await get_tree().create_timer(3.0).timeout
+	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
