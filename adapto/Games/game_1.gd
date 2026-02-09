@@ -9,6 +9,7 @@ extends Node2D
 @onready var timer_label = $TimerLabel
 @onready var question_timer = $QuestionTimer
 
+
 var lesson: Lesson
 var current_item: LessonItem
 var selected_option: int = -1  # 0 for option1, 1 for option2
