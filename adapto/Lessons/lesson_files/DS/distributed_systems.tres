@@ -1,0 +1,350 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=22 format=3]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://adapto/Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://adapto/Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_ai_dis1"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS1"
+term = "Distributed System"
+keyword = "multiple computers"
+definition = "A collection of independent computers that appear to its users as a single coherent system."
+simple_terms = "Computers working together as one."
+examples = ["The World Wide Web", "Cloud computing platforms (AWS, Azure, GCP)"]
+difficulty = 1
+related_to = ["Concurrency", "Fault Tolerance"]
+tof_statement = {
+"false": "A distributed system is always a single, powerful computer.", 
+"true": "A distributed system can consist of many geographically dispersed computers."
+}
+type_of_information = ["definition"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis2"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS2"
+term = "Concurrency"
+keyword = "simultaneously"
+definition = "The ability of different parts or units of a program, algorithm, or problem to be executed out-of-order or in parallel with the execution of others."
+simple_terms = "Doing multiple things at the same time."
+examples = ["Multiple users accessing a database concurrently", "Parallel processing in a multi-core CPU"]
+difficulty = 2
+related_to = ["Distributed System", "Parallelism"]
+tof_statement = {
+"false": "Concurrency means that tasks must execute in a strict sequential order.", 
+"true": "Concurrency in a distributed system can lead to race conditions if not managed properly."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis3"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS3"
+term = "Fault Tolerance"
+keyword = "failures"
+definition = "The ability of a system to continue operating properly in the event of the failure of some of its components."
+simple_terms = "Keeps working even if parts break."
+examples = ["Redundant servers in a web application", "RAID configurations for hard drives"]
+difficulty = 2
+related_to = ["Distributed System", "Reliability"]
+tof_statement = {
+"false": "A fault-tolerant system is designed to avoid all possible failures.", 
+"true": "A fault-tolerant system might use replication to ensure availability."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis4"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS4"
+term = "Replication"
+keyword = "copying"
+definition = "The process of storing multiple copies of data on different nodes in a distributed system to improve availability and fault tolerance."
+simple_terms = "Making copies of data."
+examples = ["Database replication (master-slave, multi-master)", "Content Delivery Networks (CDNs)"]
+difficulty = 2
+related_to = ["Fault Tolerance", "Consistency"]
+tof_statement = {
+"false": "Replication always guarantees that all copies of data are immediately identical.", 
+"true": "Replication helps in faster read operations by serving requests from nearby replicas."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis5"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS5"
+term = "Consistency"
+keyword = "same data"
+definition = "Ensuring that all nodes in a distributed system have the same view of the data at any given time, or at least a predictable view."
+simple_terms = "Everyone sees the same information."
+examples = ["Strong consistency vs. eventual consistency", "Transactions in a distributed database"]
+difficulty = 3
+related_to = ["Replication", "CAP Theorem"]
+tof_statement = {
+"false": "Eventual consistency means that all nodes will always have the exact same data instantly.", 
+"true": "Strong consistency ensures that any read operation will return the value of the most recent write."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis6"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS6"
+term = "CAP Theorem"
+keyword = "trade-offs"
+definition = "A fundamental theorem in distributed systems stating that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees: Consistency, Availability, and Partition Tolerance."
+simple_terms = "Can't have all three: Consistency, Availability, Partition Tolerance."
+examples = ["Choosing between CP and AP systems", "Designing systems for network partitions"]
+difficulty = 4
+related_to = ["Consistency", "Availability", "Partition Tolerance"]
+tof_statement = {
+"false": "The CAP theorem states that a system can always achieve Consistency, Availability, and Partition Tolerance.", 
+"true": "In the presence of a network partition, a system must choose between maintaining consistency or availability."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis7"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS7"
+term = "Availability"
+keyword = "operational"
+definition = "The measure of the degree to which a system is operational and accessible when required."
+simple_terms = "System is up and running."
+examples = ["Uptime percentages (e.g., 99.999%)", "Load balancers distributing traffic"]
+difficulty = 2
+related_to = ["CAP Theorem", "Fault Tolerance"]
+tof_statement = {
+"false": "A system that is highly available can never experience downtime.", 
+"true": "High availability is crucial for services that require continuous operation."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis8"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS8"
+term = "Partition Tolerance"
+keyword = "network failures"
+definition = "The ability of a distributed system to continue operating even when network communication between nodes is interrupted (network partitions)."
+simple_terms = "Works even if network breaks."
+examples = ["Systems that can function with disconnected nodes", "Handling split-brain scenarios"]
+difficulty = 3
+related_to = ["CAP Theorem", "Network"]
+tof_statement = {
+"false": "Partition tolerance means the system can tolerate hardware failures, not network issues.", 
+"true": "Partition tolerance is essential for systems deployed across multiple data centers or geographical regions."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis9"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS9"
+term = "Load Balancing"
+keyword = "distributing traffic"
+definition = "The process of distributing incoming network traffic across multiple servers to ensure no single server becomes overwhelmed, improving responsiveness and availability."
+simple_terms = "Sharing the work among servers."
+examples = ["Round-robin load balancing", "Least connections load balancing"]
+difficulty = 2
+related_to = ["Availability", "Scalability"]
+tof_statement = {
+"false": "Load balancing is only used to improve data consistency across servers.", 
+"true": "Load balancing helps prevent server overload and improves overall system performance."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis10"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS10"
+term = "Scalability"
+keyword = "handling growth"
+definition = "The ability of a distributed system to handle a growing amount of work by adding resources (scaling up or out)."
+simple_terms = "Can handle more users/data."
+examples = ["Horizontal scaling (adding more machines)", "Vertical scaling (upgrading existing machines)"]
+difficulty = 2
+related_to = ["Load Balancing", "Distributed System"]
+tof_statement = {
+"false": "Scalability only refers to increasing the processing power of a single machine.", 
+"true": "Horizontal scalability involves adding more instances of a service."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis11"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS11"
+term = "Message Queue"
+keyword = "asynchronous communication"
+definition = "A component that enables asynchronous communication between different parts of a distributed system by acting as an intermediary for messages."
+simple_terms = "A waiting line for messages."
+examples = ["RabbitMQ", "Kafka", "AWS SQS"]
+difficulty = 3
+related_to = ["Asynchronous Communication", "Decoupling"]
+tof_statement = {
+"false": "Message queues are primarily used for real-time, synchronous communication.", 
+"true": "Message queues help decouple producers and consumers in a distributed system."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis12"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS12"
+term = "Asynchronous Communication"
+keyword = "non-blocking"
+definition = "A communication pattern where the sender does not have to wait for a response from the receiver before continuing its own execution."
+simple_terms = "Send and forget (for now)."
+examples = ["Sending an email without waiting for a reply", "Using a message queue"]
+difficulty = 2
+related_to = ["Message Queue", "Concurrency"]
+tof_statement = {
+"false": "Asynchronous communication requires the sender and receiver to be active at the exact same time.", 
+"true": "Asynchronous communication improves system responsiveness by allowing tasks to proceed without waiting."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis13"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS13"
+term = "Decoupling"
+keyword = "independent"
+definition = "Designing system components so they can operate and evolve independently, reducing dependencies between them."
+simple_terms = "Components don't rely heavily on each other."
+examples = ["Using microservices architecture", "Abstracting interfaces"]
+difficulty = 3
+related_to = ["Message Queue", "Microservices"]
+tof_statement = {
+"false": "Decoupling aims to create a tightly integrated system where all parts are highly dependent.", 
+"true": "Decoupling makes it easier to update or replace individual system components."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis14"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS14"
+term = "Microservices Architecture"
+keyword = "small services"
+definition = "An architectural style that structures an application as a collection of small, independent, and loosely coupled services."
+simple_terms = "App is a bunch of small, separate programs."
+examples = ["Netflix's architecture", "Amazon's e-commerce platform"]
+difficulty = 3
+related_to = ["Decoupling", "Distributed System"]
+tof_statement = {
+"false": "A monolithic application is an example of microservices architecture.", 
+"true": "Microservices allow for independent deployment and scaling of individual services."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis15"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS15"
+term = "Distributed Transaction"
+keyword = "across multiple nodes"
+definition = "A transaction that involves updates to data stored on multiple distinct nodes or resources within a distributed system."
+simple_terms = "A transaction spanning many computers."
+examples = ["Two-Phase Commit (2PC)", "Sagas"]
+difficulty = 4
+related_to = ["Consistency", "Atomicity"]
+tof_statement = {
+"false": "Distributed transactions are simpler to manage than local transactions.", 
+"true": "Ensuring atomicity in distributed transactions is complex due to potential network failures."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis16"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS16"
+term = "Atomicity"
+keyword = "all or nothing"
+definition = "The property that a transaction (or a set of operations) is treated as a single, indivisible unit of work; it either completes entirely, or it has no effect."
+simple_terms = "Either everything happens, or nothing happens."
+examples = ["ACID properties in databases", "A bank transfer (debit and credit must both succeed or fail)"]
+difficulty = 3
+related_to = ["Distributed Transaction", "Consistency"]
+tof_statement = {
+"false": "Atomicity guarantees that transactions will always complete quickly.", 
+"true": "Atomicity ensures that partial completion of a transaction is not possible."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis17"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS17"
+term = "Eventual Consistency"
+keyword = "eventually same"
+definition = "A consistency model where, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value."
+simple_terms = "Data will be the same after some time."
+examples = ["Social media feeds", "DNS propagation"]
+difficulty = 3
+related_to = ["Consistency", "Availability"]
+tof_statement = {
+"false": "Eventual consistency means that all replicas are updated instantly.", 
+"true": "Systems prioritizing availability often adopt eventual consistency."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis18"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS18"
+term = "Leader Election"
+keyword = "choosing a leader"
+definition = "The process of designating a single process (or node) as the leader among a group of processes in a distributed system, often for coordination or control."
+simple_terms = "Picking one node to be in charge."
+examples = ["Raft consensus algorithm", "ZooKeeper's coordination service"]
+difficulty = 4
+related_to = ["Consensus", "Fault Tolerance"]
+tof_statement = {
+"false": "Leader election is only necessary in systems with a single point of failure.", 
+"true": "Leader election is crucial for maintaining order and coordination in distributed systems."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis19"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS19"
+term = "Consensus"
+keyword = "agreement"
+definition = "The process by which a group of distributed nodes agrees on a single value or decision, even in the presence of failures."
+simple_terms = "Getting everyone to agree."
+examples = ["Paxos algorithm", "Raft algorithm", "Blockchain consensus mechanisms"]
+difficulty = 4
+related_to = ["Leader Election", "Consistency"]
+tof_statement = {
+"false": "Consensus algorithms are designed to work only in perfectly reliable networks.", 
+"true": "Achieving consensus in a distributed system is challenging due to network latency and potential node failures."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_ai_dis20"]
+script = ExtResource("1_7hrog")
+id = "AI_DIS20"
+term = "Idempotence"
+keyword = "repeatable"
+definition = "The property of an operation where applying it multiple times has the same effect as applying it once."
+simple_terms = "Doing it again doesn't change the outcome."
+examples = ["HTTP PUT request", "A function that sets a value to a specific state"]
+difficulty = 3
+related_to = ["Fault Tolerance", "Reliability"]
+tof_statement = {
+"false": "An idempotent operation must always return the same result value, even if the state changes.", 
+"true": "Idempotent operations are beneficial in distributed systems for handling retries after failures."
+}
+type_of_information = ["definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Distributed Systems"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_ai_dis1"), SubResource("Resource_ai_dis2"), SubResource("Resource_ai_dis3"), SubResource("Resource_ai_dis4"), SubResource("Resource_ai_dis5"), SubResource("Resource_ai_dis6"), SubResource("Resource_ai_dis7"), SubResource("Resource_ai_dis8"), SubResource("Resource_ai_dis9"), SubResource("Resource_ai_dis10"), SubResource("Resource_ai_dis11"), SubResource("Resource_ai_dis12"), SubResource("Resource_ai_dis13"), SubResource("Resource_ai_dis14"), SubResource("Resource_ai_dis15"), SubResource("Resource_ai_dis16"), SubResource("Resource_ai_dis17"), SubResource("Resource_ai_dis18"), SubResource("Resource_ai_dis19"), SubResource("Resource_ai_dis20")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"
