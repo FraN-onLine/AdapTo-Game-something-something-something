@@ -101,4 +101,4 @@ func check_answer() -> void:
 
 func _check_game_end() -> void:
 	if answered.size() == 9:
-		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+		get_tree().change_scene_to_file("res://Games/game_3.gd")
