@@ -374,4 +374,4 @@ func _end_game(won: bool) -> void:
 	else:
 		feedback_label.text = "⏰  Time's up!  Score: %d  (answers revealed)" % score
 	await get_tree().create_timer(3.5).timeout
-	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Games/game4.tscn")

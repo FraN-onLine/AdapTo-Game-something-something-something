@@ -407,4 +407,4 @@ func _disable_gameplay_buttons() -> void:
 
 
 func _on_end_dialog_confirmed() -> void:
-	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Games/game5.tscn")

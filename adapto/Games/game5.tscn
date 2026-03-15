@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bhxdu56q06mq"]
 
 [ext_resource type="Script" path="res://Games/game_5.gd" id="1_g5sc"]
-[ext_resource type="FontFile" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="2_g5fn"]
-[ext_resource type="Texture2D" path="res://Assets/Background/3.png" id="3_g5bg"]
+[ext_resource type="FontFile" uid="uid://bgrgca3qc6dxo" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="2_g5fn"]
+[ext_resource type="Texture2D" uid="uid://cdoecq6a7hk05" path="res://Assets/Background/3.png" id="3_g5bg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
 content_margin_left = 14.0
@@ -115,39 +115,23 @@ offset_bottom = 582.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="StartLabel" type="Label" parent="PuzzlePanel"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 10.0
-offset_right = 430.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_g5fn")
 theme_override_font_sizes/font_size = 20
 text = "Start:"
 
 [node name="EndLabel" type="Label" parent="PuzzlePanel"]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 10.0
-offset_right = 900.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_g5fn")
 theme_override_font_sizes/font_size = 20
 text = "End:"
 horizontal_alignment = 2
 
 [node name="GraphBoard" type="Control" parent="PuzzlePanel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 52.0
-offset_right = 905.0
-offset_bottom = 390.0
+layout_mode = 2
 
 [node name="CurrentPathLabel" type="Label" parent="PuzzlePanel"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 396.0
-offset_right = 900.0
-offset_bottom = 456.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.75, 1)
 theme_override_fonts/font = ExtResource("2_g5fn")
 theme_override_font_sizes/font_size = 17
@@ -176,8 +160,8 @@ text = "Goal"
 autowrap_mode = 2
 
 [node name="OptimalLabel" type="Label" parent="SidePanel/SideVBox"]
-layout_mode = 2
 visible = false
+layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("2_g5fn")
 theme_override_font_sizes/font_size = 18

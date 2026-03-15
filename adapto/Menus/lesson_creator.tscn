@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b5w5h5g5w5h5g"]
+[gd_scene load_steps=0 format=3 uid="uid://b5w5h5g5w5h5g"]
 
 [ext_resource type="Script" path="res://Menus/lesson_creator.gd" id="1_abcde"]
 [ext_resource type="PackedScene" uid="uid://c5w5h5g5w5h5g" path="res://Menus/question_entry.tscn" id="2_fghij"]

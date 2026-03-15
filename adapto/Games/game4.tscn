@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://cwmrgnkjvb37a"]
 
-[ext_resource type="Script" path="res://Games/game_4.gd" id="1_g4sc"]
-[ext_resource type="FontFile" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="2_g4fn"]
-[ext_resource type="Texture2D" path="res://Assets/Background/1.png" id="3_g4bg"]
+[ext_resource type="Script" uid="uid://c8evunohu4j5q" path="res://Games/game_4.gd" id="1_g4sc"]
+[ext_resource type="FontFile" uid="uid://bgrgca3qc6dxo" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="2_g4fn"]
+[ext_resource type="Texture2D" uid="uid://bwefphu7rhxj8" path="res://Assets/Background/1.png" id="3_g4bg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
 content_margin_left = 14.0
@@ -140,7 +140,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.7, 1)
 theme_override_fonts/font = ExtResource("2_g4fn")
 theme_override_font_sizes/font_size = 20
-text = "Objective:\nMatch each term with its meaning before time runs out."
+text = "Objective:
+Match each term with its meaning before time runs out."
 autowrap_mode = 2
 
 [node name="ProgressLabel" type="Label" parent="SidePanel/SideVBox"]
@@ -199,7 +200,8 @@ text = "SUBMIT"
 
 [node name="EndDialog" type="AcceptDialog" parent="."]
 title = "Round Complete"
-ok_button_text = "Back to Menu"
+size = Vector2i(138, 100)
+ok_button_text = "Proceed"
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_timer_tick"]
 [connection signal="pressed" from="BottomBar/BottomHBox/ShuffleBtn" to="." method="_on_shuffle_pressed"]
