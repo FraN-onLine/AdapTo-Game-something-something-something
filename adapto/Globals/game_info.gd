@@ -244,6 +244,29 @@ func _check_achievements(game_id: String, accuracy: float, max_streak: int, hint
 	if game_id == "game2" and game_won and extra.has("money") and int(extra["money"]) == 200 and _try_unlock("jeopardy_exact_200"):
 		new_achievements.append("jeopardy_exact_200")
 
+	# jeopardy_no_answers - Game2 with ALL questions as empty submissions
+	if game_id == "game2" and extra.has("empty_submissions") and extra.has("total_questions") \
+		and int(extra["empty_submissions"]) >= int(extra["total_questions"]) \
+		and int(extra["total_questions"]) > 0 \
+		and _try_unlock("jeopardy_no_answers"):
+		new_achievements.append("jeopardy_no_answers")
+
+	# crossword_skipped - Game3 skipped entirely
+	if game_id == "game3" and extra.has("skipped") and bool(extra["skipped"]) and _try_unlock("crossword_skipped"):
+		new_achievements.append("crossword_skipped")
+
+	# game1_1hp - Game1 won with exactly 1 HP remaining
+	if game_id == "game1" and game_won and extra.has("hp") and int(extra["hp"]) == 1 and _try_unlock("game1_1hp"):
+		new_achievements.append("game1_1hp")
+
+	# hangman_no_wrong_letters - Game5 won with zero mistakes
+	if game_id == "game5" and game_won and extra.has("mistakes") and int(extra["mistakes"]) == 0 and _try_unlock("hangman_no_wrong_letters"):
+		new_achievements.append("hangman_no_wrong_letters")
+
+	# matching_same_type - Game4 attempted to match two cards of the same type
+	if game_id == "game4" and extra.has("same_type_attempts") and int(extra["same_type_attempts"]) > 0 and _try_unlock("matching_same_type"):
+		new_achievements.append("matching_same_type")
+
 	# hangman_no_mistakes - Game5 with zero mistakes
 	if game_id == "game5" and game_won and extra.has("mistakes") and int(extra["mistakes"]) == 0 and _try_unlock("hangman_no_mistakes"):
 		new_achievements.append("hangman_no_mistakes")

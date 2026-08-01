@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_match_same"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "matching_same_type"
+name = "Keep Your Friends Close"
+description = "Attempt to match two cards of the same type (two terms or two meanings)"
+icon = null

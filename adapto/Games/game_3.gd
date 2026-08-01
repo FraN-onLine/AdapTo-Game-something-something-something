@@ -586,10 +586,11 @@ func _end_game(won: bool, skipped: bool = false) -> void:
 	var elapsed := float(TIME_LIMIT - maxi(0, time_remaining))
 	var fair_score := UserStats.compute_fair_score("game3", float(score), accuracy, elapsed, completion_ratio)
 	
+	var extra_data := {"skipped": skipped}
 	var gameinfo_result := GameInfo.record_game_completion(
 		"game3", accuracy, fair_score, completion_ratio,
 		current_streak, hints_used, elapsed, float(TIME_LIMIT),
-		won
+		won, extra_data
 	)
 	
 	var end_modal = preload("res://Games/game_end_modal.tscn").instantiate()

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_cross_skip"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "crossword_skipped"
+name = "Thank You Next!"
+description = "Skip the crossword entirely"
+icon = null

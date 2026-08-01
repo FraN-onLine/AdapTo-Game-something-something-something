@@ -33,6 +33,7 @@ var matched_pairs := 0
 var total_pairs := 0
 var wrong_attempts := 0
 var hints_used := 0
+var same_type_attempts := 0  # Track attempts to match two cards of the same type
 var input_locked := false
 var game_finished := false
 var adaptive_recorded := false
@@ -198,6 +199,10 @@ func _check_selected_pair() -> void:
 	var card_a: Dictionary = cards[idx_a]
 	var card_b: Dictionary = cards[idx_b]
 	var is_match: bool = int(card_a["pair_id"]) == int(card_b["pair_id"]) and str(card_a["kind"]) != str(card_b["kind"])
+	
+	# Track same-type matching attempts (e.g., two terms or two meanings)
+	if str(card_a["kind"]) == str(card_b["kind"]):
+		same_type_attempts += 1
 
 	if is_match:
 		cards[idx_a]["state"] = "solved"
@@ -391,7 +396,7 @@ func _end_game(won: bool) -> void:
 		completion_ratio = clampf(float(matched_pairs) / float(total_pairs), 0.0, 1.0)
 	var fair_score := UserStats.compute_fair_score("game4", float(score), accuracy, float(elapsed), completion_ratio)
 	
-	var extra_data := {"wrong_attempts": wrong_attempts}
+	var extra_data := {"wrong_attempts": wrong_attempts, "same_type_attempts": same_type_attempts}
 	var gameinfo_result := GameInfo.record_game_completion(
 		"game4", accuracy, fair_score, completion_ratio,
 		max_streak, hints_used, float(elapsed), float(ROUND_TIME),

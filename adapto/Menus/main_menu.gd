@@ -694,3 +694,7 @@ func _on_shop_pressed() -> void:
 		show_error_dialog("Please log in first.")
 		return
 	show_error_dialog("🛒 Shop\n\nComing soon! You have %d 🪙 coins." % GameInfo.coins)
+
+
+func _on_game_select_pressed() -> void:
+	pass # Replace with function body.

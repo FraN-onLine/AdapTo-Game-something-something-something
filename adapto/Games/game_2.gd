@@ -17,6 +17,7 @@ var button_by_key = {}
 var total_questions = 0
 var correct_count := 0
 var incorrect_count := 0
+var empty_submissions := 0  # Track when player submits empty answers
 var round_started_unix := 0
 var adaptive_recorded := false
 var stats_recorded := false
@@ -115,7 +116,17 @@ func check_answer() -> void:
 	var correct_answer = question_data.answer
 	var value = question_data.value
 	$FeedbackLabel.visible = true
-	if accepted_answers.has(user_answer):
+	if user_answer == "":
+		# Empty submission - count separately for "Jeopardize" achievement
+		empty_submissions += 1
+		money -= value
+		incorrect_count += 1
+		current_streak = 0
+		if SFXManager != null:
+			SFXManager.play_fail()
+		$QuestionDialog.text = ""
+		$FeedbackLabel.text = "No answer! The answer is %s. -$%d" % [correct_answer, value]
+	elif accepted_answers.has(user_answer):
 		money += value
 		correct_count += 1
 		# success streak
@@ -181,7 +192,8 @@ func _normalize_answer(value: String) -> String:
 
 
 func _on_answer_input_text_changed() -> void:
-	$Submit.disabled = $AnswerInput.text.strip_edges().is_empty() or current_key == ""
+	# Allow empty submissions for the "Jeopardize" achievement
+	$Submit.disabled = current_key == ""
 
 
 func _check_game_end() -> void:
@@ -228,7 +240,7 @@ func _show_end_dialog() -> void:
 		completion_ratio = clampf(float(answered.size()) / float(total_questions), 0.0, 1.0)
 	var fair_score := UserStats.compute_fair_score("game2", float(money), accuracy, float(elapsed), completion_ratio)
 	
-	var extra_data := {"money": money, "correct_count": correct_count, "incorrect_count": incorrect_count}
+	var extra_data := {"money": money, "correct_count": correct_count, "incorrect_count": incorrect_count, "empty_submissions": empty_submissions, "total_questions": total_questions}
 	var gameinfo_result := GameInfo.record_game_completion(
 		"game2", accuracy, fair_score, completion_ratio,
 		current_streak, 0, float(elapsed), 180.0,

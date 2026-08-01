@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_g1_1hp"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "game1_1hp"
+name = "Life Support"
+description = "Beat Game 1 with exactly 1 HP remaining"
+icon = null

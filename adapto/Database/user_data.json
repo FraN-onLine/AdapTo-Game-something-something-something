@@ -2317,22 +2317,22 @@
 					"first_game": 1785522148.545,
 					"night_owl": 1785522148.551
 				},
-				"coins": 0,
-				"comeback_count": 0,
+				"coins": 0.0,
+				"comeback_count": 0.0,
 				"games_played_count": {
-					"game1": 1
+					"game1": 1.0
 				},
-				"hints_used_total": 0,
-				"level": 1,
-				"max_streak_ever": 2,
-				"total_coins_earned": 0,
-				"total_games_completed": 1,
-				"total_xp_earned": 0,
-				"xp_total": 0
+				"hints_used_total": 0.0,
+				"level": 1.0,
+				"max_streak_ever": 2.0,
+				"total_coins_earned": 0.0,
+				"total_games_completed": 1.0,
+				"total_xp_earned": 0.0,
+				"xp_total": 0.0
 			},
 			"password": "043a718774c572bd8a25adbeb1bfcd5c0256ae11cecf9f9c3f925d0e52beaf89",
 			"performance": {
-				"adaptive_games_played": 0,
+				"adaptive_games_played": 0.0,
 				"adaptive_history": {
 					"game1": [
 						41.2571428571429
@@ -2343,52 +2343,52 @@
 					"game5": []
 				},
 				"adaptive_started_once": false,
-				"diagnostic_runs_completed": 0,
+				"diagnostic_runs_completed": 0.0,
 				"game_stats": {
 					"game1": {
 						"accuracy": [
-							0,
-							0,
-							0,
-							0
+							0.0,
+							0.0,
+							0.0,
+							0.0
 						],
 						"correct": [
-							1,
-							0,
-							1,
-							0
+							1.0,
+							0.0,
+							1.0,
+							0.0
 						],
 						"incorrect": [
-							1,
-							3,
-							0,
-							1
+							1.0,
+							3.0,
+							0.0,
+							1.0
 						],
 						"item_times": [
 							0.142857142857143
 						],
 						"questions": [
-							2,
-							3,
-							1,
-							1
+							2.0,
+							3.0,
+							1.0,
+							1.0
 						],
-						"questions_answered": 7,
-						"questions_correct": 2,
+						"questions_answered": 7.0,
+						"questions_correct": 2.0,
 						"sum_time": [
-							0,
-							1,
-							0,
-							0
+							0.0,
+							1.0,
+							0.0,
+							0.0
 						],
-						"time_taken": 1,
+						"time_taken": 1.0,
 						"timeout": [
-							0,
-							0,
-							0,
-							0
+							0.0,
+							0.0,
+							0.0,
+							0.0
 						],
-						"total_score": 200,
+						"total_score": 200.0,
 						"type": [
 							"keyword",
 							"simple_terms",
@@ -2398,32 +2398,32 @@
 					},
 					"game2": {
 						"item_times": [],
-						"questions_answered": 0,
-						"questions_correct": 0,
-						"time_taken": 0,
-						"total_score": 0
+						"questions_answered": 0.0,
+						"questions_correct": 0.0,
+						"time_taken": 0.0,
+						"total_score": 0.0
 					},
 					"game3": {
 						"item_times": [],
-						"puzzles_completed": 0,
-						"questions_answered": 0,
-						"questions_correct": 0,
-						"time_taken": 0,
-						"total_score": 0
+						"puzzles_completed": 0.0,
+						"questions_answered": 0.0,
+						"questions_correct": 0.0,
+						"time_taken": 0.0,
+						"total_score": 0.0
 					},
 					"game4": {
 						"item_times": [],
-						"questions_answered": 0,
-						"questions_correct": 0,
-						"time_taken": 0,
-						"total_score": 0
+						"questions_answered": 0.0,
+						"questions_correct": 0.0,
+						"time_taken": 0.0,
+						"total_score": 0.0
 					},
 					"game5": {
 						"item_times": [],
-						"questions_answered": 0,
-						"questions_correct": 0,
-						"time_taken": 0,
-						"total_score": 0
+						"questions_answered": 0.0,
+						"questions_correct": 0.0,
+						"time_taken": 0.0,
+						"total_score": 0.0
 					}
 				},
 				"overall_stats": {
@@ -2443,34 +2443,34 @@
 						"average_score": 15.0,
 						"average_time_per_play": 0.0,
 						"correct": [
-							1,
-							0,
-							1,
-							0
+							1.0,
+							0.0,
+							1.0,
+							0.0
 						],
 						"incorrect": [
-							1,
-							3,
-							0,
-							1
+							1.0,
+							3.0,
+							0.0,
+							1.0
 						],
 						"timeout": [
-							0,
-							0,
-							0,
-							0
+							0.0,
+							0.0,
+							0.0,
+							0.0
 						],
 						"total_questions": [
-							2,
-							3,
-							1,
-							1
+							2.0,
+							3.0,
+							1.0,
+							1.0
 						],
 						"total_sum_time": [
-							0,
-							1,
-							0,
-							0
+							0.0,
+							1.0,
+							0.0,
+							0.0
 						],
 						"type": [
 							"keyword",
@@ -2485,9 +2485,9 @@
 						"all_session_times": [],
 						"average_score": 0.0,
 						"average_time_per_play": 0.0,
-						"total_questions_answered": 0,
-						"total_questions_correct": 0,
-						"total_time": 0
+						"total_questions_answered": 0.0,
+						"total_questions_correct": 0.0,
+						"total_time": 0.0
 					},
 					"game3": {
 						"accuracy": 0.0,
@@ -2495,10 +2495,10 @@
 						"all_session_times": [],
 						"average_score": 0.0,
 						"average_time_per_play": 0.0,
-						"total_puzzles_completed": 0,
-						"total_questions_answered": 0,
-						"total_questions_correct": 0,
-						"total_time": 0
+						"total_puzzles_completed": 0.0,
+						"total_questions_answered": 0.0,
+						"total_questions_correct": 0.0,
+						"total_time": 0.0
 					},
 					"game4": {
 						"accuracy": 0.0,
@@ -2506,9 +2506,9 @@
 						"all_session_times": [],
 						"average_score": 0.0,
 						"average_time_per_play": 0.0,
-						"total_questions_answered": 0,
-						"total_questions_correct": 0,
-						"total_time": 0
+						"total_questions_answered": 0.0,
+						"total_questions_correct": 0.0,
+						"total_time": 0.0
 					},
 					"game5": {
 						"accuracy": 0.0,
@@ -2516,9 +2516,9 @@
 						"all_session_times": [],
 						"average_score": 0.0,
 						"average_time_per_play": 0.0,
-						"total_questions_answered": 0,
-						"total_questions_correct": 0,
-						"total_time": 0
+						"total_questions_answered": 0.0,
+						"total_questions_correct": 0.0,
+						"total_time": 0.0
 					}
 				}
 			},

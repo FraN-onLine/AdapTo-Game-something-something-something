@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://bgrgca3qc6dxo" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="3_cxdly"]
 [ext_resource type="PackedScene" uid="uid://bd5p3ogntrt28" path="res://Menus/login.tscn" id="5_abcde"]
 [ext_resource type="PackedScene" uid="uid://d1yqgq8h7g7w7" path="res://Menus/register.tscn" id="6_fghij"]
+[ext_resource type="Texture2D" uid="uid://c761nbnwfthkn" path="res://Assets/Caius/Caius-Sheet.png" id="8_y501u"]
+[ext_resource type="Texture2D" uid="uid://c3acq3neuakt4" path="res://Assets/Lucky/Lucky-Sheet.png" id="9_uayf2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhx3u"]
 bg_color = Color(1, 1, 1, 1)
@@ -200,6 +202,97 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b716q"]
+atlas = ExtResource("8_y501u")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjhm6"]
+atlas = ExtResource("8_y501u")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvd4r"]
+atlas = ExtResource("8_y501u")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rofim"]
+atlas = ExtResource("8_y501u")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt8vr"]
+atlas = ExtResource("8_y501u")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3lt"]
+atlas = ExtResource("9_uayf2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6on4w"]
+atlas = ExtResource("9_uayf2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5c1d"]
+atlas = ExtResource("9_uayf2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjaja"]
+atlas = ExtResource("9_uayf2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g02jp"]
+atlas = ExtResource("9_uayf2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qwc0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b716q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjhm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvd4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rofim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt8vr")
+}],
+"loop": 1,
+"name": &"caius",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6on4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5c1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjaja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g02jp")
+}],
+"loop": 1,
+"name": &"lucky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": 1,
+"name": &"none",
+"speed": 5.0
+}]
+
 [node name="ColorRect" type="TextureRect" unique_id=88508662]
 anchors_preset = 15
 anchor_right = 1.0
@@ -294,6 +387,17 @@ text = "Diagnostic test
 "
 
 [node name="Button5" type="Button" parent="Control/VBoxContainer" unique_id=1568673066]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+theme_override_fonts/font = ExtResource("3_cxdly")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nhx3u")
+text = "adaptive test
+"
+
+[node name="GameSelect" type="Button" parent="Control/VBoxContainer" unique_id=838007961]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -833,6 +937,15 @@ theme_override_fonts/font = ExtResource("3_cxdly")
 theme_override_font_sizes/font_size = 35
 text = "LEVEL:"
 
+[node name="Cosmetic" type="AnimatedSprite2D" parent="." unique_id=1667464223]
+z_index = 55
+position = Vector2(217, 479)
+scale = Vector2(7.4296875, 6.7578125)
+sprite_frames = SubResource("SpriteFrames_qwc0f")
+animation = &"lucky"
+autoplay = "none"
+flip_h = true
+
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
@@ -840,6 +953,7 @@ text = "LEVEL:"
 [connection signal="pressed" from="Control/VBoxContainer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button4" to="." method="on_diagnostic_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button5" to="." method="_on_adaptive_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/GameSelect" to="." method="_on_game_select_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TopicSelect" to="." method="_on_topic_select_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TopicImport" to="." method="_on_topic_import_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TopicExport" to="." method="_on_topic_export_pressed"]
