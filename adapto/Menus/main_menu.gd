@@ -21,9 +21,13 @@ func _on_start_button_pressed() -> void:
 	$Control/VBoxContainer/Button.visible = false
 	$Control/VBoxContainer/Button2.visible = false
 	$Control/VBoxContainer/Button3.visible = false
+	$Control/VBoxContainer/Achievements.visible = false
+	$Control/VBoxContainer/Shop.visible = false
 	$Control/VBoxContainer/Button4.visible = true
 	$Control/VBoxContainer/Button5.visible = true
 	$Control/VBoxContainer/Back.visible = true
+	# Hide coins/level labels when entering submenu
+	_set_gameinfo_labels_visible(false)
 
 
 func on_diagnostic_button_pressed():
@@ -52,14 +56,19 @@ func _show_main_menu_for_user():
 			_setup_admin_all_lessons_toggle()
 			# Ensure all main menu buttons are visible
 			var vbox = main_menu_control.get_node("VBoxContainer")
-			for btn_name in ["Button", "Button2", "Button3"]:
+			for btn_name in ["Button", "Button2", "Button3", "Achievements", "Shop"]:
 				if vbox.has_node(btn_name):
 					vbox.get_node(btn_name).visible = true
 			_apply_instructor_visibility()
+			# Show and update coins/level labels on login
+			_set_gameinfo_labels_visible(true)
+			_update_gameinfo_labels()
 		else:
 			login_screen.visible = true
 			register_screen.visible = false
 			main_menu_control.visible = false
+			# Hide coins/level labels when not logged in
+			_set_gameinfo_labels_visible(false)
 		# Add stats button if not present
 		$Control/VBoxContainer/Back.visible = false
 		$ImportChoicePanel.visible = false
@@ -67,19 +76,41 @@ func _show_main_menu_for_user():
 		$UserDataModal.visible = false
 
 
+## Show or hide the coins/level labels based on login state.
+func _set_gameinfo_labels_visible(is_visible: bool) -> void:
+	if has_node("Coins Label"):
+		$"Coins Label".visible = is_visible
+	if has_node("Level Label"):
+		$"Level Label".visible = is_visible
+
+
+## Update the coins/level labels with current GameInfo data.
+func _update_gameinfo_labels() -> void:
+	if has_node("Coins Label"):
+		$"Coins Label".text = "COINS: %d" % GameInfo.coins
+	if has_node("Level Label"):
+		$"Level Label".text = "LEVEL: %d" % GameInfo.level
+
+
 func _on_button_3_pressed() -> void:
 	$Control/VBoxContainer/Button.visible = false
 	$Control/VBoxContainer/Button2.visible = false
 	$Control/VBoxContainer/Button3.visible = false
+	$Control/VBoxContainer/Achievements.visible = false
+	$Control/VBoxContainer/Shop.visible = false
 	$Control/VBoxContainer/TopicSelect.visible = true
 	$Control/VBoxContainer/TopicImport.visible = true
 	$Control/VBoxContainer/TopicExport.visible = true
 	$Control/VBoxContainer/Back.visible = true
+	# Hide coins/level labels when entering submenu
+	_set_gameinfo_labels_visible(false)
 	
 func _on_back_button_pressed():
 	$Control/VBoxContainer/Button.visible = true
 	$Control/VBoxContainer/Button2.visible = true
 	$Control/VBoxContainer/Button3.visible = true
+	$Control/VBoxContainer/Achievements.visible = true
+	$Control/VBoxContainer/Shop.visible = true
 	$Control/VBoxContainer/TopicSelect.visible = false
 	$Control/VBoxContainer/TopicImport.visible = false
 	$Control/VBoxContainer/TopicExport.visible = false
@@ -87,6 +118,9 @@ func _on_back_button_pressed():
 	$Control/VBoxContainer/Button4.visible = false
 	$Control/VBoxContainer/Button5.visible = false
 	$UserDataModal.visible = false
+	# Show coins/level labels when returning to main menu
+	_set_gameinfo_labels_visible(true)
+	_update_gameinfo_labels()
 	
 func _on_stats_button_pressed() -> void:
 	if Global.current_user == null:
@@ -112,6 +146,21 @@ func _refresh_user_data_modal() -> void:
 	if username_text.strip_edges() == "":
 		username_text = "Guest"
 	$UserDataModal/ModalPanel/VBoxContainer/UsernameLabel.text = "User: " + username_text
+
+	# Update GameInfo display
+	if $UserDataModal/ModalPanel/VBoxContainer.has_node("GameInfoBox"):
+		var info_box = $UserDataModal/ModalPanel/VBoxContainer/GameInfoBox
+		if info_box.has_node("LevelLabel"):
+			info_box.get_node("LevelLabel").text = "Level: %d" % GameInfo.level
+		if info_box.has_node("XPLabel"):
+			var xp_progress := GameInfo.get_xp_progress() * 100.0
+			info_box.get_node("XPLabel").text = "XP: %d (%.0f%% to next)" % [GameInfo.xp_total, xp_progress]
+		if info_box.has_node("CoinsLabel"):
+			info_box.get_node("CoinsLabel").text = "🪙 %d coins" % GameInfo.coins
+		if info_box.has_node("AchievementsLabel"):
+			info_box.get_node("AchievementsLabel").text = "🏆 %d/%d achievements" % [GameInfo.get_unlocked_count(), GameInfo.get_total_count()]
+		if info_box.has_node("GamesPlayedLabel"):
+			info_box.get_node("GamesPlayedLabel").text = "Games: %d completed" % GameInfo.total_games_completed
 
 	# Clear previous stats in GridContainer
 	var stats_grid = $UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/ScrollContainer/StatsGrid
@@ -469,6 +518,7 @@ func _on_login_successful():
 	main_menu_control.visible = true
 	_setup_admin_all_lessons_toggle()
 	_apply_instructor_visibility()
+	_show_main_menu_for_user()
 
 func _on_show_registration():
 	login_screen.visible = false
@@ -626,3 +676,21 @@ func _on_admin_all_lessons_toggled(enabled: bool) -> void:
 	if $TopicSelectPanel.visible:
 		_populate_topic_list()
 # ========================== TEMP ADMIN TOGGLE END ==========================
+
+
+func _on_achievements_pressed() -> void:
+	if Global.current_user == null:
+		show_error_dialog("Please log in first.")
+		return
+	UserStats.load_user_stats()
+	# Instantiate the achievements panel scene
+	var ach_panel = preload("res://Menus/achievements_panel.tscn").instantiate()
+	add_child(ach_panel)
+	ach_panel.populate_achievements()
+
+
+func _on_shop_pressed() -> void:
+	if Global.current_user == null:
+		show_error_dialog("Please log in first.")
+		return
+	show_error_dialog("🛒 Shop\n\nComing soon! You have %d 🪙 coins." % GameInfo.coins)

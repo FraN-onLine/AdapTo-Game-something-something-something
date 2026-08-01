@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_l83pcq0g"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "streak_10"
+name = "Unstoppable"
+description = "Reach a 10-correct streak in any game"
+icon = null

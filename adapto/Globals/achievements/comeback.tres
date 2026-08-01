@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_hut374au"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "comeback"
+name = "Comeback Kid"
+description = "Win a game after a rough start (accuracy < 50% but still won)"
+icon = null

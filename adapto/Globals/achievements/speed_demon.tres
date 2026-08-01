@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://bcb6c85sf4qsh"]
+
+[ext_resource type="Script" uid="uid://c48fidaat50wc" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "speed_demon"
+name = "Speed Demon"
+description = "Complete a game with under 50% of the time limit remaining"

@@ -1,16 +1,36 @@
-database-everytime they exit it saves the data from a specific user(user performance, saved lessons, and login)
-manual importing of lessons, export as tres and can be passed by instructor to other students
-2 games (suggest games to implement)
-login-usecase
-fix text validation for ai prompt(min 15 items)
+# AdapTo Development - COMPLETED: GameInfo & Achievement System
 
-- create adaptive design that maximizes game theyre most efficient in. 
-- if average performance of that game drops below the leading, lower it and switch to the next game.
-- this is a more scaled version of the diagnostic games
-- fair score system between games
-- game 3 needs hints
-- fix UIS
-- please add documentation on top of each script for easier reading
+## ✅ Completed:
+### Achievement System
+- Created `Achievement` resource class (Globals/achievement.gd) - Resource with id, name, description, icon
+- 28 achievement .tres files generated with creative/fun achievements
+- Achievements include game-specific challenges (jeopardy_exact_200, hangman_no_mistakes, etc.)
+- Achievements loaded dynamically from .tres files at runtime
 
-todo
--ui fix
+### GameInfo Global (replaces Gamification)
+- Created `Globals/game_info.gd` - per-user persistent progression system
+- XP & Leveling (levels 1-50, exponential scaling)
+- Coin currency system
+- Achievement tracking (28 achievements)
+- No XP/coins awarded on skip or fail
+- Serialization via Database
+
+### Integration
+- Updated `project.godot` - GameInfo autoload
+- Updated `Database/database.gd` - save_user_gameinfo/load_user_gameinfo
+- Updated `Globals/user_stats.gd` - auto-save/load GameInfo data
+- Updated `Games/game_end_modal.gd` - shows rewards with GameInfo
+- Updated all 5 game scripts - GameInfo calls with extra_data for game-specific achievements
+- Updated `Menus/main_menu.gd` - stats modal, achievements button, shop button
+- Deleted old `gamification.gd`
+
+### Achievements (28 total):
+- 14 standard: First Steps, Fully Diagnosed, Flawless Victory, On Fire, Unstoppable, Explorer, Score Master, Adaptive Master, Coin Collector, Dedicated Learner, Knowledge Seeker, Speed Demon, Pure Skill, Comeback Kid
+- 14 creative: At Least It Didn't Go Under (Jeopardy $200), Word Wizard, Crossword Lightning, Perfect Match, Flawless Fighter, Trifecta, Pentagon, Millionaire, Scholar, Night Owl, Speed Runner, Comeback King, Houdini, Perfectionist
+
+## 📋 For Designer:
+- Add `GameInfoBox` node to main_menu.tscn UserDataModal for level/XP/coins display
+- Create proper AchievementPopup.tscn scene for bottom-right popup
+- Create proper AchievementsPanel.tscn for full achievements view
+- Create proper ShopPanel.tscn with items
+- Add placeholder icons to achievement .tres files

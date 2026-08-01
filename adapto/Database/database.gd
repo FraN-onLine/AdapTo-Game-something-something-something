@@ -189,6 +189,26 @@ func load_user_performance(username):
 	return db["users"][username]["performance"]
 
 
+func save_user_gameinfo(username: String, gameinfo_data: Dictionary) -> bool:
+	if not _ensure_user_schema(username):
+		return false
+	if typeof(gameinfo_data) != TYPE_DICTIONARY:
+		return false
+	if not db["users"][username].has("gameinfo"):
+		db["users"][username]["gameinfo"] = {}
+	db["users"][username]["gameinfo"] = gameinfo_data.duplicate(true)
+	save_db()
+	return true
+
+
+func load_user_gameinfo(username: String) -> Dictionary:
+	if not _ensure_user_schema(username):
+		return {}
+	if not db["users"][username].has("gameinfo"):
+		db["users"][username]["gameinfo"] = {}
+	return db["users"][username]["gameinfo"].duplicate(true)
+
+
 func get_user_role(username: String) -> String:
 	if not _ensure_user_schema(username):
 		return "student"

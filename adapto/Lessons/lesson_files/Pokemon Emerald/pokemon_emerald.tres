@@ -1,0 +1,910 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=52 format=3 uid="uid://07j3u1ktsluwz"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_pok_01"]
+script = ExtResource("1_7hrog")
+id = "POK_01"
+term = "Hoenn Region"
+keyword = "region"
+definition = "The region where Pokemon Emerald takes place, featuring diverse environments and many new Pokemon."
+simple_terms = "The main landmass where the game occurs."
+examples = ["Littleroot Town", "Slateport City", "Sootopolis City"]
+accepted_terms = ["Hoenn"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Kanto Region is the setting for Pokemon Emerald.", 
+"true": "The Hoenn Region is the setting for Pokemon Emerald."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_02"]
+script = ExtResource("1_7hrog")
+id = "POK_02"
+term = "Brendan or May"
+keyword = "protagonist"
+definition = "The player character you choose to be at the start of Pokemon Emerald, male or female."
+simple_terms = "Your character in the game."
+examples = ["Choose male", "Choose female", "Start adventure"]
+accepted_terms = ["Player Character", "Trainer"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "You can only play as Brendan in Pokemon Emerald.", 
+"true": "You can choose between Brendan and May as your character."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_03"]
+script = ExtResource("1_7hrog")
+id = "POK_03"
+term = "Professor Birch"
+keyword = "scientist"
+definition = "The local Pokemon Professor in Hoenn who studies Pokemon habitats and gives the player their starter Pokemon."
+simple_terms = "The professor who gives you your first Pokemon."
+examples = ["Gives starter", "Studies Pokemon", "Lives in Hoenn"]
+accepted_terms = ["Prof. Birch"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Professor Elm is the Pokemon Professor in the Hoenn region.", 
+"true": "Professor Birch is the Pokemon Professor in the Hoenn region."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_04"]
+script = ExtResource("1_7hrog")
+id = "POK_04"
+term = "Treecko Torchic Mudkip"
+keyword = "starters"
+definition = "The three Grass, Fire, and Water-type starter Pokemon offered by Professor Birch at the beginning of the game."
+simple_terms = "Your first Pokemon choices."
+examples = ["Grass starter", "Fire starter", "Water starter"]
+accepted_terms = ["Starters", "First Pokemon"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Charmander, Squirtle, and Bulbasaur are the starter Pokemon.", 
+"true": "Treecko, Torchic, and Mudkip are the starter Pokemon."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_05"]
+script = ExtResource("1_7hrog")
+id = "POK_05"
+term = "Wally"
+keyword = "rival"
+definition = "A young, sickly boy who becomes a skilled trainer with the player's help, eventually becoming a major challenge."
+simple_terms = "A young boy who becomes a strong trainer."
+examples = ["Starts with Ralts", "Becomes skilled", "Challenging rival"]
+accepted_terms = ["Wally's rival"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Wally remains a weak trainer throughout the game.", 
+"true": "Wally is a character who grows into a powerful trainer."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_06"]
+script = ExtResource("1_7hrog")
+id = "POK_06"
+term = "Team Magma and Aqua"
+keyword = "villains"
+definition = "Two rival villainous teams with opposing goals: Magma seeks to expand land, Aqua seeks to expand sea."
+simple_terms = "Two evil teams with different goals."
+examples = ["Expand land", "Expand sea", "Rival goals"]
+accepted_terms = ["Villain Teams", "Evil Teams"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Team Rocket is the main villainous team in Pokemon Emerald.", 
+"true": "Team Magma and Team Aqua are the main villainous teams."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_07"]
+script = ExtResource("1_7hrog")
+id = "POK_07"
+term = "Groudon Kyogre Rayquaza"
+keyword = "legendaries"
+definition = "The three Legendary Pokemon central to the plot of Pokemon Emerald, controlling land, sea, and sky respectively."
+simple_terms = "Powerful legendary Pokemon."
+examples = ["Land controller", "Sea controller", "Sky controller"]
+accepted_terms = ["Legendaries", "Legendary Trio"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Pikachu, Charizard, and Blastoise are Legendary Pokemon.", 
+"true": "Groudon, Kyogre, and Rayquaza are Legendary Pokemon."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_08"]
+script = ExtResource("1_7hrog")
+id = "POK_08"
+term = "Gym Leaders"
+keyword = "challenges"
+definition = "Trainers specializing in specific Pokemon types who award badges upon defeat, essential for progressing."
+simple_terms = "Trainers who give you badges."
+examples = ["Roxanne", "Brawly", "Wattson"]
+accepted_terms = ["Gym Leaders", "Badge Holders"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Gym Leaders give you TMs when you defeat them.", 
+"true": "Gym Leaders award badges when you defeat them."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_09"]
+script = ExtResource("1_7hrog")
+id = "POK_09"
+term = "Elite Four and Champion"
+keyword = "final challenge"
+definition = "The ultimate trainers in the Pokemon League, whom you must defeat to become the Pokemon Champion."
+simple_terms = "The strongest trainers to beat."
+examples = ["Drake", "Kabu", "Steven Stone"]
+accepted_terms = ["E4", "Champion"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Elite Four and Champion are the first trainers you face.", 
+"true": "The Elite Four and Champion are the final trainers to beat."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_10"]
+script = ExtResource("1_7hrog")
+id = "POK_10"
+term = "Battle Frontier"
+keyword = "post-game"
+definition = "An expansive area with various facilities offering challenging battles and unique rewards after completing the main story."
+simple_terms = "Challenges after you beat the game."
+examples = ["Battle Tower", "Battle Factory", "Battle Dome"]
+accepted_terms = ["Frontier"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Battle Frontier is only accessible at the beginning of the game.", 
+"true": "The Battle Frontier is a major post-game area."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_11"]
+script = ExtResource("1_7hrog")
+id = "POK_11"
+term = "Secret Bases"
+keyword = "customization"
+definition = "Hidden areas in the game world that players can decorate and use as their personal space."
+simple_terms = "Your own decorated hideout."
+examples = ["Decorate rooms", "Hide from others", "Use Secret Key"]
+accepted_terms = ["Bases", "Hideouts"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Secret Bases are battle arenas for trainers.", 
+"true": "Secret Bases allow players to decorate personal spaces."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_12"]
+script = ExtResource("1_7hrog")
+id = "POK_12"
+term = "TMs and HMs"
+keyword = "moves"
+definition = "Technical Machines and Hidden Machines that teach Pokemon new moves or allow field traversal."
+simple_terms = "Items that teach moves or help travel."
+examples = ["TM30 Shadow Ball", "HM01 Cut", "TM03 Water Pulse"]
+accepted_terms = ["TM", "HM"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "TMs and HMs are used to heal Pokemon.", 
+"true": "TMs and HMs teach Pokemon moves."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_13"]
+script = ExtResource("1_7hrog")
+id = "POK_13"
+term = "Pokemon Contests"
+keyword = "performance"
+definition = "An alternative challenge where Pokemon are judged on condition, appeal, and performing moves strategically."
+simple_terms = "Competitions for Pokemon appeal."
+examples = ["Coolness", "Beauty", "Cleverness"]
+accepted_terms = ["Contests"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Pokemon Contests are only about battling.", 
+"true": "Pokemon Contests judge Pokemon on appeal and performance."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_14"]
+script = ExtResource("1_7hrog")
+id = "POK_14"
+term = "Abilities"
+keyword = "passive effects"
+definition = "Unique passive traits each Pokemon possesses, affecting battles in various strategic ways."
+simple_terms = "Special passive skills of Pokemon."
+examples = ["Intimidate", "Static", "Swift Swim"]
+accepted_terms = ["Abilities"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Pokemon Abilities are only cosmetic features.", 
+"true": "Pokemon Abilities provide passive effects during battle."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_15"]
+script = ExtResource("1_7hrog")
+id = "POK_15"
+term = "Natures"
+keyword = "stat boosts"
+definition = "A Pokemon's Nature influences its stat growth, increasing one stat while decreasing another."
+simple_terms = "Pokemon personalities affect stats."
+examples = ["Adamant (+Atk, -Sp. Atk)", "Modest (+Sp. Atk, -Atk)", "Jolly (+Spe, -Sp. Atk)"]
+accepted_terms = ["Nature"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "A Pokemon's Nature has no effect on its stats.", 
+"true": "A Pokemon's Nature affects its stat growth."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_16"]
+script = ExtResource("1_7hrog")
+id = "POK_16"
+term = "EVs and IVs"
+keyword = "stats"
+definition = "Effort Values and Individual Values are hidden stats that significantly impact a Pokemon's final strength."
+simple_terms = "Hidden stats that boost power."
+examples = ["Effort Values", "Individual Values", "Stat growth"]
+accepted_terms = ["EVs", "IVs"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "EVs and IVs are visible stats that don't matter.", 
+"true": "EVs and IVs are hidden stats affecting Pokemon strength."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_17"]
+script = ExtResource("1_7hrog")
+id = "POK_17"
+term = "Trading"
+keyword = "connection"
+definition = "The ability to exchange Pokemon with other players, essential for completing the Pokedex."
+simple_terms = "Exchanging Pokemon with friends."
+examples = ["Link Cable", "Trade Center", "Complete Pokedex"]
+accepted_terms = ["Trade"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Trading is only for cosmetic purposes.", 
+"true": "Trading is necessary to obtain all Pokemon."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_18"]
+script = ExtResource("1_7hrog")
+id = "POK_18"
+term = "Battling"
+keyword = "combat"
+definition = "The core gameplay mechanic involving turn-based combat between Pokemon to weaken opponents."
+simple_terms = "Fighting other Pokemon."
+examples = ["Turn-based combat", "Use moves", "Defeat opponents"]
+accepted_terms = ["Battle"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Battling is a minor, optional activity.", 
+"true": "Battling is a primary mechanic in Pokemon Emerald."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_19"]
+script = ExtResource("1_7hrog")
+id = "POK_19"
+term = "Catching Pokemon"
+keyword = "capture"
+definition = "The act of weakening wild Pokemon and throwing Poke Balls to add them to your team."
+simple_terms = "Adding Pokemon to your team."
+examples = ["Wild Pokemon", "Poke Balls", "Capture rate"]
+accepted_terms = ["Catch"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Pokemon can only be obtained through trading.", 
+"true": "Catching Pokemon involves weakening them and using Poke Balls."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_20"]
+script = ExtResource("1_7hrog")
+id = "POK_20"
+term = "Evolution"
+keyword = "transformation"
+definition = "The process where a Pokemon transforms into a stronger form, often triggered by leveling up or specific items."
+simple_terms = "Pokemon changing into stronger forms."
+examples = ["Level up", "Evolution Stone", "Trade evolution"]
+accepted_terms = ["Evolve"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Pokemon do not change form after being caught.", 
+"true": "Pokemon evolve into stronger forms."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_21"]
+script = ExtResource("1_7hrog")
+id = "POK_21"
+term = "Items"
+keyword = "utility"
+definition = "Various objects found in the game used for healing, battle, or progressing the story."
+simple_terms = "Things you use in the game."
+examples = ["Potions", "Poke Balls", "Berries"]
+accepted_terms = ["Items"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Items are purely decorative.", 
+"true": "Items have various uses like healing or in battle."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_22"]
+script = ExtResource("1_7hrog")
+id = "POK_22"
+term = "Poke Balls"
+keyword = "capture device"
+definition = "Specialized balls used to capture wild Pokemon, with different types offering varying success rates."
+simple_terms = "Balls to catch Pokemon."
+examples = ["Great Ball", "Ultra Ball", "Master Ball"]
+accepted_terms = ["Poke Ball"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Poke Balls are used to heal Pokemon.", 
+"true": "Poke Balls are used to catch Pokemon."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_23"]
+script = ExtResource("1_7hrog")
+id = "POK_23"
+term = "Berries"
+keyword = "consumables"
+definition = "Small fruits that Pokemon can hold to provide various effects, such as healing or stat boosts."
+simple_terms = "Edible items with effects."
+examples = ["Oran Berry", "Sitrus Berry", "Chesto Berry"]
+accepted_terms = ["Berry"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Berries are used to evolve Pokemon instantly.", 
+"true": "Berries can be held by Pokemon for effects."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_24"]
+script = ExtResource("1_7hrog")
+id = "POK_24"
+term = "Status Conditions"
+keyword = "battle effects"
+definition = "Negative effects that can afflict Pokemon in battle, such as Poison, Paralysis, Sleep, Burn, and Freeze."
+simple_terms = "Negative effects in battle."
+examples = ["Poison", "Paralysis", "Sleep"]
+accepted_terms = ["Status"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Status conditions provide stat boosts to Pokemon.", 
+"true": "Status conditions negatively impact Pokemon in battle."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_25"]
+script = ExtResource("1_7hrog")
+id = "POK_25"
+term = "Type Matchups"
+keyword = "strengths weaknesses"
+definition = "The system where Pokemon types have strengths and weaknesses against other types, influencing battle outcomes."
+simple_terms = "How Pokemon types interact."
+examples = ["Water vs Fire", "Grass vs Water", "Electric vs Water"]
+accepted_terms = ["Type Chart", "Type Effectiveness"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Type matchups have no impact on battle outcomes.", 
+"true": "Type matchups determine strengths and weaknesses in battle."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_26"]
+script = ExtResource("1_7hrog")
+id = "POK_26"
+term = "Moves"
+keyword = "attacks"
+definition = "The actions a Pokemon can perform during battle, each with its own type, power, and effects."
+simple_terms = "What Pokemon do in battle."
+examples = ["Tackle", "Flamethrower", "Surf"]
+accepted_terms = ["Attacks", "Techniques"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Moves are passive abilities Pokemon have.", 
+"true": "Moves are actions Pokemon use in battle."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_27"]
+script = ExtResource("1_7hrog")
+id = "POK_27"
+term = "Stats"
+keyword = "attributes"
+definition = "A Pokemon's core attributes: HP, Attack, Defense, Special Attack, Special Defense, and Speed."
+simple_terms = "Pokemon's core fighting numbers."
+examples = ["HP", "Attack", "Speed"]
+accepted_terms = ["Stats"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Stats are purely for aesthetic display.", 
+"true": "Stats define a Pokemon's capabilities in battle."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_28"]
+script = ExtResource("1_7hrog")
+id = "POK_28"
+term = "Held Items"
+keyword = "equipment"
+definition = "Items that a Pokemon can hold during battle to provide various benefits or effects."
+simple_terms = "Items Pokemon can carry."
+examples = ["Leftovers", "Choice Band", "Life Orb"]
+accepted_terms = ["Held Items"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Held items are only for trading.", 
+"true": "Held items provide benefits to the Pokemon holding them."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_29"]
+script = ExtResource("1_7hrog")
+id = "POK_29"
+term = "Berry Blending"
+keyword = "crafting"
+definition = "A process at the Verdanturf Town Poké Mart where berries are blended into valuable items."
+simple_terms = "Making items from berries."
+examples = ["Verdanturf Town", "Pok\u00e9 Mart", "Craft items"]
+accepted_terms = ["Berry Blend"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Berry Blending is a type of Pokemon battle.", 
+"true": "Berry Blending creates items from berries."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_30"]
+script = ExtResource("1_7hrog")
+id = "POK_30"
+term = "Contest Ribbons"
+keyword = "awards"
+definition = "Awards received for winning Pokemon Contests, showcasing a Pokemon's performance in different categories."
+simple_terms = "Awards for winning contests."
+examples = ["Cool Ribbon", "Beauty Ribbon", "Clever Ribbon"]
+accepted_terms = ["Ribbons", "Contest Ribbons"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Contest Ribbons are used to evolve Pokemon.", 
+"true": "Contest Ribbons are awarded for winning Pokemon Contests."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_31"]
+script = ExtResource("1_7hrog")
+id = "POK_31"
+term = "Super Training"
+keyword = "practice"
+definition = "A minigame in the Battle Frontier that allows Pokemon to gain EVs more efficiently."
+simple_terms = "EV training minigame."
+examples = ["Battle Frontier", "EV training", "Minigame"]
+accepted_terms = ["Super Train"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Super Training is a way to catch Legendary Pokemon.", 
+"true": "Super Training is an EV training minigame in the Battle Frontier."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_32"]
+script = ExtResource("1_7hrog")
+id = "POK_32"
+term = "Link Cable"
+keyword = "connectivity"
+definition = "A physical accessory used to connect two Game Boy Advance systems for trading and battling."
+simple_terms = "Connects two Game Boys."
+examples = ["Trading", "Battling", "Link up"]
+accepted_terms = ["Link Cable"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "A Link Cable is used to power up your Pokemon.", 
+"true": "A Link Cable connects two GBA systems for multiplayer."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_33"]
+script = ExtResource("1_7hrog")
+id = "POK_33"
+term = "Trainer Card"
+keyword = "profile"
+definition = "A player's in-game profile displaying trainer information, badges, and playtime."
+simple_terms = "Your in-game profile card."
+examples = ["Trainer Name", "Badges", "Play Time"]
+accepted_terms = ["Trainer Card"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Trainer Card is a battle item.", 
+"true": "The Trainer Card shows your game progress and info."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_34"]
+script = ExtResource("1_7hrog")
+id = "POK_34"
+term = "Move Tutor"
+keyword = "skill teacher"
+definition = "NPCs who can teach specific, often powerful, moves to Pokemon that cannot learn them otherwise."
+simple_terms = "NPCs who teach special moves."
+examples = ["Body Slam", "Seismic Toss", "Ancient Power"]
+accepted_terms = ["Move Tutor"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Move Tutors only heal Pokemon.", 
+"true": "Move Tutors teach Pokemon special moves."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_35"]
+script = ExtResource("1_7hrog")
+id = "POK_35"
+term = "Sootopolis City"
+keyword = "central city"
+definition = "A major city located within a giant crater, home to the legendary Pokemon Kyogre and Groudon's conflict."
+simple_terms = "A city in a large crater."
+examples = ["Crater city", "Kyogre/Groudon", "Gym Leader"]
+accepted_terms = ["Sootopolis"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Sootopolis City is a starting town.", 
+"true": "Sootopolis City is a major location tied to the plot."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_36"]
+script = ExtResource("1_7hrog")
+id = "POK_36"
+term = "Mt Coronet"
+keyword = "mountain cave"
+definition = "A large, treacherous mountain range and cave system crucial for the story's climax involving Rayquaza."
+simple_terms = "A large mountain and cave."
+examples = ["Rayquaza location", "Cave system", "Story climax"]
+accepted_terms = ["Coronet"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Mt. Coronet is an underwater city.", 
+"true": "Mt. Coronet is a significant mountain area."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_37"]
+script = ExtResource("1_7hrog")
+id = "POK_37"
+term = "Sky Pillar"
+keyword = "tower"
+definition = "A tall, ancient tower where Rayquaza resides, important for resolving the conflict between Groudon and Kyogre."
+simple_terms = "Tower where Rayquaza lives."
+examples = ["Rayquaza's home", "Tall tower", "Story event"]
+accepted_terms = ["Sky Pillar"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Sky Pillar is a Pokemon training facility.", 
+"true": "The Sky Pillar is where Rayquaza is found."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_38"]
+script = ExtResource("1_7hrog")
+id = "POK_38"
+term = "Lilycove City"
+keyword = "shopping city"
+definition = "A bustling city known for its department store, museum, and harbor, serving as a major hub."
+simple_terms = "A city with shops and a harbor."
+examples = ["Department store", "Harbor", "Art gallery"]
+accepted_terms = ["Lilycove"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Lilycove City is a small fishing village.", 
+"true": "Lilycove City has a large department store."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_39"]
+script = ExtResource("1_7hrog")
+id = "POK_39"
+term = "Safari Zone"
+keyword = "wild area"
+definition = "An area where rare Pokemon can be found and caught, often requiring specific bait or methods."
+simple_terms = "An area for catching rare Pokemon."
+examples = ["Wild Pokemon", "Bait", "Poke Balls"]
+accepted_terms = ["Safari Zone"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Safari Zone is a battle arena.", 
+"true": "The Safari Zone is where you can find and catch rare Pokemon."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_40"]
+script = ExtResource("1_7hrog")
+id = "POK_40"
+term = "Cinnabar Island"
+keyword = "volcanic island"
+definition = "A volcanic island location in the Kanto region, not directly part of Emerald's Hoenn but accessible post-game."
+simple_terms = "Volcanic island in Kanto."
+examples = ["Kanto region", "Pokemon Mansion", "Gym"]
+accepted_terms = ["Cinnabar"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Cinnabar Island is a starting town in Hoenn.", 
+"true": "Cinnabar Island is a volcanic island in Kanto."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_41"]
+script = ExtResource("1_7hrog")
+id = "POK_41"
+term = "Articuno Zapdos Moltres"
+keyword = "legendary birds"
+definition = "The three Legendary Bird Pokemon from Kanto that can sometimes be found in specific locations in Hoenn."
+simple_terms = "Legendary birds from Kanto."
+examples = ["Articuno", "Zapdos", "Moltres"]
+accepted_terms = ["Legendary Birds"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Articuno, Zapdos, and Moltres are starter Pokemon.", 
+"true": "Articuno, Zapdos, and Moltres are Legendary Birds."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_42"]
+script = ExtResource("1_7hrog")
+id = "POK_42"
+term = "Mewtwo"
+keyword = "legendary psychic"
+definition = "A powerful Legendary Psychic-type Pokemon, a result of genetic experimentation, found in post-game."
+simple_terms = "Powerful psychic legendary."
+examples = ["Psychic type", "Legendary", "Post-game"]
+accepted_terms = ["Mewtwo"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Mewtwo is a common Pokemon found early on.", 
+"true": "Mewtwo is a powerful Legendary Pokemon."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_43"]
+script = ExtResource("1_7hrog")
+id = "POK_43"
+term = "Latios and Latias"
+keyword = "legendary dragons"
+definition = "A pair of Legendary Dragon/Psychic-type Pokemon that roam the Hoenn region and can be encountered."
+simple_terms = "Roaming legendary twins."
+examples = ["Red/Blue Dragon", "Roam Hoenn", "Psychic type"]
+accepted_terms = ["Latios", "Latias"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Latios and Latias are the main villainous teams.", 
+"true": "Latios and Latias are Legendary Pokemon that roam Hoenn."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_44"]
+script = ExtResource("1_7hrog")
+id = "POK_44"
+term = "Regirock Regice Registeel"
+keyword = "legendary golems"
+definition = "The three Legendary Golem Pokemon, sealed away and requiring specific conditions to awaken and battle."
+simple_terms = "Legendary golem trio."
+examples = ["Rock Golem", "Ice Golem", "Steel Golem"]
+accepted_terms = ["Regi Trio", "Legendary Golems"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Regirock, Regice, and Registeel are common wild Pokemon.", 
+"true": "Regirock, Regice, and Registeel are Legendary Golems."
+}
+type_of_information = ["definition", "list", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_45"]
+script = ExtResource("1_7hrog")
+id = "POK_45"
+term = "Deoxys"
+keyword = "mythical"
+definition = "A Mythical Pokemon that appears in a post-game location, accessible via a special event."
+simple_terms = "Rare mythical Pokemon."
+examples = ["Birth Island", "Psychic type", "Post-game"]
+accepted_terms = ["Deoxys"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Deoxys is a starter Pokemon.", 
+"true": "Deoxys is a Mythical Pokemon found in a special location."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_46"]
+script = ExtResource("1_7hrog")
+id = "POK_46"
+term = "Castform"
+keyword = "weather ability"
+definition = "A unique Pokemon whose form and type change based on the weather, with a special ability."
+simple_terms = "Pokemon that changes form with weather."
+examples = ["Sunny Form", "Rainy Form", "Snowy Form"]
+accepted_terms = ["Castform"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Castform always stays in its Normal form.", 
+"true": "Castform changes form and type based on weather."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_47"]
+script = ExtResource("1_7hrog")
+id = "POK_47"
+term = "Relic Island"
+keyword = "ancient place"
+definition = "An ancient island location, often associated with puzzles and legendary Pokemon encounters."
+simple_terms = "An old, mysterious island."
+examples = ["Ancient ruins", "Puzzle", "Legendary"]
+accepted_terms = ["Relic Island"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Relic Island is a modern city.", 
+"true": "Relic Island is an ancient location in the game."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_48"]
+script = ExtResource("1_7hrog")
+id = "POK_48"
+term = "Abandoned Ship"
+keyword = "shipwreck"
+definition = "A derelict ship found in the Hoenn region, often containing valuable items and secrets."
+simple_terms = "A spooky abandoned ship."
+examples = ["Shipwreck", "Items", "Secrets"]
+accepted_terms = ["Abandoned Ship"]
+difficulty = 2
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "The Abandoned Ship is a battle facility.", 
+"true": "The Abandoned Ship is a location with hidden items."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_49"]
+script = ExtResource("1_7hrog")
+id = "POK_49"
+term = "Mirage Island"
+keyword = "rare location"
+definition = "A rare, temporary island that appears under specific conditions, home to a unique Pokemon."
+simple_terms = "A temporary, rare island."
+examples = ["Appears randomly", "Special Pokemon", "Rare visit"]
+accepted_terms = ["Mirage Island"]
+difficulty = 3
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Mirage Island is always present.", 
+"true": "Mirage Island is a rare, temporary location."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_pok_50"]
+script = ExtResource("1_7hrog")
+id = "POK_50"
+term = "Trainer Battles"
+keyword = "opponent fights"
+definition = "Battles against other Pokemon trainers encountered throughout the Hoenn region, earning experience and money."
+simple_terms = "Battles against other trainers."
+examples = ["Route trainers", "Gym Leaders", "Elite Four"]
+accepted_terms = ["Trainer Battles"]
+difficulty = 1
+related_to = ["Hoenn", "Emerald", "Region", "Geography"]
+tof_statement = {
+"false": "Trainer battles are only for post-game content.", 
+"true": "Trainer battles are a core part of progressing the game."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Pokemon Emerald"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_pok_01"), SubResource("Resource_pok_02"), SubResource("Resource_pok_03"), SubResource("Resource_pok_04"), SubResource("Resource_pok_05"), SubResource("Resource_pok_06"), SubResource("Resource_pok_07"), SubResource("Resource_pok_08"), SubResource("Resource_pok_09"), SubResource("Resource_pok_10"), SubResource("Resource_pok_11"), SubResource("Resource_pok_12"), SubResource("Resource_pok_13"), SubResource("Resource_pok_14"), SubResource("Resource_pok_15"), SubResource("Resource_pok_16"), SubResource("Resource_pok_17"), SubResource("Resource_pok_18"), SubResource("Resource_pok_19"), SubResource("Resource_pok_20"), SubResource("Resource_pok_21"), SubResource("Resource_pok_22"), SubResource("Resource_pok_23"), SubResource("Resource_pok_24"), SubResource("Resource_pok_25"), SubResource("Resource_pok_26"), SubResource("Resource_pok_27"), SubResource("Resource_pok_28"), SubResource("Resource_pok_29"), SubResource("Resource_pok_30"), SubResource("Resource_pok_31"), SubResource("Resource_pok_32"), SubResource("Resource_pok_33"), SubResource("Resource_pok_34"), SubResource("Resource_pok_35"), SubResource("Resource_pok_36"), SubResource("Resource_pok_37"), SubResource("Resource_pok_38"), SubResource("Resource_pok_39"), SubResource("Resource_pok_40"), SubResource("Resource_pok_41"), SubResource("Resource_pok_42"), SubResource("Resource_pok_43"), SubResource("Resource_pok_44"), SubResource("Resource_pok_45"), SubResource("Resource_pok_46"), SubResource("Resource_pok_47"), SubResource("Resource_pok_48"), SubResource("Resource_pok_49"), SubResource("Resource_pok_50")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

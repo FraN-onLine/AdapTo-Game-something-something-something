@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="AdapTo"
 run/main_scene="uid://b61w5vaor706u"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -26,6 +26,8 @@ Global="*res://Globals/global.gd"
 Database="*res://Database/database.gd"
 MusicManager="*uid://bnbv1v3mpg4l6"
 SFXManager="*res://Globals/SFXManager.tscn"
+GameInfo="*res://Globals/game_info.gd"
+AchievementNotification="*res://Games/achievement_notification.tscn"
 
 [display]
 

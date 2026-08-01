@@ -1,0 +1,1738 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=98 format=3 uid="uid://bagc5zpes6164"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_1"]
+script = ExtResource("1_7hrog")
+id = "1"
+term = "MSR Model"
+keyword = "MSR Model"
+definition = "A framework that aligns security measures with real-world applications of information assurance, focusing on states of information and countermeasures."
+simple_terms = "A security model for information."
+examples = ["Securing data across storage, transmission, and processing.", "Using countermeasures like availability, integrity, and authentication.", "Offering core services like confidentiality and nonrepudiation."]
+accepted_terms = ["Maconachy-Schou-Ragsdale Model"]
+difficulty = 2
+related_to = ["Information Assurance", "Cybersecurity"]
+tof_statement = {
+"false": "The MSR Model only focuses on the confidentiality of data.", 
+"true": "The MSR Model considers the states of information and the countermeasures needed for security."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_2"]
+script = ExtResource("1_7hrog")
+id = "2"
+term = "Information States"
+keyword = "Information States"
+definition = "The different conditions under which information exists and is processed, including storage, transmission, and processing."
+simple_terms = "Where and how data is."
+examples = ["Data at rest (storage).", "Data in motion (transmission).", "Data in use (processing)."]
+accepted_terms = []
+difficulty = 1
+related_to = ["MSR Model"]
+tof_statement = {
+"false": "The three information states are encryption, decryption, and hashing.", 
+"true": "The three information states in the MSR model are storage, transmission, and processing."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_3"]
+script = ExtResource("1_7hrog")
+id = "3"
+term = "Storage"
+keyword = "Storage"
+definition = "Data at rest or stored data, referring to information saved or archived in databases, files, or other storage media."
+simple_terms = "Data that is saved."
+examples = ["A company's customer database.", "Archived files on a server.", "Data stored on a hard drive."]
+accepted_terms = ["Data at rest"]
+difficulty = 1
+related_to = ["Information States", "MSR Model"]
+tof_statement = {
+"false": "Storage refers to data that is actively being used by a system.", 
+"true": "Storage refers to data that is saved or archived."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_4"]
+script = ExtResource("1_7hrog")
+id = "4"
+term = "Transmission"
+keyword = "Transmission"
+definition = "Data in motion or data being transferred between systems, devices, or over a network."
+simple_terms = "Data being sent."
+examples = ["Email communications.", "Secure web browsing with TLS/SSL.", "VPN connections."]
+accepted_terms = ["Data in motion"]
+difficulty = 1
+related_to = ["Information States", "MSR Model"]
+tof_statement = {
+"false": "Transmission refers to data that is saved on a hard drive.", 
+"true": "Transmission involves data that is being transferred between systems."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_5"]
+script = ExtResource("1_7hrog")
+id = "5"
+term = "Processing"
+keyword = "Processing"
+definition = "Data in use or actively being processed by systems, software, or users, including data temporarily in memory."
+simple_terms = "Data being used or worked on."
+examples = ["Real-time transactions in an online banking system.", "Analyzing data in memory.", "Calculations performed by software."]
+accepted_terms = ["Data in use"]
+difficulty = 1
+related_to = ["Information States", "MSR Model"]
+tof_statement = {
+"false": "Processing refers to data that has been archived.", 
+"true": "Processing involves data that is actively being used by systems or users."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_6"]
+script = ExtResource("1_7hrog")
+id = "6"
+term = "Essential Countermeasures"
+keyword = "Essential Countermeasures"
+definition = "Key actions taken to protect information, including availability, integrity, and authentication."
+simple_terms = "Key security actions."
+examples = ["Ensuring data is available when needed.", "Maintaining data accuracy.", "Verifying user identities."]
+accepted_terms = []
+difficulty = 2
+related_to = ["MSR Model"]
+tof_statement = {
+"false": "Confidentiality, anonymity, and privacy are the three essential countermeasures.", 
+"true": "Availability, integrity, and authentication are essential countermeasures."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_7"]
+script = ExtResource("1_7hrog")
+id = "7"
+term = "Availability"
+keyword = "Availability"
+definition = "Ensures that data is accessible when needed, even in the case of system failures, attacks, or disasters."
+simple_terms = "Data is accessible."
+examples = ["A hospital's electronic health record system.", "Redundant servers and cloud storage.", "Backup systems."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Essential Countermeasures", "CIA Triad"]
+tof_statement = {
+"false": "Availability ensures that only authorized personnel can access data.", 
+"true": "Availability ensures that data can be accessed when required, regardless of failures or attacks."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_8"]
+script = ExtResource("1_7hrog")
+id = "8"
+term = "Integrity"
+keyword = "Integrity"
+definition = "Ensures that data is accurate, consistent, and protected from unauthorized changes or corruption."
+simple_terms = "Data is accurate and unchanged."
+examples = ["E-commerce websites ensuring order integrity.", "Digital signatures.", "Audit trails."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Essential Countermeasures", "CIA Triad"]
+tof_statement = {
+"false": "Integrity ensures that data is always available to users.", 
+"true": "Integrity ensures data remains accurate and is protected from unauthorized modifications."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_9"]
+script = ExtResource("1_7hrog")
+id = "9"
+term = "Confidentiality"
+keyword = "Confidentiality"
+definition = "Ensures that data is not exposed to unauthorized parties, maintaining privacy."
+simple_terms = "Data is private."
+examples = ["Healthcare systems safeguarding patient information.", "Encryption to secure stored data.", "Access control policies."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Essential Countermeasures", "CIA Triad"]
+tof_statement = {
+"false": "Confidentiality ensures that data is always accessible to all users.", 
+"true": "Confidentiality ensures that sensitive data is protected from unauthorized access."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_10"]
+script = ExtResource("1_7hrog")
+id = "10"
+term = "Nonrepudiation"
+keyword = "Nonrepudiation"
+definition = "Ensures that a party cannot deny the authenticity of their actions or transactions, providing proof of participation."
+simple_terms = "Proof of action."
+examples = ["Digital contracts signed with electronic signatures.", "Blockchain technologies.", "Audit trails."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Essential Countermeasures"]
+tof_statement = {
+"false": "Nonrepudiation ensures that data is always available.", 
+"true": "Nonrepudiation provides proof that a party performed a specific action or transaction."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_11"]
+script = ExtResource("1_7hrog")
+id = "11"
+term = "Authentication"
+keyword = "Authentication"
+definition = "Ensures that users or systems can be trusted based on their identity, allowing them access to data or services."
+simple_terms = "Verifying identity."
+examples = ["Bank account logins with usernames and passwords.", "Multi-factor authentication (MFA).", "One-time passcodes (OTPs)."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Essential Countermeasures"]
+tof_statement = {
+"false": "Authentication is the process of granting access to data.", 
+"true": "Authentication is the process of verifying a user's identity."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_12"]
+script = ExtResource("1_7hrog")
+id = "12"
+term = "Shodan"
+keyword = "Shodan"
+definition = "A search engine for Internet-connected devices, providing intelligence on devices and their services."
+simple_terms = "Search engine for devices."
+examples = ["Discovering exposed power plants.", "Monitoring network exposure.", "Gaining internet intelligence."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Internet of Everything", "Cybersecurity Tools"]
+tof_statement = {
+"false": "Shodan is a tool used for encrypting data.", 
+"true": "Shodan is a search engine that helps discover internet-connected devices."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_13"]
+script = ExtResource("1_7hrog")
+id = "13"
+term = "Internet of Everything"
+keyword = "Internet of Everything"
+definition = "A concept encompassing all internet-connected devices, allowing for discovery and analysis of their services and functionalities."
+simple_terms = "All connected devices."
+examples = ["Power plants.", "Mobile phones.", "Refrigerators."]
+accepted_terms = ["IoE"]
+difficulty = 2
+related_to = ["Shodan"]
+tof_statement = {
+"false": "The Internet of Everything only includes computers and servers.", 
+"true": "The Internet of Everything includes all devices connected to the internet."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_14"]
+script = ExtResource("1_7hrog")
+id = "14"
+term = "Dehashed"
+keyword = "Dehashed"
+definition = "A database of exposed and breached personal information, allowing users to search for leaked data."
+simple_terms = "Database of leaked info."
+examples = ["Searching for leaked personal information using email.", "Finding data from various breaches.", "Using phone numbers as search identifiers."]
+accepted_terms = ["Dehashed.com"]
+difficulty = 2
+related_to = ["Data Breaches", "Cybersecurity Tools"]
+tof_statement = {
+"false": "Dehashed is a tool for encrypting sensitive data.", 
+"true": "Dehashed is a service that provides access to a database of exposed personal information."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_15"]
+script = ExtResource("1_7hrog")
+id = "15"
+term = "Google Hacking"
+keyword = "Google Hacking"
+definition = "Using advanced search operators in Google to find information that is not easily accessible or intended to be public."
+simple_terms = "Using Google to find hidden info."
+examples = ["Searching for specific file types (e.g., filetype:pdf).", "Finding database dumps (e.g., filetype:sql).", "Discovering unprotected admin interfaces."]
+accepted_terms = ["Dorking"]
+difficulty = 2
+related_to = ["Cybersecurity Techniques", "Information Gathering"]
+tof_statement = {
+"false": "Google Hacking is a method for securing online accounts.", 
+"true": "Google Hacking (Dorking) uses advanced search operators to find potentially sensitive information."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_16"]
+script = ExtResource("1_7hrog")
+id = "16"
+term = "Database Dumps"
+keyword = "Database Dumps"
+definition = "Exposed backups or dumps of databases containing sensitive information like usernames and passwords."
+simple_terms = "Leaked database files."
+examples = ["Finding 'filetype:sql \"insert into\" password'.", "Discovering leaked credentials.", "Accessing sensitive user data."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Google Hacking", "Data Breaches"]
+tof_statement = {
+"false": "Database dumps are used to back up system configurations.", 
+"true": "Database dumps can contain sensitive information such as usernames and passwords."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_17"]
+script = ExtResource("1_7hrog")
+id = "17"
+term = "Unprotected Admin Interfaces"
+keyword = "Unprotected Admin Interfaces"
+definition = "Discovering admin or control panel login pages that are exposed to the public."
+simple_terms = "Exposed login pages."
+examples = ["Searching for 'inurl:\"/admin\" intitle:\"admin login\"'.", "Finding unauthorized access points.", "Identifying weak security configurations."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Google Hacking", "Vulnerabilities"]
+tof_statement = {
+"false": "Unprotected admin interfaces are secure portals for system administrators.", 
+"true": "Unprotected admin interfaces are login pages accessible to the public."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_18"]
+script = ExtResource("1_7hrog")
+id = "18"
+term = "Wayback Machine"
+keyword = "Wayback Machine"
+definition = "An internet archive that stores and provides access to historical versions of web pages."
+simple_terms = "Archive of old websites."
+examples = ["Searching the history of web pages.", "Viewing past website designs.", "Accessing deleted content."]
+accepted_terms = ["Internet Archive"]
+difficulty = 2
+related_to = ["Web Archiving", "Information Gathering"]
+tof_statement = {
+"false": "The Wayback Machine is used to scan for network vulnerabilities.", 
+"true": "The Wayback Machine allows users to view historical versions of websites."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_19"]
+script = ExtResource("1_7hrog")
+id = "19"
+term = "ZoomInfo"
+keyword = "ZoomInfo"
+definition = "A business database providing detailed contact information for businesses and professionals, useful for market research and sales leads."
+simple_terms = "Business contact database."
+examples = ["Finding contact information for market research.", "Identifying sales leads.", "Gathering business intelligence."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Business Intelligence", "Data Sources"]
+tof_statement = {
+"false": "ZoomInfo is a tool for encrypting sensitive data.", 
+"true": "ZoomInfo is a business database used for market research and lead generation."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_20"]
+script = ExtResource("1_7hrog")
+id = "20"
+term = "Dark Web Monitor"
+keyword = "Dark Web Monitor"
+definition = "A tool that alerts users if their personal information is found on the dark web, helping to protect their identity."
+simple_terms = "Tool for dark web alerts."
+examples = ["Alerting about personal information on the dark web.", "Taking action to protect identity.", "Monitoring for leaked data."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Dark Web", "Identity Protection"]
+tof_statement = {
+"false": "A Dark Web Monitor is used to access the dark web.", 
+"true": "A Dark Web Monitor alerts users to the presence of their personal information on the dark web."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_21"]
+script = ExtResource("1_7hrog")
+id = "21"
+term = "CIA Triad"
+keyword = "CIA Triad"
+definition = "A foundational model of information security, encompassing Confidentiality, Integrity, and Availability."
+simple_terms = "Core security principles."
+examples = ["Ensuring private data (Confidentiality).", "Maintaining accurate data (Integrity).", "Ensuring data access (Availability)."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Information Security", "MSR Model"]
+tof_statement = {
+"false": "The CIA Triad consists of Confidentiality, Integrity, and Authentication.", 
+"true": "The CIA Triad consists of Confidentiality, Integrity, and Availability."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_22"]
+script = ExtResource("1_7hrog")
+id = "22"
+term = "Information Security Planning"
+keyword = "Information Security Planning"
+definition = "The process of developing strategies and governance for protecting information assets."
+simple_terms = "Planning for security."
+examples = ["Defining security objectives.", "Establishing security policies.", "Allocating security resources."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security", "Governance"]
+tof_statement = {
+"false": "Information security planning is solely about implementing technical controls.", 
+"true": "Information security planning involves setting goals and strategies for protecting information."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_23"]
+script = ExtResource("1_7hrog")
+id = "23"
+term = "History of Information Security"
+keyword = "History of Information Security"
+definition = "The evolution of information security practices and concepts from early computing to modern cybersecurity."
+simple_terms = "How security evolved."
+examples = ["The development of ARPANET.", "The introduction of DES and public-key cryptography.", "The rise of computer viruses and hacking culture."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security"]
+tof_statement = {
+"false": "The history of information security only covers the last decade.", 
+"true": "The history of information security includes the development of cryptography and early cyberattacks."
+}
+type_of_information = ["explain", "definition", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_24"]
+script = ExtResource("1_7hrog")
+id = "24"
+term = "ARPANET"
+keyword = "ARPANET"
+definition = "The U.S. Advanced Research Projects Agency Network, an early computer network focused on time-sharing systems."
+simple_terms = "Early computer network."
+examples = ["Early computing focused on time-sharing.", "Minimal security measures.", "Precursor to the internet."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Networking"]
+tof_statement = {
+"false": "ARPANET was designed for secure data transmission only.", 
+"true": "ARPANET was an early computer network that focused on time-sharing."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_25"]
+script = ExtResource("1_7hrog")
+id = "25"
+term = "Data Encryption Standard"
+keyword = "Data Encryption Standard"
+definition = "A symmetric-key algorithm used for encryption, developed by IBM and later adopted by the U.S. government."
+simple_terms = "Early encryption standard."
+examples = ["Developed by IBM.", "Adopted by the U.S. government.", "A symmetric-key algorithm."]
+accepted_terms = ["DES"]
+difficulty = 2
+related_to = ["History of Information Security", "Cryptography"]
+tof_statement = {
+"false": "DES is a modern encryption algorithm used for secure communication.", 
+"true": "DES was an early standard for data encryption."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_26"]
+script = ExtResource("1_7hrog")
+id = "26"
+term = "Public-Key Cryptography"
+keyword = "Public-Key Cryptography"
+definition = "A cryptographic system that uses pairs of keys: a public key for encryption and a private key for decryption."
+simple_terms = "Encryption with two keys."
+examples = ["Revolutionized secure communication.", "Introduced by Whitfield Diffie & Martin Hellman.", "Used for secure email encryption (PGP)."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cryptography"]
+tof_statement = {
+"false": "Public-key cryptography uses a single key for both encryption and decryption.", 
+"true": "Public-key cryptography uses a public key for encryption and a private key for decryption."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_27"]
+script = ExtResource("1_7hrog")
+id = "27"
+term = "Computer Worm"
+keyword = "Computer Worm"
+definition = "A standalone malware program that replicates itself to spread to other computers, often without user interaction."
+simple_terms = "Self-replicating malware."
+examples = ["The first computer worm created by John Shoch.", "The Morris Worm.", "Spreading across networks."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Malware"]
+tof_statement = {
+"false": "A computer worm requires user interaction to spread.", 
+"true": "A computer worm is a type of malware that replicates itself to spread."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_28"]
+script = ExtResource("1_7hrog")
+id = "28"
+term = "RAND Report R-609"
+keyword = "RAND Report R-609"
+definition = "An early document that defined the concept of computer security and introduced key cybersecurity principles."
+simple_terms = "Early computer security report."
+examples = ["Defined computer security.", "Introduced cybersecurity principles.", "Discussed unauthorized access."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Computer Security"]
+tof_statement = {
+"false": "The RAND Report R-609 focused on the history of social media.", 
+"true": "The RAND Report R-609 was one of the first documents to define computer security."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_29"]
+script = ExtResource("1_7hrog")
+id = "29"
+term = "Phone Phreaking"
+keyword = "Phone Phreaking"
+definition = "The practice of exploiting telephone networks for free calls or other unauthorized access, often using tones or signals."
+simple_terms = "Exploiting phone systems."
+examples = ["Exploiting telephone networks.", "John Draper (Captain Crunch).", "Late 1970s practice."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Telecommunications"]
+tof_statement = {
+"false": "Phone phreaking was a method for encrypting phone calls.", 
+"true": "Phone phreaking involved exploiting telephone networks."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_30"]
+script = ExtResource("1_7hrog")
+id = "30"
+term = "Hacker Culture"
+keyword = "Hacker Culture"
+definition = "The subculture and practices associated with individuals who explore and manipulate computer systems, often with a focus on security."
+simple_terms = "Community of hackers."
+examples = ["The term 'hacker' popularized by the movie WarGames.", "Emergence of hacker groups like Legion of Doom.", "Exposing security flaws."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cybersecurity"]
+tof_statement = {
+"false": "Hacker culture is solely focused on malicious activities.", 
+"true": "Hacker culture emerged alongside the development of computer systems and networks."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_31"]
+script = ExtResource("1_7hrog")
+id = "31"
+term = "Computer Fraud and Abuse Act"
+keyword = "Computer Fraud and Abuse Act"
+definition = "U.S. legislation enacted to criminalize hacking and other computer-related crimes."
+simple_terms = "Law against hacking."
+examples = ["Enacted in the U.S. in 1986.", "Criminalizes hacking.", "Addresses computer fraud."]
+accepted_terms = ["CFAA"]
+difficulty = 3
+related_to = ["History of Information Security", "Cyber Law"]
+tof_statement = {
+"false": "The CFAA is a set of guidelines for ethical hacking.", 
+"true": "The CFAA is a U.S. law that addresses computer-related crimes."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_32"]
+script = ExtResource("1_7hrog")
+id = "32"
+term = "Cybercrime"
+keyword = "Cybercrime"
+definition = "Criminal activities conducted through the use of computers and networks."
+simple_terms = "Crimes using computers."
+examples = ["Email-based malware risks.", "Illegal online transactions.", "Unauthorized access to systems."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Cybersecurity", "Law Enforcement"]
+tof_statement = {
+"false": "Cybercrime is limited to hacking and does not include online fraud.", 
+"true": "Cybercrime involves illegal activities conducted using computers and networks."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_33"]
+script = ExtResource("1_7hrog")
+id = "33"
+term = "Anonymous Browsing"
+keyword = "Anonymous Browsing"
+definition = "Techniques and tools used to browse the internet without revealing one's identity or online activity."
+simple_terms = "Browsing without identity."
+examples = ["Using VPNs.", "The Tor browser.", "Proxy servers."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Privacy", "Cybersecurity Techniques"]
+tof_statement = {
+"false": "Anonymous browsing guarantees complete anonymity at all times.", 
+"true": "Anonymous browsing aims to conceal a user's identity and online activities."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_34"]
+script = ExtResource("1_7hrog")
+id = "34"
+term = "Pretty Good Privacy"
+keyword = "Pretty Good Privacy"
+definition = "A software program developed by Phil Zimmermann for secure email encryption."
+simple_terms = "Secure email encryption software."
+examples = ["Developed by Phil Zimmermann.", "For secure email encryption.", "Uses public-key cryptography principles."]
+accepted_terms = ["PGP"]
+difficulty = 2
+related_to = ["History of Information Security", "Cryptography", "Email Security"]
+tof_statement = {
+"false": "PGP is primarily used for securing web browsing.", 
+"true": "PGP is a software designed for secure email encryption."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_35"]
+script = ExtResource("1_7hrog")
+id = "35"
+term = "SSL Encryption"
+keyword = "SSL Encryption"
+definition = "Secure Sockets Layer encryption, a protocol used to secure communication over a computer network, commonly used for e-commerce transactions."
+simple_terms = "Secure communication protocol."
+examples = ["Secures e-commerce transactions.", "Used for secure web browsing.", "Encrypts data transmitted over networks."]
+accepted_terms = ["TLS Encryption"]
+difficulty = 2
+related_to = ["History of Information Security", "Networking", "Web Security"]
+tof_statement = {
+"false": "SSL encryption is primarily used for securing email content.", 
+"true": "SSL encryption is used to secure network communications, especially for e-commerce."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_36"]
+script = ExtResource("1_7hrog")
+id = "36"
+term = "Deep Web"
+keyword = "Deep Web"
+definition = "The part of the World Wide Web that is not indexed by standard search engines, requiring specific credentials or access methods."
+simple_terms = "Unindexed part of the web."
+examples = ["Requires specific access.", "Not searchable by standard engines.", "Includes databases and private networks."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Internet"]
+tof_statement = {
+"false": "The Deep Web is synonymous with the Dark Web.", 
+"true": "The Deep Web is not indexed by standard search engines."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_37"]
+script = ExtResource("1_7hrog")
+id = "37"
+term = "Dark Web"
+keyword = "Dark Web"
+definition = "A part of the World Wide Web that requires specific software, configurations, or authorization to access, often associated with anonymity and illicit activities."
+simple_terms = "Hidden part of the web."
+examples = ["Requires special software (e.g., Tor).", "Associated with anonymity.", "Can host illicit marketplaces."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Internet", "Cybercrime"]
+tof_statement = {
+"false": "The Dark Web is easily accessible through standard web browsers.", 
+"true": "The Dark Web is a part of the internet that is intentionally hidden and requires special software to"
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_38"]
+script = ExtResource("1_7hrog")
+id = "38"
+term = "Melissa Virus"
+keyword = "Melissa Virus"
+definition = "A macro virus that spread via Microsoft Word documents in 1999, demonstrating the risks of email-based malware."
+simple_terms = "Email-based macro virus."
+examples = ["Spread via Microsoft Word macros.", "Demonstrated risks of email malware.", "Infected computers in 1999."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Malware"]
+tof_statement = {
+"false": "The Melissa Virus was a ransomware attack.", 
+"true": "The Melissa Virus spread through Microsoft Word macros."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_39"]
+script = ExtResource("1_7hrog")
+id = "39"
+term = "Cyber Warfare"
+keyword = "Cyber Warfare"
+definition = "The use of cyberattacks by states or state-sponsored groups against other states, typically targeting critical infrastructure or government systems."
+simple_terms = "Digital attacks between nations."
+examples = ["Targeting nuclear facilities (Stuxnet).", "Disrupting government agencies.", "Espionage through cyber means."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cybersecurity", "National Security"]
+tof_statement = {
+"false": "Cyber warfare is limited to individual hackers targeting businesses.", 
+"true": "Cyber warfare involves attacks conducted by nations against other nations."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_40"]
+script = ExtResource("1_7hrog")
+id = "40"
+term = "Hacktivism"
+keyword = "Hacktivism"
+definition = "The use of hacking techniques to promote a political agenda or social cause."
+simple_terms = "Hacking for a cause."
+examples = ["Anonymous movement supporting protests.", "Exposing government secrets.", "Disrupting services for political reasons."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cybersecurity", "Social Movements"]
+tof_statement = {
+"false": "Hacktivism is solely focused on financial gain.", 
+"true": "Hacktivism uses hacking to advance political or social agendas."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_41"]
+script = ExtResource("1_7hrog")
+id = "41"
+term = "SQL Slammer Worm"
+keyword = "SQL Slammer Worm"
+definition = "A fast-spreading worm that exploited a vulnerability in Microsoft SQL Server, infecting thousands of servers in minutes."
+simple_terms = "Fast-spreading SQL worm."
+examples = ["Infected thousands of servers rapidly.", "Exploited SQL Server vulnerability.", "Caused widespread disruption."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Malware"]
+tof_statement = {
+"false": "The SQL Slammer worm targeted personal computers.", 
+"true": "The SQL Slammer worm was known for its rapid spread and impact on servers."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_42"]
+script = ExtResource("1_7hrog")
+id = "42"
+term = "Cicada 3301"
+keyword = "Cicada 3301"
+definition = "An infamous cryptographic scavenger hunt that appeared online, with its purpose and creators remaining unsolved."
+simple_terms = "Mysterious crypto puzzle."
+examples = ["An elaborate cryptographic scavenger hunt.", "Its purpose and creators remain unknown.", "Appeared multiple times online."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Cryptography", "Puzzles"]
+tof_statement = {
+"false": "Cicada 3301 was a type of ransomware attack.", 
+"true": "Cicada 3301 is a mysterious online puzzle involving cryptography."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_43"]
+script = ExtResource("1_7hrog")
+id = "43"
+term = "Stuxnet"
+keyword = "Stuxnet"
+definition = "A sophisticated computer worm discovered in 2010, believed to have targeted Iran's nuclear facilities."
+simple_terms = "Worm targeting nuclear facilities."
+examples = ["Highly sophisticated worm.", "Discovered in 2010.", "Believed to target industrial control systems."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Cyber Warfare", "Industrial Control Systems"]
+tof_statement = {
+"false": "Stuxnet was designed to steal personal financial data.", 
+"true": "Stuxnet was a sophisticated worm targeting industrial control systems."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_44"]
+script = ExtResource("1_7hrog")
+id = "44"
+term = "Yahoo Data Breach"
+keyword = "Yahoo Data Breach"
+definition = "A major security incident in 2013 that compromised the data of 3 billion Yahoo accounts."
+simple_terms = "Massive breach of Yahoo accounts."
+examples = ["Affected 3 billion accounts.", "Occurred in 2013.", "Led to widespread identity theft concerns."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Data Breaches", "Cybersecurity Incidents"]
+tof_statement = {
+"false": "The Yahoo data breach was caused by a phishing scam.", 
+"true": "The Yahoo data breach affected billions of user accounts."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_45"]
+script = ExtResource("1_7hrog")
+id = "45"
+term = "Silk Road"
+keyword = "Silk Road"
+definition = "A notorious online marketplace operating on the dark web, primarily used for illegal drug sales, which was shut down by the FBI in 2013."
+simple_terms = "Dark web illegal marketplace."
+examples = ["Operated on the dark web.", "Facilitated illegal drug sales.", "Shut down by the FBI."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Dark Web", "Cybercrime"]
+tof_statement = {
+"false": "Silk Road was a legitimate e-commerce platform.", 
+"true": "Silk Road was a dark web marketplace known for illegal activities."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_46"]
+script = ExtResource("1_7hrog")
+id = "46"
+term = "Sony Pictures Hack"
+keyword = "Sony Pictures Hack"
+definition = "A cyberattack in 2014 attributed to North Korea, which resulted in the theft and release of sensitive company data."
+simple_terms = "Hack of Sony Pictures."
+examples = ["Attributed to North Korea.", "Resulted in data theft and leaks.", "Occurred in 2014."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cyber Espionage", "Cybersecurity Incidents"]
+tof_statement = {
+"false": "The Sony Pictures hack was a ransomware attack.", 
+"true": "The Sony Pictures hack was attributed to North Korea."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_47"]
+script = ExtResource("1_7hrog")
+id = "47"
+term = "Hacking Team Leak"
+keyword = "Hacking Team Leak"
+definition = "A 2015 leak revealing that the company 'Hacking Team' sold surveillance software to governments worldwide, used for monitoring."
+simple_terms = "Leak of surveillance software sales."
+examples = ["Revealed sale of surveillance software.", "Governments used software for monitoring.", "Occurred in 2015."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Cyber Espionage", "Surveillance"]
+tof_statement = {
+"false": "The Hacking Team leak revealed a new encryption algorithm.", 
+"true": "The Hacking Team leak exposed the sale of surveillance software to governments."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_48"]
+script = ExtResource("1_7hrog")
+id = "48"
+term = "DNC Email Leak"
+keyword = "DNC Email Leak"
+definition = "A 2016 incident involving the leak of Democratic National Committee emails, which influenced the U.S. presidential elections."
+simple_terms = "Leak of DNC emails."
+examples = ["Involved Democratic National Committee emails.", "Influenced U.S. presidential elections.", "Occurred in 2016."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cybersecurity Incidents", "Political Security"]
+tof_statement = {
+"false": "The DNC email leak was related to a financial fraud scheme.", 
+"true": "The DNC email leak was a significant event in the 2016 U.S. presidential elections."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_49"]
+script = ExtResource("1_7hrog")
+id = "49"
+term = "WannaCry Ransomware"
+keyword = "WannaCry Ransomware"
+definition = "A global ransomware attack in 2017 that exploited Windows vulnerabilities to encrypt files and demand payment."
+simple_terms = "Global ransomware attack."
+examples = ["Exploited Windows vulnerabilities.", "Encrypted files and demanded ransom.", "Spread globally in 2017."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Ransomware", "Malware"]
+tof_statement = {
+"false": "WannaCry was a data leak incident.", 
+"true": "WannaCry was a ransomware attack that exploited Windows vulnerabilities."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_50"]
+script = ExtResource("1_7hrog")
+id = "50"
+term = "Cambridge Analytica Scandal"
+keyword = "Cambridge Analytica Scandal"
+definition = "A 2018 scandal involving the large-scale harvesting of Facebook user data for political profiling and targeting."
+simple_terms = "Facebook data harvesting scandal."
+examples = ["Involved large-scale Facebook data harvesting.", "Used for political profiling.", "Revealed in 2018."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Data Privacy", "Political Security"]
+tof_statement = {
+"false": "The Cambridge Analytica scandal was related to a malware outbreak.", 
+"true": "The Cambridge Analytica scandal involved the misuse of Facebook user data."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_51"]
+script = ExtResource("1_7hrog")
+id = "51"
+term = "AI in Cybersecurity"
+keyword = "AI in Cybersecurity"
+definition = "The application of Artificial Intelligence and deep learning techniques to enhance cybersecurity capabilities, such as threat detection and analysis."
+simple_terms = "Using AI for security."
+examples = ["AI-driven phishing detection.", "Deep learning for threat analysis.", "Improving cybersecurity solutions."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Artificial Intelligence", "Cybersecurity"]
+tof_statement = {
+"false": "AI has no significant application in modern cybersecurity.", 
+"true": "AI and deep learning are increasingly used to improve cybersecurity."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_52"]
+script = ExtResource("1_7hrog")
+id = "52"
+term = "Zero Trust Architecture"
+keyword = "Zero Trust Architecture"
+definition = "A security model that assumes no user or system should be trusted by default, requiring strict authentication and access controls for all."
+simple_terms = "Never trust, always verify."
+examples = ["Assumes network is compromised.", "Requires strict authentication.", "Enforces granular access controls."]
+accepted_terms = []
+difficulty = 2
+related_to = ["History of Information Security", "Cybersecurity", "Network Security"]
+tof_statement = {
+"false": "Zero Trust Architecture trusts all internal network traffic by default.", 
+"true": "Zero Trust Architecture operates on the principle of 'never trust, always verify'."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_53"]
+script = ExtResource("1_7hrog")
+id = "53"
+term = "Quantum Computing Threats"
+keyword = "Quantum Computing Threats"
+definition = "The potential for quantum computers to break current encryption methods, posing a threat to data security."
+simple_terms = "Quantum computers breaking encryption."
+examples = ["Threat to traditional encryption.", "Growing concern in cybersecurity.", "Requires development of quantum-resistant cryptography."]
+accepted_terms = []
+difficulty = 3
+related_to = ["History of Information Security", "Cryptography", "Quantum Computing"]
+tof_statement = {
+"false": "Quantum computing enhances the security of current encryption methods.", 
+"true": "Quantum computing poses a threat to current encryption standards."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_54"]
+script = ExtResource("1_7hrog")
+id = "54"
+term = "Information Security Governance"
+keyword = "Information Security Governance"
+definition = "The framework and processes that ensure information security aligns with business objectives and regulatory requirements."
+simple_terms = "Managing security strategically."
+examples = ["Setting the 'tone at the top'.", "Translating strategy into technical implementation.", "Ensuring compliance."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security", "Management"]
+tof_statement = {
+"false": "Information security governance is solely the responsibility of the IT department.", 
+"true": "Information security governance ensures that security efforts align with business goals."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_55"]
+script = ExtResource("1_7hrog")
+id = "55"
+term = "Policy"
+keyword = "Policy"
+definition = "High-level statements of intent that define the 'What' and 'Why' of security objectives."
+simple_terms = "Security rules."
+examples = ["Acceptable Use Policy (AUP).", "Remote Work Policy.", "Defining strategic direction."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Policy, Standards, and Practices", "Governance"]
+tof_statement = {
+"false": "A policy provides step-by-step technical instructions.", 
+"true": "A policy outlines the high-level goals and intent of security measures."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_56"]
+script = ExtResource("1_7hrog")
+id = "56"
+term = "Standards"
+keyword = "Standards"
+definition = "Mandatory requirements or configurations that define the 'Must' for security implementations."
+simple_terms = "Mandatory security rules."
+examples = ["Password complexity requirements.", "Encryption standards (e.g., AES-256).", "Mandatory security configurations."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Policy, Standards, and Practices", "Compliance"]
+tof_statement = {
+"false": "Standards are optional guidelines for security.", 
+"true": "Standards define the mandatory requirements for security implementations."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_57"]
+script = ExtResource("1_7hrog")
+id = "57"
+term = "Practices"
+keyword = "Practices"
+definition = "Step-by-step instructions or guidelines that define the 'How' of security procedures."
+simple_terms = "How-to guides for security."
+examples = ["Onboarding procedures.", "Mobile device procedures.", "Step-by-step security instructions."]
+accepted_terms = ["Procedures", "Guidelines"]
+difficulty = 1
+related_to = ["Policy, Standards, and Practices", "Operations"]
+tof_statement = {
+"false": "Practices define the high-level goals of security.", 
+"true": "Practices provide detailed, step-by-step instructions for implementing security measures."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_58"]
+script = ExtResource("1_7hrog")
+id = "58"
+term = "Information Security Blueprint"
+keyword = "Information Security Blueprint"
+definition = "A scalable plan or architectural design for implementing a comprehensive security program."
+simple_terms = "Security plan framework."
+examples = ["Architectural design for security.", "Scalable plan for implementation.", "Utilizes frameworks like NIST CSF and ISO 27001."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Planning for Security", "Strategy"]
+tof_statement = {
+"false": "An information security blueprint is a set of daily security tasks.", 
+"true": "An information security blueprint provides a framework for implementing security measures."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_59"]
+script = ExtResource("1_7hrog")
+id = "59"
+term = "NIST Cybersecurity Framework"
+keyword = "NIST Cybersecurity Framework"
+definition = "A framework developed by the National Institute of Standards and Technology to help organizations manage cybersecurity risks."
+simple_terms = "Framework for managing cyber risks."
+examples = ["Identify, Protect, Detect, Respond, Recover.", "International standard for security management.", "Helps organizations manage risks."]
+accepted_terms = ["CSF"]
+difficulty = 2
+related_to = ["Information Security Blueprint", "Frameworks"]
+tof_statement = {
+"false": "The NIST Cybersecurity Framework is a policy document.", 
+"true": "The NIST Cybersecurity Framework provides a structure for managing cybersecurity risks."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_60"]
+script = ExtResource("1_7hrog")
+id = "60"
+term = "ISO IEC 27001"
+keyword = "ISO/IEC 27001"
+definition = "An international standard for Information Security Management Systems (ISMS), providing requirements for establishing, implementing, maintaining, and continually improving an ISMS."
+simple_terms = "International security standard."
+examples = ["International gold standard for ISMS.", "Ensures trust for organizations.", "Focuses on continuous improvement."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security Blueprint", "Frameworks", "Standards"]
+tof_statement = {
+"false": "ISO/IEC 27001 is a tool for detecting network intrusions.", 
+"true": "ISO/IEC 27001 is an international standard for managing information security."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_61"]
+script = ExtResource("1_7hrog")
+id = "61"
+term = "Defense in Depth"
+keyword = "Defense in Depth"
+definition = "A security strategy that uses multiple layers of defense to protect assets, ensuring that if one layer fails, others can still provide protection."
+simple_terms = "Multiple layers of security."
+examples = ["Perimeter fence (Firewall).", "Security guard (IDS/IPS).", "Security camera (Logging/Auditing)."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security Blueprint", "Strategy"]
+tof_statement = {
+"false": "Defense in Depth relies on a single, strong security measure.", 
+"true": "Defense in Depth involves implementing multiple layers of security controls."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_62"]
+script = ExtResource("1_7hrog")
+id = "62"
+term = "Security Education Training and"
+keyword = "Security Education, Training, and Awareness"
+definition = "Programs designed to educate users about security policies, procedures, and best practices to strengthen the 'human firewall'."
+simple_terms = "Educating users on security."
+examples = ["Mandatory phishing simulations.", "Training on security policies.", "Raising security awareness."]
+accepted_terms = ["SETA"]
+difficulty = 1
+related_to = ["Information Security Blueprint", "Human Factor"]
+tof_statement = {
+"false": "SETA programs focus exclusively on technical security controls.", 
+"true": "SETA programs aim to improve user awareness and behavior regarding security."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_63"]
+script = ExtResource("1_7hrog")
+id = "63"
+term = "Information Security Governance"
+keyword = "Information Security Governance Framework"
+definition = "A structure that ensures information security is managed as a governance issue, translating high-level strategy into actionable controls."
+simple_terms = "Framework for managing security governance."
+examples = ["Ensures 'tone at the top'.", "Connects strategy to technical details.", "Manages security as a business issue."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Policy, Standards, and Practices", "Governance"]
+tof_statement = {
+"false": "The Information Security Governance Framework is only concerned with technical security measures.", 
+"true": "The Information Security Governance Framework helps align security with business objectives."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_64"]
+script = ExtResource("1_7hrog")
+id = "64"
+term = "Enterprise Information Security"
+keyword = "Enterprise Information Security Policy"
+definition = "The highest-level security policy, acting as the 'Constitution' of an organization, setting strategic direction and assigning resources."
+simple_terms = "Organizational security constitution."
+examples = ["Sets strategic direction.", "Assigns security resources.", "Defines the organization's security stance."]
+accepted_terms = ["EISP"]
+difficulty = 2
+related_to = ["Policy Taxonomy", "Governance"]
+tof_statement = {
+"false": "An EISP provides detailed technical configurations for firewalls.", 
+"true": "An EISP sets the overall strategic direction for an organization's information security."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_65"]
+script = ExtResource("1_7hrog")
+id = "65"
+term = "Issue-Specific Security Policy"
+keyword = "Issue-Specific Security Policy"
+definition = "A security policy that focuses on specific technologies or issues, such as cloud computing or social media use."
+simple_terms = "Policy for specific issues."
+examples = ["Policy on cloud computing use.", "Policy on social media usage.", "Policy on AI usage."]
+accepted_terms = ["ISSP"]
+difficulty = 2
+related_to = ["Policy Taxonomy", "Specific Technologies"]
+tof_statement = {
+"false": "An ISSP covers all aspects of an organization's security.", 
+"true": "An ISSP addresses security concerns related to specific technologies or issues."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_66"]
+script = ExtResource("1_7hrog")
+id = "66"
+term = "System-Specific Security Policy"
+keyword = "System-Specific Security Policy"
+definition = "A security policy that details technical specifications for a particular system, such as firewall configurations or access control lists."
+simple_terms = "Policy for specific systems."
+examples = ["Firewall access control lists.", "Database configuration standards.", "Server hardening specifications."]
+accepted_terms = ["SysSP"]
+difficulty = 2
+related_to = ["Policy Taxonomy", "Technical Specifications"]
+tof_statement = {
+"false": "A SysSP outlines the overall security strategy of an organization.", 
+"true": "A SysSP provides technical specifications for specific systems."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_67"]
+script = ExtResource("1_7hrog")
+id = "67"
+term = "Bring Your Own Device Policy"
+keyword = "Bring Your Own Device Policy"
+definition = "A policy that governs the use of personal devices for work-related purposes, often including security requirements."
+simple_terms = "Policy for personal devices at work."
+examples = ["Requires 'Remote Wipe' capabilities.", "Governs use of personal phones for work.", "Addresses security risks of BYOD."]
+accepted_terms = ["BYOD Policy"]
+difficulty = 2
+related_to = ["Policy, Standards, and Practices", "Mobile Security"]
+tof_statement = {
+"false": "A BYOD policy prohibits the use of any personal devices.", 
+"true": "A BYOD policy outlines rules for using personal devices in a professional setting."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_68"]
+script = ExtResource("1_7hrog")
+id = "68"
+term = "Bell-LaPadula Model"
+keyword = "Bell-LaPadula Model"
+definition = "A theoretical model for confidentiality that prevents information flow from higher security levels to lower ones ('no read up, no write down')."
+simple_terms = "Confidentiality security model."
+examples = ["Used in military/government.", "Prevents data leaks.", "Focuses on preventing unauthorized reading or writing."]
+accepted_terms = []
+difficulty = 3
+related_to = ["Theoretical Models", "Confidentiality"]
+tof_statement = {
+"false": "The Bell-LaPadula model focuses on ensuring data availability.", 
+"true": "The Bell-LaPadula model is designed to ensure confidentiality by controlling information flow."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_69"]
+script = ExtResource("1_7hrog")
+id = "69"
+term = "Biba Integrity Model"
+keyword = "Biba Integrity Model"
+definition = "A theoretical model for integrity that prevents information flow from lower integrity levels to higher ones ('no read down, no write up')."
+simple_terms = "Integrity security model."
+examples = ["Used in finance/research.", "Ensures data is not corrupted by low-integrity sources.", "Focuses on preventing unauthorized writing or reading from lower levels."]
+accepted_terms = []
+difficulty = 3
+related_to = ["Theoretical Models", "Integrity"]
+tof_statement = {
+"false": "The Biba Integrity Model is primarily concerned with user authentication.", 
+"true": "The Biba Integrity Model aims to protect data integrity by controlling information flow."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_70"]
+script = ExtResource("1_7hrog")
+id = "70"
+term = "Clark-Wilson Model"
+keyword = "Clark-Wilson Model"
+definition = "A theoretical model that focuses on the separation of duties to prevent internal fraud and ensure data integrity."
+simple_terms = "Separation of duties model."
+examples = ["Focuses on preventing internal fraud.", "Ensures data integrity through distinct roles.", "Requires certified integrity."]
+accepted_terms = []
+difficulty = 3
+related_to = ["Theoretical Models", "Integrity", "Fraud Prevention"]
+tof_statement = {
+"false": "The Clark-Wilson model focuses on preventing external cyberattacks.", 
+"true": "The Clark-Wilson model emphasizes separation of duties to prevent internal fraud."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_71"]
+script = ExtResource("1_7hrog")
+id = "71"
+term = "Information in Storage"
+keyword = "Information in Storage"
+definition = "Refers to data that is stored physically or digitally, requiring security measures like encryption and physical vaulting."
+simple_terms = "Data at rest."
+examples = ["Database encryption.", "Physical vaulting of media.", "Securing hard drives."]
+accepted_terms = ["Data at Rest"]
+difficulty = 1
+related_to = ["Information Security Blueprint", "Information States"]
+tof_statement = {
+"false": "Information in storage refers to data that is currently being accessed by users.", 
+"true": "Information in storage refers to data that is not actively being transmitted or processed."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_72"]
+script = ExtResource("1_7hrog")
+id = "72"
+term = "Information in Transit"
+keyword = "Information in Transit"
+definition = "Refers to data that is being transferred over networks, requiring security measures like TLS/SSL and VPNs."
+simple_terms = "Data being transmitted."
+examples = ["TLS/SSL encryption.", "VPN secure tunnels.", "Secure protocols for communication."]
+accepted_terms = ["Data in Motion"]
+difficulty = 1
+related_to = ["Information Security Blueprint", "Information States"]
+tof_statement = {
+"false": "Information in transit is data that is stored on a server.", 
+"true": "Information in transit is data that is being sent across a network."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_73"]
+script = ExtResource("1_7hrog")
+id = "73"
+term = "IAAA"
+keyword = "IAAA"
+definition = "A framework for cybersecurity that stands for Identification, Authentication, Authorization, and Accountability."
+simple_terms = "Cybersecurity framework components."
+examples = ["Identification - Who are you?", "Authentication - Prove it!", "Authorization - What can you do?"]
+accepted_terms = ["IAAA"]
+difficulty = 1
+related_to = ["Cybersecurity", "Access Control"]
+tof_statement = {
+"false": "IAAA stands for Integrity, Confidentiality, Availability, and Access.", 
+"true": "IAAA stands for Identification, Authentication, Authorization, and Accountability."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_74"]
+script = ExtResource("1_7hrog")
+id = "74"
+term = "Identification"
+keyword = "Identification"
+definition = "The process of establishing who a user or system claims to be, typically involving a username or ID."
+simple_terms = "Who are you?"
+examples = ["Entering a username.", "Providing an email address.", "Using an employee ID number."]
+accepted_terms = []
+difficulty = 1
+related_to = ["IAAA", "Access Control"]
+tof_statement = {
+"false": "Identification is the process of verifying a user's identity.", 
+"true": "Identification is the process of a user claiming their identity."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_75"]
+script = ExtResource("1_7hrog")
+id = "75"
+term = "Authentication"
+keyword = "Authentication"
+definition = "The process of proving that a user or system is who they claim to be, often through passwords, biometrics, or OTPs."
+simple_terms = "Prove it!"
+examples = ["Entering a password.", "Using fingerprint recognition.", "Providing a one-time passcode."]
+accepted_terms = []
+difficulty = 1
+related_to = ["IAAA", "Access Control"]
+tof_statement = {
+"false": "Authentication is the process of determining what a user can do.", 
+"true": "Authentication is the process of verifying a claimed identity."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_76"]
+script = ExtResource("1_7hrog")
+id = "76"
+term = "Authorization"
+keyword = "Authorization"
+definition = "The process of determining what actions a user or system is allowed to perform after they have been authenticated."
+simple_terms = "What can you do?"
+examples = ["Granting access to specific files.", "Defining user roles and permissions.", "Restricting access based on job function."]
+accepted_terms = []
+difficulty = 1
+related_to = ["IAAA", "Access Control"]
+tof_statement = {
+"false": "Authorization is the first step in verifying a user's identity.", 
+"true": "Authorization determines the permissions and access levels granted to a user."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_77"]
+script = ExtResource("1_7hrog")
+id = "77"
+term = "Accountability"
+keyword = "Accountability"
+definition = "The process of tracking and logging user actions to ensure that actions can be traced back to the individual responsible."
+simple_terms = "Keep a record."
+examples = ["Reviewing system logs.", "Tracking user activities.", "Auditing security events."]
+accepted_terms = []
+difficulty = 1
+related_to = ["IAAA", "Auditing"]
+tof_statement = {
+"false": "Accountability is about preventing unauthorized access.", 
+"true": "Accountability ensures that user actions are logged and traceable."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_78"]
+script = ExtResource("1_7hrog")
+id = "78"
+term = "Assets"
+keyword = "Assets"
+definition = "Anything valuable within a system that needs protection, including data, hardware, software, and human resources."
+simple_terms = "Valuable items to protect."
+examples = ["Customer data.", "Company servers.", "Proprietary software."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Cybersecurity Essentials", "Risk Management"]
+tof_statement = {
+"false": "Assets are solely the threats that target a system.", 
+"true": "Assets are the valuable components of a system that require protection."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_79"]
+script = ExtResource("1_7hrog")
+id = "79"
+term = "Threats"
+keyword = "Threats"
+definition = "Anything that can exploit a vulnerability to damage or steal assets, such as hackers, malware, or phishing attacks."
+simple_terms = "The bad guys."
+examples = ["Hackers.", "Malware.", "Phishing attacks."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Cybersecurity Essentials", "Risk Management"]
+tof_statement = {
+"false": "Threats are the weaknesses within a system.", 
+"true": "Threats are potential sources of harm that can exploit vulnerabilities."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_80"]
+script = ExtResource("1_7hrog")
+id = "80"
+term = "Vulnerabilities"
+keyword = "Vulnerabilities"
+definition = "Flaws or weaknesses in a system that threats can exploit, such as outdated software or weak passwords."
+simple_terms = "Weak spots."
+examples = ["Outdated software.", "Weak passwords.", "Unpatched systems."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Cybersecurity Essentials", "Risk Management"]
+tof_statement = {
+"false": "Vulnerabilities are the actions taken to protect assets.", 
+"true": "Vulnerabilities are weaknesses that can be exploited by threats."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_81"]
+script = ExtResource("1_7hrog")
+id = "81"
+term = "Risk"
+keyword = "Risk"
+definition = "The likelihood of a threat exploiting a vulnerability and causing harm, often calculated as Threat x Vulnerability."
+simple_terms = "Potential for damage."
+examples = ["High risk due to weak vault and known robbers.", "Likelihood of a successful attack.", "Potential for financial and reputational damage."]
+accepted_terms = ["Potential Damage"]
+difficulty = 1
+related_to = ["Cybersecurity Essentials", "Risk Management"]
+tof_statement = {
+"false": "Risk is solely determined by the number of assets.", 
+"true": "Risk is the potential for harm resulting from a threat exploiting a vulnerability."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_82"]
+script = ExtResource("1_7hrog")
+id = "82"
+term = "Controls"
+keyword = "Controls"
+definition = "Safeguards or countermeasures implemented to reduce risk and protect assets, such as firewalls, encryption, and training."
+simple_terms = "Security measures."
+examples = ["Firewalls.", "Encryption.", "Multi-factor authentication."]
+accepted_terms = ["Safeguards", "Countermeasures"]
+difficulty = 1
+related_to = ["Cybersecurity Essentials", "Risk Management"]
+tof_statement = {
+"false": "Controls are the vulnerabilities that need to be addressed.", 
+"true": "Controls are measures taken to reduce risk and protect assets."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_83"]
+script = ExtResource("1_7hrog")
+id = "83"
+term = "Firewalls"
+keyword = "Firewalls"
+definition = "Network security devices that monitor and control incoming and outgoing network traffic based on predetermined security rules."
+simple_terms = "Network traffic filter."
+examples = ["Fortinet.", "Palo Alto Networks.", "Cisco Firepower."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Controls", "Network Security"]
+tof_statement = {
+"false": "Firewalls are used to encrypt data for transmission.", 
+"true": "Firewalls act as a barrier to control network traffic."
+}
+type_of_information = ["definition", "apply", "explain"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_84"]
+script = ExtResource("1_7hrog")
+id = "84"
+term = "Endpoint Protection"
+keyword = "Endpoint Protection"
+definition = "Security measures designed to protect individual devices (endpoints) connected to a network, such as computers and mobile phones."
+simple_terms = "Protecting devices."
+examples = ["Antivirus software.", "Endpoint Detection and Response (EDR).", "Device encryption."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Controls", "Device Security"]
+tof_statement = {
+"false": "Endpoint protection secures the entire network infrastructure.", 
+"true": "Endpoint protection secures individual devices on a network."
+}
+type_of_information = ["definition", "apply", "explain"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_85"]
+script = ExtResource("1_7hrog")
+id = "85"
+term = "Threat Detection and SIEM"
+keyword = "Threat Detection and SIEM"
+definition = "Systems and tools used to monitor network activity, detect potential threats, and analyze security events."
+simple_terms = "Detecting and analyzing threats."
+examples = ["Splunk.", "IBM QRadar.", "Security Information and Event Management (SIEM)."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Controls", "Monitoring"]
+tof_statement = {
+"false": "SIEM tools are used to prevent threats from entering the network.", 
+"true": "SIEM tools help in detecting and analyzing security threats."
+}
+type_of_information = ["definition", "apply", "explain"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_86"]
+script = ExtResource("1_7hrog")
+id = "86"
+term = "Vulnerability Scanners"
+keyword = "Vulnerability Scanners"
+definition = "Tools used to identify weaknesses and vulnerabilities in systems and applications."
+simple_terms = "Finding system weaknesses."
+examples = ["Nessus.", "OpenVAS.", "Qualys."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Controls", "Vulnerabilities"]
+tof_statement = {
+"false": "Vulnerability scanners are used to patch security flaws.", 
+"true": "Vulnerability scanners help identify security weaknesses in systems."
+}
+type_of_information = ["definition", "apply", "explain"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_87"]
+script = ExtResource("1_7hrog")
+id = "87"
+term = "Risk Management"
+keyword = "Risk Management"
+definition = "The process of identifying, assessing, and prioritizing risks, and then applying resources to minimize, monitor, and control the probability or impact of unfortunate events."
+simple_terms = "Managing security risks."
+examples = ["NIST Cybersecurity Framework.", "ISO 27001 Compliance Tools.", "Assessing potential impact."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Controls", "Cybersecurity Essentials"]
+tof_statement = {
+"false": "Risk management focuses only on preventing threats.", 
+"true": "Risk management involves identifying, assessing, and mitigating security risks."
+}
+type_of_information = ["definition", "apply", "explain"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_88"]
+script = ExtResource("1_7hrog")
+id = "88"
+term = "Security Awareness Training"
+keyword = "Security Awareness Training"
+definition = "Training programs designed to educate individuals about security threats, policies, and best practices to foster a security-conscious culture."
+simple_terms = "Training for security awareness."
+examples = ["KnowBe4.", "Cybersecurity & Infrastructure Security Agency (CISA).", "Phishing simulation exercises."]
+accepted_terms = []
+difficulty = 1
+related_to = ["Controls", "SETA"]
+tof_statement = {
+"false": "Security awareness training is only for IT professionals.", 
+"true": "Security awareness training helps individuals recognize and respond to security threats."
+}
+type_of_information = ["definition", "apply", "explain"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_89"]
+script = ExtResource("1_7hrog")
+id = "89"
+term = "Layered Security"
+keyword = "Layered Security"
+definition = "A strategy that employs multiple, overlapping security controls to protect assets, ensuring that if one layer fails, others provide continued protection."
+simple_terms = "Multiple security layers."
+examples = ["Perimeter security.", "Network security.", "Endpoint security."]
+accepted_terms = ["Defense in Depth"]
+difficulty = 2
+related_to = ["Information Security Blueprint", "Strategy"]
+tof_statement = {
+"false": "Layered security relies on a single, comprehensive security solution.", 
+"true": "Layered security involves implementing multiple, independent security controls."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_90"]
+script = ExtResource("1_7hrog")
+id = "90"
+term = "Human Firewall"
+keyword = "Human Firewall"
+definition = "The concept of individuals within an organization acting as a line of defense against security threats through their awareness and adherence to security practices."
+simple_terms = "People as security defense."
+examples = ["Recognizing phishing attempts.", "Following security policies.", "Reporting suspicious activity."]
+accepted_terms = []
+difficulty = 2
+related_to = ["SETA", "Human Factor"]
+tof_statement = {
+"false": "The 'human firewall' is a technical security solution.", 
+"true": "The 'human firewall' refers to individuals acting as a security defense."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_91"]
+script = ExtResource("1_7hrog")
+id = "91"
+term = "Policy Taxonomy"
+keyword = "Policy Taxonomy"
+definition = "A classification system for organizing different types of security policies based on their scope and purpose."
+simple_terms = "Categorizing security policies."
+examples = ["Enterprise Information Security Policy (EISP).", "Issue-Specific Security Policy (ISSP).", "System-Specific Security Policy (SysSP)."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security Governance Framework", "Policy"]
+tof_statement = {
+"false": "The policy taxonomy only includes high-level organizational policies.", 
+"true": "The policy taxonomy categorizes security policies into EISP, ISSP, and SysSP."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_92"]
+script = ExtResource("1_7hrog")
+id = "92"
+term = "Enforcement Gap"
+keyword = "Enforcement Gap"
+definition = "The discrepancy between a stated policy and its actual implementation or enforcement, potentially leading to security or legal issues."
+simple_terms = "Gap between policy and practice."
+examples = ["Policy requires 'Remote Wipe', but MDM isn't fully enforced.", "Lack of consistent enforcement of security rules.", "Legal liabilities due to unaddressed policy gaps."]
+accepted_terms = []
+difficulty = 3
+related_to = ["Policy, Standards, and Practices", "Governance", "Legal Liability"]
+tof_statement = {
+"false": "An enforcement gap refers to a lack of security policies.", 
+"true": "An enforcement gap occurs when policies are not consistently implemented or followed."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_93"]
+script = ExtResource("1_7hrog")
+id = "93"
+term = "Information Security Blueprint"
+keyword = "Information Security Blueprint"
+definition = "The architectural design that translates a security model into a practical implementation plan."
+simple_terms = "Security architectural design."
+examples = ["Implementation of a security model.", "Architectural drawing of security.", "Guides the construction of security."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Planning for Security", "Architecture"]
+tof_statement = {
+"false": "The information security blueprint is the theoretical model itself.", 
+"true": "The information security blueprint is the implementation or architectural drawing of a security mode"
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_94"]
+script = ExtResource("1_7hrog")
+id = "94"
+term = "Theoretical Models"
+keyword = "Theoretical Models"
+definition = "Mathematical or logical models that provide the foundational 'why' behind security blueprints, such as Bell-LaPadula or Biba."
+simple_terms = "Foundational security concepts."
+examples = ["Bell-LaPadula (Confidentiality).", "Biba Integrity Model.", "Clark-Wilson Model."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security Blueprint", "Models"]
+tof_statement = {
+"false": "Theoretical models are practical implementation guides.", 
+"true": "Theoretical models provide the underlying principles for information security blueprints."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_95"]
+script = ExtResource("1_7hrog")
+id = "95"
+term = "Sphere of Use"
+keyword = "Sphere of Use"
+definition = "The domains within which a blueprint must operate, typically including Information in Storage (At Rest) and Information in Transit (In Motion)."
+simple_terms = "Areas of operation for a blueprint."
+examples = ["Information in Storage.", "Information in Transit.", "Addressing data lifecycle security."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security Blueprint", "Domains"]
+tof_statement = {
+"false": "The sphere of use refers to the physical location of security hardware.", 
+"true": "The sphere of use defines the domains a security blueprint must cover, such as storage and transit."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_96"]
+script = ExtResource("1_7hrog")
+id = "96"
+term = "Zero Trust Architecture"
+keyword = "Zero Trust Architecture"
+definition = "A security architecture where every user and device is verified before being granted access to resources, regardless of their location."
+simple_terms = "Never trust, always verify architecture."
+examples = ["Assumes internal network is compromised.", "Requires re-verification at every step.", "Used in health-tech startup blueprint."]
+accepted_terms = []
+difficulty = 2
+related_to = ["Information Security Blueprint", "Architecture"]
+tof_statement = {
+"false": "Zero Trust Architecture grants full access to internal network users.", 
+"true": "Zero Trust Architecture requires continuous verification of users and devices."
+}
+type_of_information = ["definition", "explain", "apply"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Information Assurance and Cybersecurity"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_1"), SubResource("Resource_2"), SubResource("Resource_3"), SubResource("Resource_4"), SubResource("Resource_5"), SubResource("Resource_6"), SubResource("Resource_7"), SubResource("Resource_8"), SubResource("Resource_9"), SubResource("Resource_10"), SubResource("Resource_11"), SubResource("Resource_12"), SubResource("Resource_13"), SubResource("Resource_14"), SubResource("Resource_15"), SubResource("Resource_16"), SubResource("Resource_17"), SubResource("Resource_18"), SubResource("Resource_19"), SubResource("Resource_20"), SubResource("Resource_21"), SubResource("Resource_22"), SubResource("Resource_23"), SubResource("Resource_24"), SubResource("Resource_25"), SubResource("Resource_26"), SubResource("Resource_27"), SubResource("Resource_28"), SubResource("Resource_29"), SubResource("Resource_30"), SubResource("Resource_31"), SubResource("Resource_32"), SubResource("Resource_33"), SubResource("Resource_34"), SubResource("Resource_35"), SubResource("Resource_36"), SubResource("Resource_37"), SubResource("Resource_38"), SubResource("Resource_39"), SubResource("Resource_40"), SubResource("Resource_41"), SubResource("Resource_42"), SubResource("Resource_43"), SubResource("Resource_44"), SubResource("Resource_45"), SubResource("Resource_46"), SubResource("Resource_47"), SubResource("Resource_48"), SubResource("Resource_49"), SubResource("Resource_50"), SubResource("Resource_51"), SubResource("Resource_52"), SubResource("Resource_53"), SubResource("Resource_54"), SubResource("Resource_55"), SubResource("Resource_56"), SubResource("Resource_57"), SubResource("Resource_58"), SubResource("Resource_59"), SubResource("Resource_60"), SubResource("Resource_61"), SubResource("Resource_62"), SubResource("Resource_63"), SubResource("Resource_64"), SubResource("Resource_65"), SubResource("Resource_66"), SubResource("Resource_67"), SubResource("Resource_68"), SubResource("Resource_69"), SubResource("Resource_70"), SubResource("Resource_71"), SubResource("Resource_72"), SubResource("Resource_73"), SubResource("Resource_74"), SubResource("Resource_75"), SubResource("Resource_76"), SubResource("Resource_77"), SubResource("Resource_78"), SubResource("Resource_79"), SubResource("Resource_80"), SubResource("Resource_81"), SubResource("Resource_82"), SubResource("Resource_83"), SubResource("Resource_84"), SubResource("Resource_85"), SubResource("Resource_86"), SubResource("Resource_87"), SubResource("Resource_88"), SubResource("Resource_89"), SubResource("Resource_90"), SubResource("Resource_91"), SubResource("Resource_92"), SubResource("Resource_93"), SubResource("Resource_94"), SubResource("Resource_95"), SubResource("Resource_96")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

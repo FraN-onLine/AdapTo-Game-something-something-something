@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cd1vf7yc234h4"]
+
+[ext_resource type="Script" uid="uid://lt6odtxdab2x" path="res://Games/achievement_popup.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://bgrgca3qc6dxo" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="2"]
+[ext_resource type="Texture2D" uid="uid://bxkdwtrfhyrha" path="res://Assets/UI/Yellow Arrow.png" id="2_1vmxc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popup"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.08, 0.08, 0.12, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.7, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="AchievementPopup" type="PanelContainer" unique_id=107429904]
+custom_minimum_size = Vector2(340, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_popup")
+script = ExtResource("1")
+
+[node name="HBox" type="HBoxContainer" parent="." unique_id=402506974]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="IconRect" type="TextureRect" parent="HBox" unique_id=905777833]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_1vmxc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="HBox" unique_id=2110462900]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="TitleLabel" type="Label" parent="HBox/VBox" unique_id=118096961]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 0.3, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 11
+text = "ACHIEVEMENT UNLOCKED"
+
+[node name="NameLabel" type="Label" parent="HBox/VBox" unique_id=1647004832]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 16
+text = "Name"
+
+[node name="DescLabel" type="Label" parent="HBox/VBox" unique_id=16490288]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 12
+text = "Description"
+autowrap_mode = 2

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_9s1mlw7o"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "jeopardy_exact_200"
+name = "At Least It Didn't Go Under"
+description = "Complete Jeopardy with exactly $200"
+icon = null

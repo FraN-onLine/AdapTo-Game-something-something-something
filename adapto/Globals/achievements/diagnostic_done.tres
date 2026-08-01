@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_6s6k6d0b"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "diagnostic_done"
+name = "Fully Diagnosed"
+description = "Complete the full diagnostic round (all 5 games)"
+icon = null

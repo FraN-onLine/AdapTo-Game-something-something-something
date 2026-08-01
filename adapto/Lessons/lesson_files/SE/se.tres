@@ -1,0 +1,1066 @@
+[gd_resource type="Resource" script_class="Lesson" format=3 uid="uid://cs2621npbxchd"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_item"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_lesson"]
+
+[sub_resource type="Resource" id="Resource_1"]
+script = ExtResource("1_item")
+id = "COM_01"
+term = "Component Diagram"
+keyword = "module"
+definition = "Shows software parts and their dependencies to describe system structure at a high level."
+simple_terms = "Visual map of connected program parts"
+examples = ["user module", "data layer", "auth service"]
+accepted_terms = ["UML"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It shows execution timing only.",
+"true": "It models structural relationships."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_2"]
+script = ExtResource("1_item")
+id = "COM_02"
+term = "Component Interface"
+keyword = "contract"
+definition = "Defines how a software part communicates with other parts through exposed services."
+simple_terms = "Rules for interaction between modules"
+examples = ["login api", "save action", "fetch data"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Interfaces store user data.",
+"true": "Interfaces expose available services."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_3"]
+script = ExtResource("1_item")
+id = "COM_03"
+term = "Provided Service"
+keyword = "service"
+definition = "Represents functionality offered by a software part for use by another part."
+simple_terms = "Feature made available for outside use"
+examples = ["send email", "get report", "save order"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It hides all operations.",
+"true": "It offers functionality outward."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_4"]
+script = ExtResource("1_item")
+id = "COM_04"
+term = "Required Service"
+keyword = "dependency"
+definition = "Represents functionality needed from another software part to complete its tasks."
+simple_terms = "Needed feature from another program part"
+examples = ["db access", "auth check", "file read"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It works with no outside support.",
+"true": "It depends on external functionality."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_5"]
+script = ExtResource("1_item")
+id = "COM_05"
+term = "Package Diagram"
+keyword = "grouping"
+definition = "Organizes software elements into logical containers to simplify structure understanding."
+simple_terms = "Grouped sets of related code units"
+examples = ["data pack", "ui pack", "logic pack"]
+accepted_terms = ["UML"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It measures performance speed.",
+"true": "It groups related elements."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_6"]
+script = ExtResource("1_item")
+id = "COM_06"
+term = "Package Dependency"
+keyword = "linkage"
+definition = "Shows how grouped software units rely on each other for functionality or access."
+simple_terms = "Connections between grouped code blocks"
+examples = ["ui to api", "api to db", "core to util"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It shows user workflows.",
+"true": "It reveals coupling between groups."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_7"]
+script = ExtResource("1_item")
+id = "COM_07"
+term = "Layered Design"
+keyword = "layers"
+definition = "Separates software into levels so responsibilities stay organized and maintainable."
+simple_terms = "Stacked responsibility levels in software"
+examples = ["ui layer", "logic tier", "data tier"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It removes all dependencies.",
+"true": "It improves separation of concerns."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_8"]
+script = ExtResource("1_item")
+id = "COM_08"
+term = "Module Coupling"
+keyword = "coupling"
+definition = "Measures how strongly software parts depend on one another in a design."
+simple_terms = "Strength of connection between code parts"
+examples = ["tight link", "shared file", "direct call"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Higher coupling improves reuse.",
+"true": "Lower coupling is often preferred."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_9"]
+script = ExtResource("1_item")
+id = "COM_09"
+term = "Module Cohesion"
+keyword = "cohesion"
+definition = "Measures how closely related the responsibilities inside one software part are."
+simple_terms = "Focus of responsibilities inside one unit"
+examples = ["single task", "clear goal", "one purpose"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It increases unrelated functions.",
+"true": "Higher cohesion improves clarity."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_10"]
+script = ExtResource("1_item")
+id = "COM_10"
+term = "Deployment Mapping"
+keyword = "mapping"
+definition = "Relates software parts to physical environments where they will run or be hosted."
+simple_terms = "Placement of program parts on machines"
+examples = ["web server", "cloud node", "local host"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It defines user stories.",
+"true": "It connects software to hardware."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_11"]
+script = ExtResource("1_item")
+id = "SEQ_01"
+term = "Sequence Diagram"
+keyword = "timeline"
+definition = "Shows ordered interactions between objects over time during a system operation."
+simple_terms = "Message flow arranged by execution order"
+examples = ["login flow", "checkout run", "search flow"]
+accepted_terms = ["UML"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It groups source files.",
+"true": "It focuses on interaction order."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_12"]
+script = ExtResource("1_item")
+id = "SEQ_02"
+term = "Lifeline Object"
+keyword = "object"
+definition = "Represents an active participant in an interaction scenario from start to finish."
+simple_terms = "Participant existing during a scenario"
+examples = ["user actor", "cart item", "db object"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It measures software cost.",
+"true": "It shows participant presence over time."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_13"]
+script = ExtResource("1_item")
+id = "SEQ_03"
+term = "Activation Bar"
+keyword = "activity"
+definition = "Shows the period when an object performs an operation in a sequence interaction."
+simple_terms = "Time span of active task execution"
+examples = ["run task", "save file", "send data"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It stores requirements.",
+"true": "It marks active processing time."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_14"]
+script = ExtResource("1_item")
+id = "SEQ_04"
+term = "Message Call"
+keyword = "message"
+definition = "Represents communication sent from one participant to another to request behavior."
+simple_terms = "Signal passed between participants"
+examples = ["call save", "load user", "send alert"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It defines database tables.",
+"true": "It triggers behavior in another object."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_15"]
+script = ExtResource("1_item")
+id = "SEQ_05"
+term = "Return Message"
+keyword = "response"
+definition = "Shows information sent back after an operation finishes in an interaction."
+simple_terms = "Reply sent after requested work ends"
+examples = ["ok result", "error note", "user data"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It starts a new process.",
+"true": "It carries completion results."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_16"]
+script = ExtResource("1_item")
+id = "SEQ_06"
+term = "Synchronous Call"
+keyword = "waiting"
+definition = "A request where the sender pauses until the receiver completes the requested work."
+simple_terms = "Request that blocks until done"
+examples = ["save sync", "read sync", "auth sync"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Sender continues immediately.",
+"true": "Sender waits for completion."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_17"]
+script = ExtResource("1_item")
+id = "SEQ_07"
+term = "Asynchronous Call"
+keyword = "parallel"
+definition = "A request where the sender continues work without waiting for the receiver to finish."
+simple_terms = "Request that continues without waiting"
+examples = ["send mail", "push log", "queue task"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Sender must pause.",
+"true": "Sender does not block."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_18"]
+script = ExtResource("1_item")
+id = "SEQ_08"
+term = "Interaction Fragment"
+keyword = "branching"
+definition = "Groups conditions or loops in message flows to model alternative execution paths."
+simple_terms = "Conditional or repeated flow sections"
+examples = ["if branch", "loop case", "alt path"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It estimates effort.",
+"true": "It models choices and loops."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_19"]
+script = ExtResource("1_item")
+id = "SEQ_09"
+term = "Actor Role"
+keyword = "userrole"
+definition = "Represents an external person or system that interacts with the software behavior."
+simple_terms = "Outside participant using the system"
+examples = ["buyer role", "admin role", "guest role"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It compiles source code.",
+"true": "It starts or receives interactions."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_20"]
+script = ExtResource("1_item")
+id = "SEQ_10"
+term = "Interaction Scenario"
+keyword = "scenario"
+definition = "A specific use case flow showing how participants collaborate to complete a task."
+simple_terms = "Detailed example of system collaboration"
+examples = ["buy item", "book room", "reset pass"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It replaces testing plans.",
+"true": "It demonstrates one use case path."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_21"]
+script = ExtResource("1_item")
+id = "SPI_01"
+term = "Process Improvement"
+keyword = "refine"
+definition = "The practice of analyzing and enhancing software workflows for better efficiency and quality."
+simple_terms = "Making development steps better over time"
+examples = ["faster build", "less bugs", "clear flow"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It ignores quality issues.",
+"true": "It aims to optimize workflow."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_22"]
+script = ExtResource("1_item")
+id = "SPI_02"
+term = "Capability Maturity"
+keyword = "maturity"
+definition = "A measure of how well an organization manages and improves software processes."
+simple_terms = "Level of process discipline and control"
+examples = ["basic level", "managed work", "optimized"]
+accepted_terms = ["CMMI"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It tracks hardware inventory.",
+"true": "Higher levels show stronger control."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_23"]
+script = ExtResource("1_item")
+id = "SPI_03"
+term = "Initial Level"
+keyword = "chaotic"
+definition = "The first maturity stage where work is unpredictable and depends on individual effort."
+simple_terms = "Unstructured and inconsistent work style"
+examples = ["ad hoc dev", "no rules", "random fix"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Processes are optimized.",
+"true": "Processes are often unstable."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_24"]
+script = ExtResource("1_item")
+id = "SPI_04"
+term = "Managed Level"
+keyword = "tracked"
+definition = "A maturity stage where projects are planned, monitored, and controlled consistently."
+simple_terms = "Work is planned and progress tracked"
+examples = ["task board", "time logs", "reviews"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "No planning exists.",
+"true": "Project controls are established."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_25"]
+script = ExtResource("1_item")
+id = "SPI_05"
+term = "Defined Level"
+keyword = "standard"
+definition = "A maturity stage where organization processes are documented and standardized for teams."
+simple_terms = "Shared methods used across teams"
+examples = ["team guide", "coding rule", "process map"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Processes are random.",
+"true": "Processes are documented organization wide."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_26"]
+script = ExtResource("1_item")
+id = "SPI_06"
+term = "Quantitative Level"
+keyword = "metrics"
+definition = "A maturity stage using measured data to control and predict process performance."
+simple_terms = "Using numbers to guide work quality"
+examples = ["bug count", "lead time", "test rate"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Decisions ignore measurement.",
+"true": "Data drives process decisions."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_27"]
+script = ExtResource("1_item")
+id = "SPI_07"
+term = "Optimizing Level"
+keyword = "optimize"
+definition = "The highest maturity stage focused on continuous improvement and defect prevention."
+simple_terms = "Constant improvement using feedback"
+examples = ["root fix", "better flow", "less waste"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Changes are avoided.",
+"true": "Improvement is continuous."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_28"]
+script = ExtResource("1_item")
+id = "SPI_08"
+term = "Root Cause Review"
+keyword = "analysis"
+definition = "Examines defects to find the original reason and prevent the same issue later."
+simple_terms = "Finding the main reason behind issues"
+examples = ["bug source", "late task", "wrong spec"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It adds random changes.",
+"true": "It helps prevent repeated issues."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_29"]
+script = ExtResource("1_item")
+id = "SPI_09"
+term = "Process Audit"
+keyword = "audit"
+definition = "A formal check to ensure software activities follow defined methods and standards."
+simple_terms = "Inspection of how work is performed"
+examples = ["code audit", "plan audit", "test audit"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It replaces coding.",
+"true": "It verifies compliance with standards."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_30"]
+script = ExtResource("1_item")
+id = "SPI_10"
+term = "Continuous Improvement"
+keyword = "kaizen"
+definition = "An ongoing effort to make software practices better through repeated small changes."
+simple_terms = "Regular upgrades to work practices"
+examples = ["daily fix", "team review", "better test"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Improvement happens once only.",
+"true": "Small changes accumulate over time."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_31"]
+script = ExtResource("1_item")
+id = "CCM_01"
+term = "Change Management"
+keyword = "change"
+definition = "Controls requested modifications to software so impacts are reviewed before approval."
+simple_terms = "Handling updates in a controlled way"
+examples = ["feature add", "bug fix", "scope edit"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Changes happen without approval.",
+"true": "Changes are reviewed before action."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_32"]
+script = ExtResource("1_item")
+id = "CCM_02"
+term = "Configuration Management"
+keyword = "version"
+definition = "Tracks software items and versions to keep development organized and consistent."
+simple_terms = "Keeping files and versions organized"
+examples = ["code repo", "build file", "config set"]
+accepted_terms = ["CM"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It removes documentation.",
+"true": "It controls software artifacts."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_33"]
+script = ExtResource("1_item")
+id = "CCM_03"
+term = "Version Control"
+keyword = "history"
+definition = "Records file changes over time so teams can review, restore, or merge work."
+simple_terms = "Timeline of code changes and recovery"
+examples = ["git log", "merge code", "undo file"]
+accepted_terms = ["Git"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It deletes all revisions.",
+"true": "It stores change history."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_34"]
+script = ExtResource("1_item")
+id = "CCM_04"
+term = "Baseline Record"
+keyword = "baseline"
+definition = "A fixed reference version used to compare future changes and maintain consistency."
+simple_terms = "Approved starting point for comparison"
+examples = ["release one", "stable build", "gold copy"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It is always temporary.",
+"true": "It serves as a reference state."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_35"]
+script = ExtResource("1_item")
+id = "CCM_05"
+term = "Change Request"
+keyword = "request"
+definition = "A documented proposal describing a modification needed in software or its process."
+simple_terms = "Formal proposal for making updates"
+examples = ["new report", "fix login", "edit rule"]
+accepted_terms = ["CR"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It deploys software directly.",
+"true": "It starts formal modification review."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_36"]
+script = ExtResource("1_item")
+id = "CCM_06"
+term = "Impact Analysis"
+keyword = "impact"
+definition = "Evaluates how a proposed software change affects cost, time, quality, and risk."
+simple_terms = "Checking effects before making updates"
+examples = ["cost rise", "delay risk", "bug chance"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It skips planning.",
+"true": "It studies consequences of change."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_37"]
+script = ExtResource("1_item")
+id = "CCM_07"
+term = "Build Management"
+keyword = "build"
+definition = "Controls how software is compiled and packaged into deliverable executable versions."
+simple_terms = "Managing creation of runnable software"
+examples = ["night build", "release zip", "test build"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It writes user manuals.",
+"true": "It organizes software packaging."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_38"]
+script = ExtResource("1_item")
+id = "CCM_08"
+term = "Release Planning"
+keyword = "release"
+definition = "Schedules software delivery versions and decides which changes are included each time."
+simple_terms = "Planning what goes into each delivery"
+examples = ["version one", "patch set", "major drop"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It removes testing.",
+"true": "It organizes product delivery timing."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_39"]
+script = ExtResource("1_item")
+id = "CCM_09"
+term = "Branch Strategy"
+keyword = "branch"
+definition = "Defines how code lines are separated and merged to support team collaboration."
+simple_terms = "Rules for parallel code development"
+examples = ["main line", "dev branch", "hotfix path"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It replaces requirement analysis.",
+"true": "It manages parallel work streams."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_40"]
+script = ExtResource("1_item")
+id = "CCM_10"
+term = "Rollback Plan"
+keyword = "revert"
+definition = "A recovery plan to restore a previous stable software version after a failed change."
+simple_terms = "Way to return to a working version"
+examples = ["undo patch", "old build", "safe state"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It increases deployment risk.",
+"true": "It supports safe recovery."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_41"]
+script = ExtResource("1_item")
+id = "TRE_01"
+term = "Cloud Native Development"
+keyword = "cloud"
+definition = "Builds software for scalable cloud environments using services, containers, and automation."
+simple_terms = "Creating apps made for online platforms"
+examples = ["cloud app", "web scale", "auto deploy"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It avoids automation.",
+"true": "It favors scalable online systems."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_42"]
+script = ExtResource("1_item")
+id = "TRE_02"
+term = "Artificial Intelligence Tools"
+keyword = "ai"
+definition = "Uses smart systems to assist coding, testing, analysis, and decision making in projects."
+simple_terms = "Machine help for software tasks"
+examples = ["code assist", "bug detect", "smart test"]
+accepted_terms = ["AI"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It replaces all developers.",
+"true": "It supports automation and insight."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_43"]
+script = ExtResource("1_item")
+id = "TRE_03"
+term = "Low Code Platforms"
+keyword = "visual"
+definition = "Allow software creation with minimal manual coding through drag and drop tools."
+simple_terms = "Building apps with fewer typed commands"
+examples = ["form app", "workflow app", "portal app"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "They require full manual coding.",
+"true": "They reduce coding effort."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_44"]
+script = ExtResource("1_item")
+id = "TRE_04"
+term = "Devops Practice"
+keyword = "devops"
+definition = "Combines development and operations to speed delivery through automation and collaboration."
+simple_terms = "Joining coding and deployment teamwork"
+examples = ["auto test", "fast deploy", "shared ops"]
+accepted_terms = ["DevOps"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It separates teams more.",
+"true": "It improves delivery speed."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_45"]
+script = ExtResource("1_item")
+id = "TRE_05"
+term = "Microservice Design"
+keyword = "service"
+definition = "Builds software as small independent services that can be developed and deployed separately."
+simple_terms = "Many small connected application parts"
+examples = ["user svc", "order svc", "pay svc"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Everything is one large unit.",
+"true": "Services are independently deployable."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_46"]
+script = ExtResource("1_item")
+id = "TRE_06"
+term = "Container Deployment"
+keyword = "container"
+definition = "Packages software and dependencies into isolated units for consistent execution anywhere."
+simple_terms = "Portable package for running software"
+examples = ["app image", "test image", "prod image"]
+accepted_terms = ["Docker"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It removes dependencies.",
+"true": "It improves environment consistency."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_47"]
+script = ExtResource("1_item")
+id = "TRE_07"
+term = "Internet of Things"
+keyword = "devices"
+definition = "Connects physical devices with software systems to collect data and automate actions."
+simple_terms = "Smart devices linked to software systems"
+examples = ["smart lock", "home sensor", "car tracker"]
+accepted_terms = ["IoT"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It is only desktop software.",
+"true": "It connects devices and data."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_48"]
+script = ExtResource("1_item")
+id = "TRE_08"
+term = "Cybersecurity Focus"
+keyword = "security"
+definition = "Builds stronger protection into software to defend against attacks and data breaches."
+simple_terms = "Protecting systems and user information"
+examples = ["safe login", "data shield", "risk scan"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Security is optional only.",
+"true": "Security is part of development."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_49"]
+script = ExtResource("1_item")
+id = "TRE_09"
+term = "Blockchain Systems"
+keyword = "ledger"
+definition = "Uses distributed records for secure, transparent transactions without central control."
+simple_terms = "Shared records spread across many nodes"
+examples = ["coin trade", "smart deal", "chain log"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "One server controls all.",
+"true": "Records are distributed across nodes."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_50"]
+script = ExtResource("1_item")
+id = "TRE_10"
+term = "Remote Collaboration"
+keyword = "remote"
+definition = "Supports distributed software teams using online tools for coding, review, and planning."
+simple_terms = "Teamwork done from different locations"
+examples = ["video meet", "shared repo", "online board"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Teams must share one office.",
+"true": "Teams can work from anywhere."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_51"]
+script = ExtResource("1_item")
+id = "COS_01"
+term = "Cost Estimation"
+keyword = "budget"
+definition = "Forecasts money and resources required to complete a software project within constraints."
+simple_terms = "Predicting money needed for development"
+examples = ["staff cost", "tool cost", "time cost"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It ignores project scope.",
+"true": "It helps plan project budgets."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_52"]
+script = ExtResource("1_item")
+id = "COS_02"
+term = "Effort Estimation"
+keyword = "effort"
+definition = "Predicts the amount of human work needed to complete software development tasks."
+simple_terms = "Estimating work hours for project tasks"
+examples = ["team hours", "coding days", "test weeks"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It counts hardware only.",
+"true": "It measures required labor."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_53"]
+script = ExtResource("1_item")
+id = "COS_03"
+term = "Expert Judgment"
+keyword = "expert"
+definition = "Uses experienced professionals to estimate project cost and effort based on knowledge."
+simple_terms = "Predictions based on experienced opinion"
+examples = ["lead review", "team guess", "senior plan"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "No human input is used.",
+"true": "Experience guides the estimate."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_54"]
+script = ExtResource("1_item")
+id = "COS_04"
+term = "Analogous Estimation"
+keyword = "compare"
+definition = "Uses similar past projects as a reference to estimate new project cost and duration."
+simple_terms = "Comparing with earlier similar projects"
+examples = ["old app", "past build", "prior task"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "History is ignored.",
+"true": "Past data supports predictions."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_55"]
+script = ExtResource("1_item")
+id = "COS_05"
+term = "Parametric Model"
+keyword = "formula"
+definition = "Uses mathematical relationships and project variables to estimate cost and effort."
+simple_terms = "Math based prediction of project needs"
+examples = ["size rate", "cost rule", "staff rule"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It avoids calculations.",
+"true": "It uses formulas and variables."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_56"]
+script = ExtResource("1_item")
+id = "COS_06"
+term = "Constructive Cost Model"
+keyword = "model"
+definition = "A formal estimation model that predicts software effort and cost using project size."
+simple_terms = "Standard method for effort prediction"
+examples = ["basic mode", "inter mode", "detail mode"]
+accepted_terms = ["COCOMO"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It measures code quality only.",
+"true": "It estimates using software size."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_57"]
+script = ExtResource("1_item")
+id = "COS_07"
+term = "Function Point Count"
+keyword = "function"
+definition = "Estimates software size by counting user visible functions and system interactions."
+simple_terms = "Sizing by counting delivered functions"
+examples = ["input form", "output page", "data file"]
+accepted_terms = ["FP"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It counts only defects.",
+"true": "It measures delivered functionality."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_58"]
+script = ExtResource("1_item")
+id = "COS_08"
+term = "Risk Reserve"
+keyword = "reserve"
+definition = "Extra budget or time kept for unexpected issues that may affect project completion."
+simple_terms = "Extra allowance for uncertain events"
+examples = ["delay fund", "extra days", "backup cost"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It removes all risks.",
+"true": "It handles uncertainty in planning."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_59"]
+script = ExtResource("1_item")
+id = "SQA_01"
+term = "Quality Management"
+keyword = "quality"
+definition = "Coordinates policies and activities to ensure software meets standards and user needs."
+simple_terms = "Managing how good software is made"
+examples = ["plan check", "policy set", "goal review"]
+accepted_terms = ["QM"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It ignores customer needs.",
+"true": "It guides quality goals and control."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_60"]
+script = ExtResource("1_item")
+id = "SQA_02"
+term = "Quality Assurance"
+keyword = "assure"
+definition = "Monitors software processes to make sure standards and procedures are followed correctly."
+simple_terms = "Checking if work follows set standards"
+examples = ["process audit", "rule check", "team review"]
+accepted_terms = ["QA", "SQA"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It only fixes finished products.",
+"true": "It focuses on process compliance."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_61"]
+script = ExtResource("1_item")
+id = "SQA_03"
+term = "Quality Control"
+keyword = "control"
+definition = "Checks software outputs to find defects and confirm the product meets requirements."
+simple_terms = "Testing results to find problems"
+examples = ["bug test", "code check", "result test"]
+accepted_terms = ["QC"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It ignores product defects.",
+"true": "It examines product outputs."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_62"]
+script = ExtResource("1_item")
+id = "SQA_04"
+term = "Process Standard"
+keyword = "standard"
+definition = "Defined rules that guide how software activities should be performed consistently."
+simple_terms = "Rules for doing development tasks"
+examples = ["coding rule", "test guide", "review flow"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It defines user passwords.",
+"true": "It guides how work is done."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_63"]
+script = ExtResource("1_item")
+id = "SQA_05"
+term = "Product Standard"
+keyword = "product"
+definition = "Quality criteria used to evaluate whether software outputs meet required specifications."
+simple_terms = "Rules for checking finished software"
+examples = ["speed check", "bug limit", "ui rule"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It manages employee payroll.",
+"true": "It measures software output quality."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_64"]
+script = ExtResource("1_item")
+id = "SQA_06"
+term = "Quality Metric"
+keyword = "metric"
+definition = "A measurable value used to evaluate software quality, performance, or reliability."
+simple_terms = "Numbers used to judge software results"
+examples = ["bug count", "fail rate", "uptime log"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "Metrics remove all defects.",
+"true": "Metrics provide measurable quality data."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_65"]
+script = ExtResource("1_item")
+id = "SQA_07"
+term = "Governance Framework"
+keyword = "govern"
+definition = "A structured model for aligning software controls, risks, and compliance with business goals."
+simple_terms = "Rules for managing control and trust"
+examples = ["audit map", "risk guide", "control set"]
+accepted_terms = ["COBIT"]
+difficulty = 1
+related_to = ["design", "process", "quality", "management", "estimation"]
+tof_statement = {
+"false": "It replaces programming work.",
+"true": "It aligns controls with objectives."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[resource]
+script = ExtResource("2_lesson")
+lesson_title = "Software Engineering"
+lesson_items = Array[ExtResource("1_item")]([SubResource("Resource_1"), SubResource("Resource_2"), SubResource("Resource_3"), SubResource("Resource_4"), SubResource("Resource_5"), SubResource("Resource_6"), SubResource("Resource_7"), SubResource("Resource_8"), SubResource("Resource_9"), SubResource("Resource_10"), SubResource("Resource_11"), SubResource("Resource_12"), SubResource("Resource_13"), SubResource("Resource_14"), SubResource("Resource_15"), SubResource("Resource_16"), SubResource("Resource_17"), SubResource("Resource_18"), SubResource("Resource_19"), SubResource("Resource_20"), SubResource("Resource_21"), SubResource("Resource_22"), SubResource("Resource_23"), SubResource("Resource_24"), SubResource("Resource_25"), SubResource("Resource_26"), SubResource("Resource_27"), SubResource("Resource_28"), SubResource("Resource_29"), SubResource("Resource_30"), SubResource("Resource_31"), SubResource("Resource_32"), SubResource("Resource_33"), SubResource("Resource_34"), SubResource("Resource_35"), SubResource("Resource_36"), SubResource("Resource_37"), SubResource("Resource_38"), SubResource("Resource_39"), SubResource("Resource_40"), SubResource("Resource_41"), SubResource("Resource_42"), SubResource("Resource_43"), SubResource("Resource_44"), SubResource("Resource_45"), SubResource("Resource_46"), SubResource("Resource_47"), SubResource("Resource_48"), SubResource("Resource_49"), SubResource("Resource_50"), SubResource("Resource_51"), SubResource("Resource_52"), SubResource("Resource_53"), SubResource("Resource_54"), SubResource("Resource_55"), SubResource("Resource_56"), SubResource("Resource_57"), SubResource("Resource_58"), SubResource("Resource_59"), SubResource("Resource_60"), SubResource("Resource_61"), SubResource("Resource_62"), SubResource("Resource_63"), SubResource("Resource_64"), SubResource("Resource_65")])

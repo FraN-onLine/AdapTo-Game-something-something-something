@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://dfasf32dasd34"]
 
-[ext_resource type="Script" uid="uid://sfxmanager1" path="res://Globals/sfx_manager.gd" id="1_script"]
-[ext_resource type="AudioStream" uid="uid://success123" path="res://Assets/success.wav" id="2_success"]
-[ext_resource type="AudioStream" uid="uid://fail123" path="res://Assets/fail.mp3" id="3_fail"]
+[ext_resource type="Script" uid="uid://dp7cbkb8cl47q" path="res://Globals/sfx_manager.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://b5mmsrlsgmhrp" path="res://Assets/success.wav" id="2_success"]
+[ext_resource type="AudioStream" uid="uid://c5gxpieyaqmx6" path="res://Assets/fail.mp3" id="3_fail"]
 
-[node name="SFXManager" type="Node"]
+[node name="SFXManager" type="Node" unique_id=579446131]
 process_mode = 3
 script = ExtResource("1_script")
 
-[node name="SuccessSound" type="AudioStreamPlayer" parent="."]
+[node name="SuccessSound" type="AudioStreamPlayer" parent="." unique_id=1342620634]
 stream = ExtResource("2_success")
-volume_db = 0.0
 
-[node name="FailSound" type="AudioStreamPlayer" parent="."]
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=1313268462]
 stream = ExtResource("3_fail")
-volume_db = 0.0

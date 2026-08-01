@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://achv_p9lhfn8u"]
+
+[ext_resource type="Script" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "matching_perfect"
+name = "Perfect Match"
+description = "Match all pairs in Matching Game without any wrong guesses"
+icon = null

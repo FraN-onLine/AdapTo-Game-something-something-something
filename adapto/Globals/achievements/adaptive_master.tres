@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://cdcd41700aily"]
+
+[ext_resource type="Script" uid="uid://c48fidaat50wc" path="res://Globals/achievement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "adaptive_master"
+name = "Adaptive Master"
+description = "Complete 5 adaptive mode sessions"

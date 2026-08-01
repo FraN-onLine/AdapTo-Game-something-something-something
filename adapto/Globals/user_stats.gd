@@ -179,6 +179,8 @@ func save_user_stats():
 		perf["adaptive_started_once"] = adaptive_started_once
 		perf["adaptive_games_played"] = adaptive_games_played
 		Database.save_user_performance(Global.current_user, perf)
+		# Also save game info data
+		Database.save_user_gameinfo(Global.current_user, GameInfo.serialize())
 
 # Load user stats from database
 func load_user_stats():
@@ -197,6 +199,12 @@ func load_user_stats():
 				adaptive_started_once = bool(perf["adaptive_started_once"])
 			if perf.has("adaptive_games_played"):
 				adaptive_games_played = int(perf["adaptive_games_played"])
+		# Load GameInfo data
+		var info_data = Database.load_user_gameinfo(Global.current_user)
+		if info_data != null and typeof(info_data) == TYPE_DICTIONARY and not info_data.is_empty():
+			GameInfo.deserialize(info_data)
+		else:
+			GameInfo.reset_all()
 
 	for game_id in GAME_SEQUENCE:
 		if not adaptive_history.has(game_id) or typeof(adaptive_history[game_id]) != TYPE_ARRAY:

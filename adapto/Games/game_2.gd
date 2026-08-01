@@ -214,13 +214,30 @@ func _record_user_stats() -> void:
 func _show_end_dialog() -> void:
 	var elapsed := maxi(0, Time.get_unix_time_from_system() - round_started_unix)
 	var rating := _get_performance_rating()
+	var accuracy := 0.0
+	if total_questions > 0:
+		accuracy = (float(correct_count) / float(total_questions)) * 100.0
 	
 	var dialog_title = "Round Complete"
 	var dialog_text = "Category Challenge\nMoney Earned: $%d\nCorrect: %d/%d\nTime: %ds\nRating: %s" % [money, correct_count, total_questions, elapsed, rating]
 	
+	# Process GameInfo - negative money is NOT a win
+	var game2_won = money >= 0
+	var completion_ratio := 0.0
+	if total_questions > 0:
+		completion_ratio = clampf(float(answered.size()) / float(total_questions), 0.0, 1.0)
+	var fair_score := UserStats.compute_fair_score("game2", float(money), accuracy, float(elapsed), completion_ratio)
+	
+	var extra_data := {"money": money, "correct_count": correct_count, "incorrect_count": incorrect_count}
+	var gameinfo_result := GameInfo.record_game_completion(
+		"game2", accuracy, fair_score, completion_ratio,
+		current_streak, 0, float(elapsed), 180.0,
+		game2_won, extra_data
+	)
+	
 	var end_modal = preload("res://Games/game_end_modal.tscn").instantiate()
 	add_child(end_modal)
-	end_modal.show_stats(dialog_title, dialog_text)
+	end_modal.show_stats(dialog_title, dialog_text, gameinfo_result)
 	end_modal.confirmed.connect(_on_end_dialog_confirmed)
 
 

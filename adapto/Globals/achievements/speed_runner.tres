@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://d3my13qc31ck"]
+
+[ext_resource type="Script" uid="uid://c48fidaat50wc" path="res://Globals/achievement.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bxkdwtrfhyrha" path="res://Assets/UI/Yellow Arrow.png" id="1_1lskq"]
+
+[resource]
+script = ExtResource("1")
+id = "speed_runner"
+name = "Speed Runner"
+description = "Complete any game in under 30 seconds"
+icon = ExtResource("1_1lskq")

@@ -263,20 +263,37 @@ func _show_end_dialog(won: bool) -> void:
 	var rating := _get_performance_rating()
 	var score := _calculate_score()
 	var avg_time := _calculate_average_time()
+	var accuracy := _calculate_accuracy()
 	
 	var dialog_title = ""
 	var dialog_text = ""
 	
 	if won:
 		dialog_title = "Victory!"
-		dialog_text = "Great job!\nCorrect: %d/5\nScore: %.0f\nAverage Time: %.1fs\nAccuracy: %.1f%%\nRating: %s" % [correct_items, score, avg_time, _calculate_accuracy(), rating]
+		dialog_text = "Great job!\nCorrect: %d/5\nScore: %.0f\nAverage Time: %.1fs\nAccuracy: %.1f%%\nRating: %s" % [correct_items, score, avg_time, accuracy, rating]
 	else:
 		dialog_title = "Defeat"
-		dialog_text = "Game Over\nCorrect: %d/5\nScore: %.0f\nAverage Time: %.1fs\nAccuracy: %.1f%%\nRating: %s" % [correct_items, score, avg_time, _calculate_accuracy(), rating]
+		dialog_text = "Game Over\nCorrect: %d/5\nScore: %.0f\nAverage Time: %.1fs\nAccuracy: %.1f%%\nRating: %s" % [correct_items, score, avg_time, accuracy, rating]
+	
+	# Process GameInfo
+	var total_questions := 0
+	var total_correct := 0
+	for i in range(4):
+		total_questions += int(UserStats.game_stats["game1"]["questions"][i])
+		total_correct += int(UserStats.game_stats["game1"]["correct"][i])
+	var completion_ratio := clampf(float(correct_items) / 5.0, 0.0, 1.0)
+	var fair_score := UserStats.compute_fair_score("game1", score, accuracy, avg_time, completion_ratio)
+	
+	var extra_data := {"hp_lost": max_hp - hp, "hp": hp}
+	var gameinfo_result := GameInfo.record_game_completion(
+		"game1", accuracy, fair_score, completion_ratio,
+		max_streak, 0, avg_time * total_questions, float(max_time),
+		won, extra_data
+	)
 	
 	var end_modal = preload("res://Games/game_end_modal.tscn").instantiate()
 	add_child(end_modal)
-	end_modal.show_stats(dialog_title, dialog_text)
+	end_modal.show_stats(dialog_title, dialog_text, gameinfo_result)
 	end_modal.confirmed.connect(_on_end_dialog_confirmed)
 
 

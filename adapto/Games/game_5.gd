@@ -353,10 +353,23 @@ func _end_game(won: bool) -> void:
 	else:
 		dialog_title = "Time Up"
 		dialog_text = "Time's up!\nScore: %d\nWords: %d/%d" % [score, current_word_index, game_data.size()]
+	
+	# Process GameInfo
+	var completion_ratio := 0.0
+	if game_data.size() > 0:
+		completion_ratio = clampf(float(current_word_index) / float(game_data.size()), 0.0, 1.0)
+	var fair_score := UserStats.compute_fair_score("game5", float(score), accuracy, float(elapsed), completion_ratio)
+	
+	var extra_data := {"mistakes": mistakes_total}
+	var gameinfo_result := GameInfo.record_game_completion(
+		"game5", accuracy, fair_score, completion_ratio,
+		max_streak, hints_used, float(elapsed), float(ROUND_TIME),
+		won, extra_data
+	)
 		
 	var end_modal = preload("res://Games/game_end_modal.tscn").instantiate()
 	add_child(end_modal)
-	end_modal.show_stats(dialog_title, dialog_text)
+	end_modal.show_stats(dialog_title, dialog_text, gameinfo_result)
 	end_modal.confirmed.connect(_on_end_dialog_confirmed)
 
 

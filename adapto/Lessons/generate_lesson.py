@@ -457,3 +457,13 @@ Rules:
 
         out_path = os.path.join(OUTPUT_DIR, folder, f"{sanitize_id(topic)}.tres")
         write_tres(topic, items, out_path)
+        
+#if you want to convert an existing JSON file (following the same schema) to a Godot .tres resource, you can use this function:
+#add default path to Lessons/lesson_files/SE and sanitize the topic name for the filename
+#default json will be default.json
+def json_to_godot_tres(json_path: str = "Lessons/lesson_files/default.json", out_path: str = "Lessons/lesson_files/SE"):
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    topic = data.get("topic", "Generated Lesson")
+    items = normalize_items(topic, data.get("items", []))
+    write_tres(topic, items, out_path)

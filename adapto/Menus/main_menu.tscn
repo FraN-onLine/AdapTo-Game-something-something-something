@@ -118,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pgq7c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 8.0
 }]
@@ -156,63 +156,49 @@ corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_user_data_panel"]
-content_margin_left = 35
-content_margin_top = 35
-content_margin_right = 35
-content_margin_bottom = 35
+content_margin_left = 35.0
+content_margin_top = 35.0
+content_margin_right = 35.0
+content_margin_bottom = 35.0
 bg_color = Color(0.85, 0.92, 0.98, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.196, 0.435, 0.765, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats_bg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_user_data_box"]
 bg_color = Color(1, 1, 1, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.85, 0.92, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.85, 0.92, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_analysis_box"]
-bg_color = Color(1, 1, 1, 0.5)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.85, 0.92, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
 bg_color = Color(0.196, 0.435, 0.765, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_user_data_box"]
-bg_color = Color(1, 1, 1, 0.9)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_analysis_box"]
+bg_color = Color(1, 1, 1, 0.5)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.8, 0.85, 0.92, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="ColorRect" type="TextureRect" unique_id=88508662]
 anchors_preset = 15
@@ -274,6 +260,26 @@ theme_override_fonts/font = ExtResource("3_cxdly")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_nhx3u")
 text = "Create Topic
+"
+
+[node name="Achievements" type="Button" parent="Control/VBoxContainer" unique_id=1283844759]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+theme_override_fonts/font = ExtResource("3_cxdly")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nhx3u")
+text = "Achievements
+"
+
+[node name="Shop" type="Button" parent="Control/VBoxContainer" unique_id=2070319460]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+theme_override_fonts/font = ExtResource("3_cxdly")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nhx3u")
+text = "Achievements
 "
 
 [node name="Button4" type="Button" parent="Control/VBoxContainer" unique_id=122959025]
@@ -698,27 +704,27 @@ custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_user_data_box")
 
-[node name="VBox" type="VBoxContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel"]
+[node name="VBox" type="VBoxContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel" unique_id=108100272]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HeaderPanel" type="PanelContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox"]
+[node name="HeaderPanel" type="PanelContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox" unique_id=131033121]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="GridContainer" type="GridContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel"]
+[node name="GridContainer" type="GridContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel" unique_id=122864790]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 columns = 3
 
-[node name="Label" type="Label" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel/GridContainer"]
+[node name="Label" type="Label" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel/GridContainer" unique_id=1247575760]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cxdly")
 theme_override_font_sizes/font_size = 14
 text = "GAME"
 
-[node name="Label2" type="Label" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel/GridContainer"]
+[node name="Label2" type="Label" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel/GridContainer" unique_id=826221616]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cxdly")
@@ -726,7 +732,7 @@ theme_override_font_sizes/font_size = 14
 text = "SCORE"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel/GridContainer"]
+[node name="Label3" type="Label" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox/HeaderPanel/GridContainer" unique_id=332928436]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cxdly")
@@ -734,7 +740,7 @@ theme_override_font_sizes/font_size = 14
 text = "TIME"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UserDataModal/ModalPanel/VBoxContainer/StatsPanel/VBox" unique_id=281029739]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
@@ -750,7 +756,7 @@ columns = 3
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_analysis_box")
 
-[node name="VBox" type="VBoxContainer" parent="UserDataModal/ModalPanel/VBoxContainer/AnalysisBox"]
+[node name="VBox" type="VBoxContainer" parent="UserDataModal/ModalPanel/VBoxContainer/AnalysisBox" unique_id=135509772]
 layout_mode = 2
 theme_override_constants/separation = 4
 
@@ -807,9 +813,31 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Coins Label" type="Label" parent="." unique_id=544702748]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 207.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("3_cxdly")
+theme_override_font_sizes/font_size = 35
+text = "COINS:"
+
+[node name="Level Label" type="Label" parent="." unique_id=759980808]
+layout_mode = 0
+offset_left = 985.0
+offset_top = 7.0
+offset_right = 1121.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("3_cxdly")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL:"
+
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button4" to="." method="on_diagnostic_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button5" to="." method="_on_adaptive_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TopicSelect" to="." method="_on_topic_select_pressed"]
