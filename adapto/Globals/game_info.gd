@@ -34,20 +34,20 @@ var comeback_count := 0       # For tracking comeback_king achievement
 
 # ── Character Cosmetics ──────────────────────────────────────────────────────
 var unlocked_characters: Dictionary = {
-	"sabine": true,  # Default, always unlocked
+	"none": true,  # Default (no cosmetic), always unlocked
 	"caius": false,
 	"lucky": false
 }
-var selected_character: String = "sabine"
+var selected_character: String = "none"
 
 const CHARACTER_COSTS := {
-	"sabine": 0,
+	"none": 0,
 	"caius": 300,
 	"lucky": 150
 }
 
 const CHARACTER_SPRITES := {
-	"sabine": "res://Assets/Sabine/Sabine-Sheet.png",
+	"none": "res://Assets/Sabine/Sabine-Sheet.png",  # Default sprite
 	"caius": "res://Assets/Caius/Caius-Sheet.png",
 	"lucky": "res://Assets/Lucky/Lucky-Sheet.png"
 }
@@ -505,5 +505,5 @@ func reset_all() -> void:
 	total_coins_earned = 0
 	current_session_wins = 0
 	comeback_count = 0
-	unlocked_characters = {"sabine": true, "caius": false, "lucky": false}
-	selected_character = "sabine"
+	unlocked_characters = {"none": true, "caius": false, "lucky": false}
+	selected_character = "none"

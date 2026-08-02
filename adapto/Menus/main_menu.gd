@@ -701,6 +701,11 @@ func _on_shop_pressed() -> void:
 	_show_shop_panel()
 
 
+func _on_shop_close_pressed() -> void:
+	if has_node("ShopPanel"):
+		$ShopPanel.visible = false
+
+
 func _on_game_select_pressed() -> void:
 	# Only allow game selection after completing diagnostic
 	if not UserStats.has_completed_diagnostic():
@@ -787,7 +792,7 @@ func _create_game_select_panel() -> void:
 	box.grow_vertical = 2
 	panel.add_child(box)
 	
-	# Background color rect
+	# Background color rect with rounded corners - fills the entire box
 	var bg_rect = ColorRect.new()
 	bg_rect.name = "BGRect"
 	bg_rect.layout_mode = 1
@@ -797,12 +802,24 @@ func _create_game_select_panel() -> void:
 	bg_rect.grow_horizontal = 2
 	bg_rect.grow_vertical = 2
 	bg_rect.color = Color(0.957, 0.953, 0.918, 1)
+	# Add corner radius using a stylebox
+	var bg_style = StyleBoxFlat.new()
+	bg_style.bg_color = Color(0.957, 0.953, 0.918, 1)
+	bg_style.corner_radius_top_left = 16
+	bg_style.corner_radius_top_right = 16
+	bg_style.corner_radius_bottom_right = 16
+	bg_style.corner_radius_bottom_left = 16
+	bg_rect.add_theme_stylebox_override("normal", bg_style)
+	# Make sure bg_rect is added first so it's behind other elements
 	box.add_child(bg_rect)
 	
-	# VBox
+	# VBox - fills the entire box
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBox"
 	vbox.layout_mode = 2
+	vbox.add_theme_constant_override("separation", 12)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(vbox)
 	
 	# Title
@@ -814,21 +831,26 @@ func _create_game_select_panel() -> void:
 	title.add_theme_font_size_override("font_size", 32)
 	title.text = "Select a Game (1 of 5)"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(title)
 	
-	# Scroll
+	# Scroll - expands to fill available space
 	var scroll = ScrollContainer.new()
 	scroll.name = "Scroll"
 	scroll.custom_minimum_size = Vector2(0, 350)
 	scroll.layout_mode = 2
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	vbox.add_child(scroll)
 	
-	# List VBox
+	# List VBox - fills the scroll container
 	var list_vbox = VBoxContainer.new()
 	list_vbox.name = "GameListVBox"
 	list_vbox.layout_mode = 2
 	list_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	list_vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	list_vbox.add_theme_constant_override("separation", 8)
 	scroll.add_child(list_vbox)
 	
 	# Cancel button
@@ -895,8 +917,8 @@ func _show_shop_panel() -> void:
 	for child in shop_list.get_children():
 		child.queue_free()
 	
-	# Add Sabine (default, already owned)
-	_add_shop_item(shop_list, "sabine", "Sabine", "Default Character", 0, true)
+	# Add None (default, free)
+	_add_shop_item(shop_list, "none", "None (Default)", "Default", 0, true)
 	# Add Caius
 	_add_shop_item(shop_list, "caius", "Caius", "Unlock Character", 300, GameInfo.unlocked_characters.get("caius", false))
 	# Add Lucky
@@ -946,7 +968,7 @@ func _create_shop_panel() -> void:
 	box.grow_vertical = 2
 	panel.add_child(box)
 	
-	# Background color rect
+	# Background color rect with rounded corners - fills the entire box
 	var bg_rect = ColorRect.new()
 	bg_rect.name = "BGRect"
 	bg_rect.layout_mode = 1
@@ -956,12 +978,24 @@ func _create_shop_panel() -> void:
 	bg_rect.grow_horizontal = 2
 	bg_rect.grow_vertical = 2
 	bg_rect.color = Color(0.957, 0.953, 0.918, 1)
+	# Add corner radius using a stylebox
+	var bg_style = StyleBoxFlat.new()
+	bg_style.bg_color = Color(0.957, 0.953, 0.918, 1)
+	bg_style.corner_radius_top_left = 16
+	bg_style.corner_radius_top_right = 16
+	bg_style.corner_radius_bottom_right = 16
+	bg_style.corner_radius_bottom_left = 16
+	bg_rect.add_theme_stylebox_override("normal", bg_style)
+	# Make sure bg_rect is added first so it's behind other elements
 	box.add_child(bg_rect)
 	
-	# VBox
+	# VBox - fills the entire box
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBox"
 	vbox.layout_mode = 2
+	vbox.add_theme_constant_override("separation", 12)
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(vbox)
 	
 	# Title
@@ -973,6 +1007,7 @@ func _create_shop_panel() -> void:
 	title.add_theme_font_size_override("font_size", 32)
 	title.text = "Character Shop"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(title)
 	
 	# Coins display
@@ -984,6 +1019,7 @@ func _create_shop_panel() -> void:
 	coins_label.add_theme_font_size_override("font_size", 20)
 	coins_label.text = "🪙 Coins: 0"
 	coins_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	coins_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(coins_label)
 	
 	# Current selection
@@ -993,23 +1029,28 @@ func _create_shop_panel() -> void:
 	current_label.add_theme_color_override("font_color", Color(0.2, 0.4, 0.2, 1))
 	current_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
 	current_label.add_theme_font_size_override("font_size", 16)
-	current_label.text = "Current: Sabine"
+	current_label.text = "Current: %s" % GameInfo.selected_character.capitalize()
 	current_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	current_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(current_label)
 	
-	# Scroll
+	# Scroll - expands to fill available space
 	var scroll = ScrollContainer.new()
 	scroll.name = "Scroll"
 	scroll.custom_minimum_size = Vector2(0, 350)
 	scroll.layout_mode = 2
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	vbox.add_child(scroll)
 	
-	# Shop list VBox
+	# Shop list VBox - fills the scroll container
 	var shop_list = VBoxContainer.new()
 	shop_list.name = "ShopListVBox"
 	shop_list.layout_mode = 2
 	shop_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	shop_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	shop_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(shop_list)
 	
 	# Cancel button
@@ -1022,7 +1063,8 @@ func _create_shop_panel() -> void:
 	cancel_btn.add_theme_font_size_override("font_size", 20)
 	cancel_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
 	cancel_btn.text = "Close"
-	cancel_btn.pressed.connect(_on_back_button_pressed)
+	cancel_btn.pressed.connect(_on_shop_close_pressed)
+	cancel_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	vbox.add_child(cancel_btn)
 	
 	add_child(panel)
@@ -1105,13 +1147,15 @@ func _update_cosmetic_display() -> void:
 	if cosmetic_sprite:
 		var char_id = GameInfo.selected_character
 		# Update animation based on selected character
-		match char_id:
-			"sabine":
-				cosmetic_sprite.animation = "default"
-			"caius":
-				cosmetic_sprite.animation = "caius"
-			"lucky":
-				cosmetic_sprite.animation = "lucky"
+		# "none" or "sabine" both use default animation
+		if char_id == "none" or char_id == "sabine":
+			cosmetic_sprite.animation = "default"
+		elif char_id == "caius":
+			cosmetic_sprite.animation = "caius"
+		elif char_id == "lucky":
+			cosmetic_sprite.animation = "lucky"
+		else:
+			cosmetic_sprite.animation = "default"
 		cosmetic_sprite.visible = true
 
 

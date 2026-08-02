@@ -49,13 +49,13 @@ SCHEMA (JSON):
         {{
             "id": "string (format: ABC_01 where ABC = first 3 letters of topic uppercase)",
             "term": "string (3-34 chars max, no acronyms, alphanumeric+space+hyphen only)",
-            "keyword": "string (3-15 chars, single concept)",
+            "keyword": "string (3-15 chars, single concept, keyword should never be the term itself)",
             "definition": "string (prefer 60-120 chars, single-line, plain text; allowed up to 240 chars)",
             "simple_terms": "string (20-60 chars, plain text)",
             "examples": ["string", "string", "string"],
-            "accepted_terms": ["string (0-3 items; acronyms or synonyms only)"] ,
+            "accepted_terms": ["string (0-5 items; acronyms, unhyphenated, other acceptable terms and synonyms only)"] ,
             "difficulty": 1,
-            "related_to": ["string (reuse 3-5 same category tags across ALL items)"] ,
+            "related_to": ["string (reuse 3-5 same category tags across ALL items), items should always be related to atleast 2 other items in the same lesson"], ,
             "type_of_information": ["definition","explain","apply"],
             "tof_statement": {{"true": "string", "false": "string"}}
         }}
@@ -388,27 +388,24 @@ if __name__ == "__main__":
         folder = folder_arg if folder_arg else pdf_name
 
         # Fixed type_of_information in prompt to request 3 distinct categories
-        pdf_prompt = f"""Analyze this PDF document and create 60 or more lesson items (depending on how much possible content there is to create, create as much as possible, covering all bases) based on its content.
+        pdf_prompt = f"""Analyze this PDF document and create at minimum 60 or more lesson items (depending on how much possible content there is to create, create as much as possible, covering all bases) based on its content.
 Return ONLY valid JSON, no markdown fences.
-Schema:
+
+SCHEMA (JSON):
 {{
-    "topic": "string (the main topic of the document)",
     "items": [
         {{
-            "id": "string",
+            "id": "string (format: ABC_01 where ABC = first 3 letters of topic uppercase)",
             "term": "string (3-34 chars max, no acronyms, alphanumeric+space+hyphen only)",
-            "keyword": "string",
-            "definition": "string",
-            "simple_terms": "string",
+            "keyword": "string (3-15 chars, single concept, keyword should never be the term itself)",
+            "definition": "string (prefer 60-120 chars, single-line, plain text; allowed up to 240 chars)",
+            "simple_terms": "string (20-60 chars, plain text)",
             "examples": ["string", "string", "string"],
-            "accepted_terms": ["string", "string"],
+            "accepted_terms": ["string (0-5 items; acronyms, unhyphenated, other acceptable terms and synonyms only)"] ,
             "difficulty": 1,
-            "related_to": ["string"],
-            "type_of_information": ["definition", "explain", "apply"],
-            "tof_statement": {{
-                "true": "string",
-                "false": "string"
-            }}
+            "related_to": ["string (reuse 3-5 same category tags across ALL items), items should always be related to atleast 2 other items in the same lesson"], ,
+            "type_of_information": ["definition","explain","apply"],
+            "tof_statement": {{"true": "string", "false": "string"}}
         }}
     ]
 }}
@@ -416,7 +413,17 @@ Schema:
 Rules:
 - `term` must be 3-34 chars and use only letters, numbers, spaces, and hyphens.
 - Return a JSON object only.
-- terms must not have acronyms accompanying them or with parenthesis (acronyms), instead acronyms, plurals and other similar will be at accepted terms
+- terms must not have acronyms accompanying them or with parenthesis (acronyms), instead acronyms, plurals and other similar will be at accepted terms.
+STRICT RULES:
+1. `term` MUST be between 3 and 34 characters. No all-uppercase acronyms in `term` (if a concept is commonly an acronym, place it in `accepted_terms` instead), do not append any form of acronym in the term.
+2. `definition` should be concise (aim 60-120 characters). Longer definitions are allowed up to 240 characters when necessary; avoid newlines or markdown.
+3. `simple_terms` 20-60 characters. do not use the term itself.
+4. `examples` MUST contain exactly 3 items, each 5-25 chars.
+5. `accepted_terms` OPTIONAL, max 5 items; use only for acronyms/variants/synonyms/plurals/with or without hyphen and the like.
+6. `type_of_information` MUST contain 3-5 items from: definition, explain, apply, list, defined.
+7. `related_to` should reuse the same 3-5 category tags across all items in this response.
+8. `id` should follow the ABC_01 numbering pattern (ABC = first 3 letters of the topic, uppercase).
+9. 'keyword' does not use the term itself.
 """
 
         body = {
