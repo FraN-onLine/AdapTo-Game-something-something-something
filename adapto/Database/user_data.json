@@ -323,9 +323,15 @@
 				"hints_used_total": 0.0,
 				"level": 1.0,
 				"max_streak_ever": 3.0,
+				"selected_character": "sabine",
 				"total_coins_earned": 46.0,
 				"total_games_completed": 4.0,
 				"total_xp_earned": 141.0,
+				"unlocked_characters": {
+					"caius": false,
+					"lucky": false,
+					"sabine": true
+				},
 				"xp_total": 141.0
 			},
 			"gamification": {
@@ -1787,7 +1793,9 @@
 						"total_questions_correct": 188.0,
 						"total_time": 7773.0
 					}
-				}
+				},
+				"single_game_id": "",
+				"single_game_mode": false
 			},
 			"role": "student",
 			"saved_lessons": []

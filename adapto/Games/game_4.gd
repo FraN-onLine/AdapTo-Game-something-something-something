@@ -441,8 +441,8 @@ func _disable_gameplay_buttons() -> void:
 
 
 func _on_end_dialog_confirmed() -> void:
-	# Use adaptive router for next game selection.
-	get_tree().change_scene_to_file(UserStats.get_scene_after_game("game4"))
+	# Route via adaptive selector to the next game or main menu (for single game mode).
+	get_tree().change_scene_to_file(UserStats.get_scene_after_completion("game4"))
 
 
 # Converts Game 4 result into normalized adaptive score inputs.

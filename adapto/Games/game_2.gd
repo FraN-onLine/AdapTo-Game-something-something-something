@@ -254,8 +254,8 @@ func _show_end_dialog() -> void:
 
 
 func _on_end_dialog_confirmed() -> void:
-	# Route via adaptive selector to the next game.
-	get_tree().change_scene_to_file(UserStats.get_scene_after_game("game2"))
+	# Route via adaptive selector to the next game or main menu (for single game mode).
+	get_tree().change_scene_to_file(UserStats.get_scene_after_completion("game2"))
 
 
 func _get_performance_rating() -> String:

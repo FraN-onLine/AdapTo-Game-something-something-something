@@ -77,6 +77,20 @@ var adaptive_current_leader: String = ""
 var adaptive_games_played := 0
 var diagnostic_runs_completed := 0
 var adaptive_started_once := false
+# Single game mode (for game selection menu)
+var _single_game_mode := false
+var _single_game_id := ""
+
+func set_single_game_mode(enabled: bool, game_id: String = "") -> void:
+	_single_game_mode = enabled
+	_single_game_id = game_id if enabled else ""
+	save_user_stats()
+
+func get_single_game_mode() -> bool:
+	return _single_game_mode
+
+func get_single_game_id() -> String:
+	return _single_game_id
 
 var player_stats = {
 	"typing": {"accuracy": 0, "time": 0},
@@ -178,6 +192,8 @@ func save_user_stats():
 		perf["diagnostic_runs_completed"] = diagnostic_runs_completed
 		perf["adaptive_started_once"] = adaptive_started_once
 		perf["adaptive_games_played"] = adaptive_games_played
+		perf["single_game_mode"] = _single_game_mode
+		perf["single_game_id"] = _single_game_id
 		Database.save_user_performance(Global.current_user, perf)
 		# Also save game info data
 		Database.save_user_gameinfo(Global.current_user, GameInfo.serialize())
@@ -199,6 +215,10 @@ func load_user_stats():
 				adaptive_started_once = bool(perf["adaptive_started_once"])
 			if perf.has("adaptive_games_played"):
 				adaptive_games_played = int(perf["adaptive_games_played"])
+			if perf.has("single_game_mode"):
+				_single_game_mode = bool(perf["single_game_mode"])
+			if perf.has("single_game_id"):
+				_single_game_id = str(perf["single_game_id"])
 		# Load GameInfo data
 		var info_data = Database.load_user_gameinfo(Global.current_user)
 		if info_data != null and typeof(info_data) == TYPE_DICTIONARY and not info_data.is_empty():
@@ -232,6 +252,8 @@ func start_adaptive_session() -> void:
 		adaptive_current_leader = ""
 		return
 	adaptive_mode_active = true
+	_single_game_mode = false
+	_single_game_id = ""
 	adaptive_phase = "adaptive"
 	adaptive_last_ranked = []
 	adaptive_current_leader = get_leading_game()
@@ -254,6 +276,8 @@ func stop_adaptive_session() -> void:
 	adaptive_mode_active = false
 	adaptive_phase = "none"
 	adaptive_current_leader = ""
+	_single_game_mode = false
+	_single_game_id = ""
 	save_user_stats()
 
 
@@ -262,6 +286,20 @@ func get_scene_for_game(game_id: String) -> String:
 	if GAME_SCENES.has(game_id):
 		return str(GAME_SCENES[game_id])
 	return str(GAME_SCENES["game1"])
+
+
+# Returns the next scene after completing a game
+func get_scene_after_completion(current_game_id: String) -> String:
+	# If in single game mode, return to main menu
+	if _single_game_mode:
+		_single_game_mode = false
+		var game_id = _single_game_id
+		_single_game_id = ""
+		save_user_stats()
+		return "res://Menus/main_menu.tscn"
+	
+	# Otherwise use normal flow
+	return get_scene_after_game(current_game_id)
 
 
 

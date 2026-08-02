@@ -597,7 +597,7 @@ func _end_game(won: bool, skipped: bool = false) -> void:
 	add_child(end_modal)
 	end_modal.show_stats(dialog_title, dialog_text, gameinfo_result)
 	end_modal.confirmed.connect(func():
-		get_tree().change_scene_to_file(UserStats.get_scene_after_game("game3"))
+		get_tree().change_scene_to_file(UserStats.get_scene_after_completion("game3"))
 	)
 
 

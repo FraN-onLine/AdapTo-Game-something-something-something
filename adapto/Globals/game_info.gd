@@ -32,6 +32,51 @@ var current_game: String = ""  # Which game is currently being played
 var last_jeopardy_money := 0   # For tracking exact $200 achievement
 var comeback_count := 0       # For tracking comeback_king achievement
 
+# ── Character Cosmetics ──────────────────────────────────────────────────────
+var unlocked_characters: Dictionary = {
+	"sabine": true,  # Default, always unlocked
+	"caius": false,
+	"lucky": false
+}
+var selected_character: String = "sabine"
+
+const CHARACTER_COSTS := {
+	"sabine": 0,
+	"caius": 300,
+	"lucky": 150
+}
+
+const CHARACTER_SPRITES := {
+	"sabine": "res://Assets/Sabine/Sabine-Sheet.png",
+	"caius": "res://Assets/Caius/Caius-Sheet.png",
+	"lucky": "res://Assets/Lucky/Lucky-Sheet.png"
+}
+
+## Attempt to unlock a character by spending coins.
+func unlock_character(char_id: String) -> bool:
+	if not unlocked_characters.has(char_id):
+		return false
+	if unlocked_characters[char_id]:
+		return false  # Already unlocked
+	var cost := int(CHARACTER_COSTS.get(char_id, 0))
+	if coins >= cost:
+		coins -= cost
+		unlocked_characters[char_id] = true
+		_save_gameinfo()
+		return true
+	return false
+
+
+## Select a character to display on the main menu.
+func select_character(char_id: String) -> bool:
+	if not unlocked_characters.has(char_id):
+		return false
+	if not unlocked_characters[char_id]:
+		return false  # Not unlocked yet
+	selected_character = char_id
+	_save_gameinfo()
+	return true
+
 # ── Init ──────────────────────────────────────────────────────────────────────
 
 func _ready() -> void:
@@ -416,7 +461,9 @@ func serialize() -> Dictionary:
 		"hints_used_total": hints_used_total,
 		"total_xp_earned": total_xp_earned,
 		"total_coins_earned": total_coins_earned,
-		"comeback_count": comeback_count
+		"comeback_count": comeback_count,
+		"unlocked_characters": unlocked_characters.duplicate(),
+		"selected_character": selected_character
 	}
 
 func deserialize(data: Dictionary) -> void:
@@ -433,6 +480,15 @@ func deserialize(data: Dictionary) -> void:
 	total_xp_earned = int(data.get("total_xp_earned", 0))
 	total_coins_earned = int(data.get("total_coins_earned", 0))
 	comeback_count = int(data.get("comeback_count", 0))
+	# Load character cosmetics
+	if data.has("unlocked_characters") and typeof(data["unlocked_characters"]) == TYPE_DICTIONARY:
+		for char_id in unlocked_characters:
+			if data["unlocked_characters"].has(char_id):
+				unlocked_characters[char_id] = bool(data["unlocked_characters"][char_id])
+	if data.has("selected_character"):
+		var sel = str(data["selected_character"])
+		if unlocked_characters.has(sel) and unlocked_characters[sel]:
+			selected_character = sel
 
 
 ## Reset all GameInfo data (for new users or testing).
@@ -449,3 +505,5 @@ func reset_all() -> void:
 	total_coins_earned = 0
 	current_session_wins = 0
 	comeback_count = 0
+	unlocked_characters = {"sabine": true, "caius": false, "lucky": false}
+	selected_character = "sabine"

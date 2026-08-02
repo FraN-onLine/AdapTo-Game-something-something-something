@@ -23,6 +23,7 @@ func _on_start_button_pressed() -> void:
 	$Control/VBoxContainer/Button3.visible = false
 	$Control/VBoxContainer/Achievements.visible = false
 	$Control/VBoxContainer/Shop.visible = false
+	$Control/VBoxContainer/GameSelect.visible = true
 	$Control/VBoxContainer/Button4.visible = true
 	$Control/VBoxContainer/Button5.visible = true
 	$Control/VBoxContainer/Back.visible = true
@@ -117,7 +118,11 @@ func _on_back_button_pressed():
 	$Control/VBoxContainer/Back.visible = false
 	$Control/VBoxContainer/Button4.visible = false
 	$Control/VBoxContainer/Button5.visible = false
+	$Control/VBoxContainer/GameSelect.visible = false
 	$UserDataModal.visible = false
+	# Hide game select panel if visible
+	if has_node("GameSelectPanel"):
+		$GameSelectPanel.visible = false
 	# Show coins/level labels when returning to main menu
 	_set_gameinfo_labels_visible(true)
 	_update_gameinfo_labels()
@@ -693,8 +698,438 @@ func _on_shop_pressed() -> void:
 	if Global.current_user == null:
 		show_error_dialog("Please log in first.")
 		return
-	show_error_dialog("🛒 Shop\n\nComing soon! You have %d 🪙 coins." % GameInfo.coins)
+	_show_shop_panel()
 
 
 func _on_game_select_pressed() -> void:
-	pass # Replace with function body.
+	# Only allow game selection after completing diagnostic
+	if not UserStats.has_completed_diagnostic():
+		show_error_dialog("You must complete the diagnostic test (all games at least once) before accessing game selection.")
+		return
+	_show_game_select_panel()
+
+
+func _show_game_select_panel() -> void:
+	# Create panel if it doesn't exist
+	if not has_node("GameSelectPanel"):
+		_create_game_select_panel()
+	
+	var panel = $GameSelectPanel
+	panel.visible = true
+	
+	# Populate game buttons
+	var vbox = panel.get_node("GameBox/VBox/Scroll/GameListVBox")
+	for child in vbox.get_children():
+		child.queue_free()
+	
+	var game_names = {
+		"game1": "Multiple Choice",
+		"game2": "Jeopardy",
+		"game3": "Crossword",
+		"game4": "Matching Game",
+		"game5": "Hangman"
+	}
+	
+	for game_id in UserStats.GAME_SEQUENCE:
+		var gname = game_names[game_id] if game_names.has(game_id) else game_id
+		var btn = Button.new()
+		btn.text = gname
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn.custom_minimum_size = Vector2(0, 52)
+		btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+		btn.add_theme_font_size_override("font_size", 20)
+		btn.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
+		btn.add_theme_stylebox_override("normal", SubResource_white_rounded())
+		btn.pressed.connect(_on_single_game_selected.bind(game_id))
+		vbox.add_child(btn)
+	
+	# Update title
+	panel.get_node("GameBox/VBox/GameTitle").text = "Select a Game (1 of 5)"
+
+
+func _create_game_select_panel() -> void:
+	var panel = Control.new()
+	panel.name = "GameSelectPanel"
+	panel.layout_mode = 1
+	panel.anchors_preset = 15
+	panel.anchor_right = 1.0
+	panel.anchor_bottom = 1.0
+	panel.grow_horizontal = 2
+	panel.grow_vertical = 2
+	panel.visible = false
+	
+	# Background
+	var bg = ColorRect.new()
+	bg.name = "GameBG"
+	bg.layout_mode = 1
+	bg.anchors_preset = 15
+	bg.anchor_right = 1.0
+	bg.anchor_bottom = 1.0
+	bg.grow_horizontal = 2
+	bg.grow_vertical = 2
+	bg.color = Color(0, 0, 0, 0.65)
+	panel.add_child(bg)
+	
+	# Box
+	var box = Control.new()
+	box.name = "GameBox"
+	box.layout_mode = 1
+	box.anchors_preset = 8
+	box.anchor_left = 0.5
+	box.anchor_top = 0.5
+	box.anchor_right = 0.5
+	box.anchor_bottom = 0.5
+	box.offset_left = -300.0
+	box.offset_top = -280.0
+	box.offset_right = 300.0
+	box.offset_bottom = 280.0
+	box.grow_horizontal = 2
+	box.grow_vertical = 2
+	panel.add_child(box)
+	
+	# Background color rect
+	var bg_rect = ColorRect.new()
+	bg_rect.name = "BGRect"
+	bg_rect.layout_mode = 1
+	bg_rect.anchors_preset = 15
+	bg_rect.anchor_right = 1.0
+	bg_rect.anchor_bottom = 1.0
+	bg_rect.grow_horizontal = 2
+	bg_rect.grow_vertical = 2
+	bg_rect.color = Color(0.957, 0.953, 0.918, 1)
+	box.add_child(bg_rect)
+	
+	# VBox
+	var vbox = VBoxContainer.new()
+	vbox.name = "VBox"
+	vbox.layout_mode = 2
+	box.add_child(vbox)
+	
+	# Title
+	var title = Label.new()
+	title.name = "GameTitle"
+	title.layout_mode = 2
+	title.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
+	title.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	title.add_theme_font_size_override("font_size", 32)
+	title.text = "Select a Game (1 of 5)"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(title)
+	
+	# Scroll
+	var scroll = ScrollContainer.new()
+	scroll.name = "Scroll"
+	scroll.custom_minimum_size = Vector2(0, 350)
+	scroll.layout_mode = 2
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	vbox.add_child(scroll)
+	
+	# List VBox
+	var list_vbox = VBoxContainer.new()
+	list_vbox.name = "GameListVBox"
+	list_vbox.layout_mode = 2
+	list_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(list_vbox)
+	
+	# Cancel button
+	var cancel_btn = Button.new()
+	cancel_btn.name = "GameCancelBtn"
+	cancel_btn.custom_minimum_size = Vector2(0, 50)
+	cancel_btn.layout_mode = 2
+	cancel_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+	cancel_btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	cancel_btn.add_theme_font_size_override("font_size", 20)
+	cancel_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
+	cancel_btn.text = "Cancel"
+	cancel_btn.pressed.connect(_on_back_button_pressed)
+	vbox.add_child(cancel_btn)
+	
+	add_child(panel)
+
+
+func _on_single_game_selected(game_id: String) -> void:
+	# Start the selected game in single-game mode
+	UserStats.stop_adaptive_session()
+	# Mark that this is a single game selection (not diagnostic)
+	UserStats.set_single_game_mode(true, game_id)
+	get_tree().change_scene_to_file(UserStats.get_scene_for_game(game_id))
+
+
+func SubResource_white_rounded_panel() -> StyleBoxFlat:
+	var sb = StyleBoxFlat.new()
+	sb.bg_color = Color(0.957, 0.953, 0.918, 1)
+	sb.content_margin_left = 20.0
+	sb.content_margin_top = 20.0
+	sb.content_margin_right = 20.0
+	sb.content_margin_bottom = 20.0
+	sb.corner_radius_top_left = 16
+	sb.corner_radius_top_right = 16
+	sb.corner_radius_bottom_right = 16
+	sb.corner_radius_bottom_left = 16
+	return sb
+
+
+func SubResource_white_rounded_red() -> StyleBoxFlat:
+	var sb = StyleBoxFlat.new()
+	sb.bg_color = Color(0.749, 0.188, 0.188, 1)
+	sb.corner_radius_top_left = 14
+	sb.corner_radius_top_right = 14
+	sb.corner_radius_bottom_right = 14
+	sb.corner_radius_bottom_left = 14
+	return sb
+
+
+func _show_shop_panel() -> void:
+	# Create panel if it doesn't exist
+	if not has_node("ShopPanel"):
+		_create_shop_panel()
+	
+	var panel = $ShopPanel
+	panel.visible = true
+	
+	# Update coin display
+	panel.get_node("ShopBox/VBox/CoinsDisplay").text = "🪙 Coins: %d" % GameInfo.coins
+	
+	# Populate character shop items
+	var shop_list = panel.get_node("ShopBox/VBox/Scroll/ShopListVBox")
+	for child in shop_list.get_children():
+		child.queue_free()
+	
+	# Add Sabine (default, already owned)
+	_add_shop_item(shop_list, "sabine", "Sabine", "Default Character", 0, true)
+	# Add Caius
+	_add_shop_item(shop_list, "caius", "Caius", "Unlock Character", 300, GameInfo.unlocked_characters.get("caius", false))
+	# Add Lucky
+	_add_shop_item(shop_list, "lucky", "Lucky", "Unlock Character", 150, GameInfo.unlocked_characters.get("lucky", false))
+	
+	# Update current selection display
+	_update_cosmetic_display()
+
+
+func _create_shop_panel() -> void:
+	var panel = Control.new()
+	panel.name = "ShopPanel"
+	panel.layout_mode = 1
+	panel.anchors_preset = 15
+	panel.anchor_right = 1.0
+	panel.anchor_bottom = 1.0
+	panel.grow_horizontal = 2
+	panel.grow_vertical = 2
+	panel.visible = false
+	
+	# Background
+	var bg = ColorRect.new()
+	bg.name = "ShopBG"
+	bg.layout_mode = 1
+	bg.anchors_preset = 15
+	bg.anchor_right = 1.0
+	bg.anchor_bottom = 1.0
+	bg.grow_horizontal = 2
+	bg.grow_vertical = 2
+	bg.color = Color(0, 0, 0, 0.65)
+	panel.add_child(bg)
+	
+	# Box
+	var box = Control.new()
+	box.name = "ShopBox"
+	box.layout_mode = 1
+	box.anchors_preset = 8
+	box.anchor_left = 0.5
+	box.anchor_top = 0.5
+	box.anchor_right = 0.5
+	box.anchor_bottom = 0.5
+	box.offset_left = -350.0
+	box.offset_top = -300.0
+	box.offset_right = 350.0
+	box.offset_bottom = 300.0
+	box.grow_horizontal = 2
+	box.grow_vertical = 2
+	panel.add_child(box)
+	
+	# Background color rect
+	var bg_rect = ColorRect.new()
+	bg_rect.name = "BGRect"
+	bg_rect.layout_mode = 1
+	bg_rect.anchors_preset = 15
+	bg_rect.anchor_right = 1.0
+	bg_rect.anchor_bottom = 1.0
+	bg_rect.grow_horizontal = 2
+	bg_rect.grow_vertical = 2
+	bg_rect.color = Color(0.957, 0.953, 0.918, 1)
+	box.add_child(bg_rect)
+	
+	# VBox
+	var vbox = VBoxContainer.new()
+	vbox.name = "VBox"
+	vbox.layout_mode = 2
+	box.add_child(vbox)
+	
+	# Title
+	var title = Label.new()
+	title.name = "ShopTitle"
+	title.layout_mode = 2
+	title.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
+	title.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	title.add_theme_font_size_override("font_size", 32)
+	title.text = "Character Shop"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(title)
+	
+	# Coins display
+	var coins_label = Label.new()
+	coins_label.name = "CoinsDisplay"
+	coins_label.layout_mode = 2
+	coins_label.add_theme_color_override("font_color", Color(0.4, 0.3, 0.1, 1))
+	coins_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	coins_label.add_theme_font_size_override("font_size", 20)
+	coins_label.text = "🪙 Coins: 0"
+	coins_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(coins_label)
+	
+	# Current selection
+	var current_label = Label.new()
+	current_label.name = "CurrentSelection"
+	current_label.layout_mode = 2
+	current_label.add_theme_color_override("font_color", Color(0.2, 0.4, 0.2, 1))
+	current_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	current_label.add_theme_font_size_override("font_size", 16)
+	current_label.text = "Current: Sabine"
+	current_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(current_label)
+	
+	# Scroll
+	var scroll = ScrollContainer.new()
+	scroll.name = "Scroll"
+	scroll.custom_minimum_size = Vector2(0, 350)
+	scroll.layout_mode = 2
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	vbox.add_child(scroll)
+	
+	# Shop list VBox
+	var shop_list = VBoxContainer.new()
+	shop_list.name = "ShopListVBox"
+	shop_list.layout_mode = 2
+	shop_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(shop_list)
+	
+	# Cancel button
+	var cancel_btn = Button.new()
+	cancel_btn.name = "ShopCancelBtn"
+	cancel_btn.custom_minimum_size = Vector2(0, 50)
+	cancel_btn.layout_mode = 2
+	cancel_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+	cancel_btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	cancel_btn.add_theme_font_size_override("font_size", 20)
+	cancel_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
+	cancel_btn.text = "Close"
+	cancel_btn.pressed.connect(_on_back_button_pressed)
+	vbox.add_child(cancel_btn)
+	
+	add_child(panel)
+
+
+func _add_shop_item(parent: VBoxContainer, char_id: String, char_name: String, action: String, cost: int, unlocked: bool) -> void:
+	var hbox = HBoxContainer.new()
+	hbox.name = char_id + "_item"
+	hbox.layout_mode = 2
+	hbox.custom_minimum_size = Vector2(0, 60)
+	
+	# Character name label
+	var name_label = Label.new()
+	name_label.text = char_name
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	name_label.add_theme_font_size_override("font_size", 18)
+	name_label.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
+	hbox.add_child(name_label)
+	
+	# Action button
+	var action_btn = Button.new()
+	action_btn.name = char_id + "_btn"
+	action_btn.custom_minimum_size = Vector2(120, 44)
+	action_btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
+	action_btn.add_theme_font_size_override("font_size", 16)
+	
+	if char_id == GameInfo.selected_character:
+		# Currently selected
+		action_btn.text = "SELECTED"
+		action_btn.disabled = true
+		action_btn.add_theme_color_override("font_color", Color(0.2, 0.6, 0.2, 1))
+		action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_green())
+	elif unlocked:
+		# Unlocked but not selected
+		action_btn.text = "SELECT"
+		action_btn.pressed.connect(func(): _select_character(char_id))
+		action_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+		action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_blue())
+	else:
+		# Not unlocked
+		action_btn.text = "%d 🪙" % cost
+		action_btn.pressed.connect(func(): _unlock_character(char_id, cost))
+		action_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+		if GameInfo.coins >= cost:
+			action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_green())
+		else:
+			action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
+			action_btn.disabled = true
+	
+	hbox.add_child(action_btn)
+	parent.add_child(hbox)
+
+
+func _unlock_character(char_id: String, cost: int) -> void:
+	if GameInfo.unlock_character(char_id):
+		show_success_dialog("Character unlocked! 🎉\nYou can now select this character.")
+		_save_and_refresh_shop()
+	else:
+		show_error_dialog("Not enough coins!\nYou need %d 🪙 but have %d 🪙" % [cost, GameInfo.coins])
+
+
+func _select_character(char_id: String) -> void:
+	if GameInfo.select_character(char_id):
+		show_success_dialog("Character selected: %s!" % char_id.capitalize())
+		_save_and_refresh_shop()
+		_update_cosmetic_display()
+
+
+func _save_and_refresh_shop() -> void:
+	# Save game info
+	GameInfo._save_gameinfo()
+	# Refresh shop display
+	_show_shop_panel()
+
+
+func _update_cosmetic_display() -> void:
+	# Update the cosmetic animated sprite on the main menu
+	var cosmetic_sprite = $Cosmetic
+	if cosmetic_sprite:
+		var char_id = GameInfo.selected_character
+		# Update animation based on selected character
+		match char_id:
+			"sabine":
+				cosmetic_sprite.animation = "default"
+			"caius":
+				cosmetic_sprite.animation = "caius"
+			"lucky":
+				cosmetic_sprite.animation = "lucky"
+		cosmetic_sprite.visible = true
+
+
+func SubResource_white_rounded_green() -> StyleBoxFlat:
+	var sb = StyleBoxFlat.new()
+	sb.bg_color = Color(0.18, 0.616, 0.306, 1)
+	sb.corner_radius_top_left = 14
+	sb.corner_radius_top_right = 14
+	sb.corner_radius_bottom_right = 14
+	sb.corner_radius_bottom_left = 14
+	return sb
+
+
+func SubResource_white_rounded_blue() -> StyleBoxFlat:
+	var sb = StyleBoxFlat.new()
+	sb.bg_color = Color(0.196, 0.435, 0.765, 1)
+	sb.corner_radius_top_left = 14
+	sb.corner_radius_top_right = 14
+	sb.corner_radius_bottom_right = 14
+	sb.corner_radius_bottom_left = 14
+	return sb
