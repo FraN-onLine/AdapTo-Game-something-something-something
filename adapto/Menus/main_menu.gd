@@ -6,6 +6,8 @@ extends TextureRect
 
 const DEFAULT_ACCESS_ALL_SAVED_LESSONS := true
 const ADMIN_USERNAMES := ["admin"]
+const GAME_SELECT_PANEL_SCENE := preload("res://Menus/game_select_panel.tscn")
+const SHOP_PANEL_SCENE := preload("res://Menus/shop_panel.tscn")
 
 var access_all_saved_lessons := DEFAULT_ACCESS_ALL_SAVED_LESSONS
 var admin_all_lessons_toggle: CheckBox
@@ -711,162 +713,15 @@ func _on_game_select_pressed() -> void:
 	if not UserStats.has_completed_diagnostic():
 		show_error_dialog("You must complete the diagnostic test (all games at least once) before accessing game selection.")
 		return
-	_show_game_select_panel()
-
-
-func _show_game_select_panel() -> void:
-	# Create panel if it doesn't exist
 	if not has_node("GameSelectPanel"):
-		_create_game_select_panel()
-	
-	var panel = $GameSelectPanel
-	panel.visible = true
-	
-	# Populate game buttons
-	var vbox = panel.get_node("GameBox/VBox/Scroll/GameListVBox")
-	for child in vbox.get_children():
-		child.queue_free()
-	
-	var game_names = {
-		"game1": "Multiple Choice",
-		"game2": "Jeopardy",
-		"game3": "Crossword",
-		"game4": "Matching Game",
-		"game5": "Hangman"
-	}
-	
-	for game_id in UserStats.GAME_SEQUENCE:
-		var gname = game_names[game_id] if game_names.has(game_id) else game_id
-		var btn = Button.new()
-		btn.text = gname
-		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		btn.custom_minimum_size = Vector2(0, 52)
-		btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-		btn.add_theme_font_size_override("font_size", 20)
-		btn.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
-		btn.add_theme_stylebox_override("normal", SubResource_white_rounded())
-		btn.pressed.connect(_on_single_game_selected.bind(game_id))
-		vbox.add_child(btn)
-	
-	# Update title
-	panel.get_node("GameBox/VBox/GameTitle").text = "Select a Game (1 of 5)"
-
-
-func _create_game_select_panel() -> void:
-	var panel = Control.new()
-	panel.name = "GameSelectPanel"
-	panel.layout_mode = 1
-	panel.anchors_preset = 15
-	panel.anchor_right = 1.0
-	panel.anchor_bottom = 1.0
-	panel.grow_horizontal = 2
-	panel.grow_vertical = 2
-	panel.visible = false
-	
-	# Background
-	var bg = ColorRect.new()
-	bg.name = "GameBG"
-	bg.layout_mode = 1
-	bg.anchors_preset = 15
-	bg.anchor_right = 1.0
-	bg.anchor_bottom = 1.0
-	bg.grow_horizontal = 2
-	bg.grow_vertical = 2
-	bg.color = Color(0, 0, 0, 0.65)
-	panel.add_child(bg)
-	
-	# Box
-	var box = Control.new()
-	box.name = "GameBox"
-	box.layout_mode = 1
-	box.anchors_preset = 8
-	box.anchor_left = 0.5
-	box.anchor_top = 0.5
-	box.anchor_right = 0.5
-	box.anchor_bottom = 0.5
-	box.offset_left = -300.0
-	box.offset_top = -280.0
-	box.offset_right = 300.0
-	box.offset_bottom = 280.0
-	box.grow_horizontal = 2
-	box.grow_vertical = 2
-	panel.add_child(box)
-	
-	# Background color rect with rounded corners - fills the entire box
-	var bg_rect = ColorRect.new()
-	bg_rect.name = "BGRect"
-	bg_rect.layout_mode = 1
-	bg_rect.anchors_preset = 15
-	bg_rect.anchor_right = 1.0
-	bg_rect.anchor_bottom = 1.0
-	bg_rect.grow_horizontal = 2
-	bg_rect.grow_vertical = 2
-	bg_rect.color = Color(0.957, 0.953, 0.918, 1)
-	# Add corner radius using a stylebox
-	var bg_style = StyleBoxFlat.new()
-	bg_style.bg_color = Color(0.957, 0.953, 0.918, 1)
-	bg_style.corner_radius_top_left = 16
-	bg_style.corner_radius_top_right = 16
-	bg_style.corner_radius_bottom_right = 16
-	bg_style.corner_radius_bottom_left = 16
-	bg_rect.add_theme_stylebox_override("normal", bg_style)
-	# Make sure bg_rect is added first so it's behind other elements
-	box.add_child(bg_rect)
-	
-	# VBox - fills the entire box
-	var vbox = VBoxContainer.new()
-	vbox.name = "VBox"
-	vbox.layout_mode = 2
-	vbox.add_theme_constant_override("separation", 12)
-	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(vbox)
-	
-	# Title
-	var title = Label.new()
-	title.name = "GameTitle"
-	title.layout_mode = 2
-	title.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
-	title.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	title.add_theme_font_size_override("font_size", 32)
-	title.text = "Select a Game (1 of 5)"
-	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.add_child(title)
-	
-	# Scroll - expands to fill available space
-	var scroll = ScrollContainer.new()
-	scroll.name = "Scroll"
-	scroll.custom_minimum_size = Vector2(0, 350)
-	scroll.layout_mode = 2
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	vbox.add_child(scroll)
-	
-	# List VBox - fills the scroll container
-	var list_vbox = VBoxContainer.new()
-	list_vbox.name = "GameListVBox"
-	list_vbox.layout_mode = 2
-	list_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	list_vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	list_vbox.add_theme_constant_override("separation", 8)
-	scroll.add_child(list_vbox)
-	
-	# Cancel button
-	var cancel_btn = Button.new()
-	cancel_btn.name = "GameCancelBtn"
-	cancel_btn.custom_minimum_size = Vector2(0, 50)
-	cancel_btn.layout_mode = 2
-	cancel_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-	cancel_btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	cancel_btn.add_theme_font_size_override("font_size", 20)
-	cancel_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
-	cancel_btn.text = "Cancel"
-	cancel_btn.pressed.connect(_on_back_button_pressed)
-	vbox.add_child(cancel_btn)
-	
-	add_child(panel)
+		var panel = GAME_SELECT_PANEL_SCENE.instantiate()
+		panel.name = "GameSelectPanel"
+		panel.visible = false
+		panel.game_selected.connect(_on_single_game_selected)
+		panel.closed.connect(_on_game_select_closed)
+		add_child(panel)
+	$GameSelectPanel.visible = true
+	$GameSelectPanel.populate_games()
 
 
 func _on_single_game_selected(game_id: String) -> void:
@@ -877,268 +732,22 @@ func _on_single_game_selected(game_id: String) -> void:
 	get_tree().change_scene_to_file(UserStats.get_scene_for_game(game_id))
 
 
-func SubResource_white_rounded_panel() -> StyleBoxFlat:
-	var sb = StyleBoxFlat.new()
-	sb.bg_color = Color(0.957, 0.953, 0.918, 1)
-	sb.content_margin_left = 20.0
-	sb.content_margin_top = 20.0
-	sb.content_margin_right = 20.0
-	sb.content_margin_bottom = 20.0
-	sb.corner_radius_top_left = 16
-	sb.corner_radius_top_right = 16
-	sb.corner_radius_bottom_right = 16
-	sb.corner_radius_bottom_left = 16
-	return sb
-
-
-func SubResource_white_rounded_red() -> StyleBoxFlat:
-	var sb = StyleBoxFlat.new()
-	sb.bg_color = Color(0.749, 0.188, 0.188, 1)
-	sb.corner_radius_top_left = 14
-	sb.corner_radius_top_right = 14
-	sb.corner_radius_bottom_right = 14
-	sb.corner_radius_bottom_left = 14
-	return sb
+func _on_game_select_closed() -> void:
+	if has_node("GameSelectPanel"):
+		$GameSelectPanel.visible = false
 
 
 func _show_shop_panel() -> void:
-	# Create panel if it doesn't exist
 	if not has_node("ShopPanel"):
-		_create_shop_panel()
-	
-	var panel = $ShopPanel
-	panel.visible = true
-	
-	# Update coin display
-	panel.get_node("ShopBox/VBox/CoinsDisplay").text = "🪙 Coins: %d" % GameInfo.coins
-	
-	# Populate character shop items
-	var shop_list = panel.get_node("ShopBox/VBox/Scroll/ShopListVBox")
-	for child in shop_list.get_children():
-		child.queue_free()
-	
-	# Add None (default, free)
-	_add_shop_item(shop_list, "none", "None (Default)", "Default", 0, true)
-	# Add Caius
-	_add_shop_item(shop_list, "caius", "Caius", "Unlock Character", 300, GameInfo.unlocked_characters.get("caius", false))
-	# Add Lucky
-	_add_shop_item(shop_list, "lucky", "Lucky", "Unlock Character", 150, GameInfo.unlocked_characters.get("lucky", false))
-	
-	# Update current selection display
+		var panel = SHOP_PANEL_SCENE.instantiate()
+		panel.name = "ShopPanel"
+		panel.visible = false
+		panel.closed.connect(_on_shop_close_pressed)
+		panel.shop_changed.connect(_update_cosmetic_display)
+		add_child(panel)
+	$ShopPanel.visible = true
+	$ShopPanel.refresh()
 	_update_cosmetic_display()
-
-
-func _create_shop_panel() -> void:
-	var panel = Control.new()
-	panel.name = "ShopPanel"
-	panel.layout_mode = 1
-	panel.anchors_preset = 15
-	panel.anchor_right = 1.0
-	panel.anchor_bottom = 1.0
-	panel.grow_horizontal = 2
-	panel.grow_vertical = 2
-	panel.visible = false
-	
-	# Background
-	var bg = ColorRect.new()
-	bg.name = "ShopBG"
-	bg.layout_mode = 1
-	bg.anchors_preset = 15
-	bg.anchor_right = 1.0
-	bg.anchor_bottom = 1.0
-	bg.grow_horizontal = 2
-	bg.grow_vertical = 2
-	bg.color = Color(0, 0, 0, 0.65)
-	panel.add_child(bg)
-	
-	# Box
-	var box = Control.new()
-	box.name = "ShopBox"
-	box.layout_mode = 1
-	box.anchors_preset = 8
-	box.anchor_left = 0.5
-	box.anchor_top = 0.5
-	box.anchor_right = 0.5
-	box.anchor_bottom = 0.5
-	box.offset_left = -350.0
-	box.offset_top = -300.0
-	box.offset_right = 350.0
-	box.offset_bottom = 300.0
-	box.grow_horizontal = 2
-	box.grow_vertical = 2
-	panel.add_child(box)
-	
-	# Background color rect with rounded corners - fills the entire box
-	var bg_rect = ColorRect.new()
-	bg_rect.name = "BGRect"
-	bg_rect.layout_mode = 1
-	bg_rect.anchors_preset = 15
-	bg_rect.anchor_right = 1.0
-	bg_rect.anchor_bottom = 1.0
-	bg_rect.grow_horizontal = 2
-	bg_rect.grow_vertical = 2
-	bg_rect.color = Color(0.957, 0.953, 0.918, 1)
-	# Add corner radius using a stylebox
-	var bg_style = StyleBoxFlat.new()
-	bg_style.bg_color = Color(0.957, 0.953, 0.918, 1)
-	bg_style.corner_radius_top_left = 16
-	bg_style.corner_radius_top_right = 16
-	bg_style.corner_radius_bottom_right = 16
-	bg_style.corner_radius_bottom_left = 16
-	bg_rect.add_theme_stylebox_override("normal", bg_style)
-	# Make sure bg_rect is added first so it's behind other elements
-	box.add_child(bg_rect)
-	
-	# VBox - fills the entire box
-	var vbox = VBoxContainer.new()
-	vbox.name = "VBox"
-	vbox.layout_mode = 2
-	vbox.add_theme_constant_override("separation", 12)
-	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(vbox)
-	
-	# Title
-	var title = Label.new()
-	title.name = "ShopTitle"
-	title.layout_mode = 2
-	title.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
-	title.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	title.add_theme_font_size_override("font_size", 32)
-	title.text = "Character Shop"
-	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.add_child(title)
-	
-	# Coins display
-	var coins_label = Label.new()
-	coins_label.name = "CoinsDisplay"
-	coins_label.layout_mode = 2
-	coins_label.add_theme_color_override("font_color", Color(0.4, 0.3, 0.1, 1))
-	coins_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	coins_label.add_theme_font_size_override("font_size", 20)
-	coins_label.text = "🪙 Coins: 0"
-	coins_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	coins_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.add_child(coins_label)
-	
-	# Current selection
-	var current_label = Label.new()
-	current_label.name = "CurrentSelection"
-	current_label.layout_mode = 2
-	current_label.add_theme_color_override("font_color", Color(0.2, 0.4, 0.2, 1))
-	current_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	current_label.add_theme_font_size_override("font_size", 16)
-	current_label.text = "Current: %s" % GameInfo.selected_character.capitalize()
-	current_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	current_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.add_child(current_label)
-	
-	# Scroll - expands to fill available space
-	var scroll = ScrollContainer.new()
-	scroll.name = "Scroll"
-	scroll.custom_minimum_size = Vector2(0, 350)
-	scroll.layout_mode = 2
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	vbox.add_child(scroll)
-	
-	# Shop list VBox - fills the scroll container
-	var shop_list = VBoxContainer.new()
-	shop_list.name = "ShopListVBox"
-	shop_list.layout_mode = 2
-	shop_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	shop_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	shop_list.add_theme_constant_override("separation", 8)
-	scroll.add_child(shop_list)
-	
-	# Cancel button
-	var cancel_btn = Button.new()
-	cancel_btn.name = "ShopCancelBtn"
-	cancel_btn.custom_minimum_size = Vector2(0, 50)
-	cancel_btn.layout_mode = 2
-	cancel_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-	cancel_btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	cancel_btn.add_theme_font_size_override("font_size", 20)
-	cancel_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
-	cancel_btn.text = "Close"
-	cancel_btn.pressed.connect(_on_shop_close_pressed)
-	cancel_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vbox.add_child(cancel_btn)
-	
-	add_child(panel)
-
-
-func _add_shop_item(parent: VBoxContainer, char_id: String, char_name: String, action: String, cost: int, unlocked: bool) -> void:
-	var hbox = HBoxContainer.new()
-	hbox.name = char_id + "_item"
-	hbox.layout_mode = 2
-	hbox.custom_minimum_size = Vector2(0, 60)
-	
-	# Character name label
-	var name_label = Label.new()
-	name_label.text = char_name
-	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	name_label.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	name_label.add_theme_font_size_override("font_size", 18)
-	name_label.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1))
-	hbox.add_child(name_label)
-	
-	# Action button
-	var action_btn = Button.new()
-	action_btn.name = char_id + "_btn"
-	action_btn.custom_minimum_size = Vector2(120, 44)
-	action_btn.add_theme_font_override("font", load("res://Assets/Fonts/Silkscreen-Regular.ttf"))
-	action_btn.add_theme_font_size_override("font_size", 16)
-	
-	if char_id == GameInfo.selected_character:
-		# Currently selected
-		action_btn.text = "SELECTED"
-		action_btn.disabled = true
-		action_btn.add_theme_color_override("font_color", Color(0.2, 0.6, 0.2, 1))
-		action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_green())
-	elif unlocked:
-		# Unlocked but not selected
-		action_btn.text = "SELECT"
-		action_btn.pressed.connect(func(): _select_character(char_id))
-		action_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-		action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_blue())
-	else:
-		# Not unlocked
-		action_btn.text = "%d 🪙" % cost
-		action_btn.pressed.connect(func(): _unlock_character(char_id, cost))
-		action_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-		if GameInfo.coins >= cost:
-			action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_green())
-		else:
-			action_btn.add_theme_stylebox_override("normal", SubResource_white_rounded_red())
-			action_btn.disabled = true
-	
-	hbox.add_child(action_btn)
-	parent.add_child(hbox)
-
-
-func _unlock_character(char_id: String, cost: int) -> void:
-	if GameInfo.unlock_character(char_id):
-		show_success_dialog("Character unlocked! 🎉\nYou can now select this character.")
-		_save_and_refresh_shop()
-	else:
-		show_error_dialog("Not enough coins!\nYou need %d 🪙 but have %d 🪙" % [cost, GameInfo.coins])
-
-
-func _select_character(char_id: String) -> void:
-	if GameInfo.select_character(char_id):
-		show_success_dialog("Character selected: %s!" % char_id.capitalize())
-		_save_and_refresh_shop()
-		_update_cosmetic_display()
-
-
-func _save_and_refresh_shop() -> void:
-	# Save game info
-	GameInfo._save_gameinfo()
-	# Refresh shop display
-	_show_shop_panel()
 
 
 func _update_cosmetic_display() -> void:
@@ -1157,23 +766,3 @@ func _update_cosmetic_display() -> void:
 		else:
 			cosmetic_sprite.animation = "default"
 		cosmetic_sprite.visible = true
-
-
-func SubResource_white_rounded_green() -> StyleBoxFlat:
-	var sb = StyleBoxFlat.new()
-	sb.bg_color = Color(0.18, 0.616, 0.306, 1)
-	sb.corner_radius_top_left = 14
-	sb.corner_radius_top_right = 14
-	sb.corner_radius_bottom_right = 14
-	sb.corner_radius_bottom_left = 14
-	return sb
-
-
-func SubResource_white_rounded_blue() -> StyleBoxFlat:
-	var sb = StyleBoxFlat.new()
-	sb.bg_color = Color(0.196, 0.435, 0.765, 1)
-	sb.corner_radius_top_left = 14
-	sb.corner_radius_top_right = 14
-	sb.corner_radius_bottom_right = 14
-	sb.corner_radius_bottom_left = 14
-	return sb
