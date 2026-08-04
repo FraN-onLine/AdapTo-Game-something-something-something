@@ -1,6 +1,7 @@
 extends Control
 
 signal login_successful
+signal api_key_required
 signal show_registration
 
 @onready var username_edit = $Panel/VBoxContainer/UsernameEdit

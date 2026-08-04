@@ -2,6 +2,7 @@
 	"global_saved_lessons": [],
 	"users": {
 		"Aorm": {
+			"api_key": "",
 			"password": "767497999498c5703ba69846e47573222aa0518f32ad6edf71aadb826bc382c3",
 			"performance": {
 				"adaptive_games_played": 1.0,
@@ -302,6 +303,7 @@
 			"saved_lessons": []
 		},
 		"a": {
+			"api_key": "",
 			"gameinfo": {
 				"achievements_unlocked": {
 					"all_games_played": 1785826510.269,
@@ -322,28 +324,28 @@
 					"streak_10": 1785826608.23,
 					"streak_5": 1785683940.505
 				},
-				"coins": 104,
-				"comeback_count": 4,
+				"coins": 104.0,
+				"comeback_count": 4.0,
 				"games_played_count": {
 					"game1": 3.0,
 					"game2": 2.0,
 					"game3": 2.0,
-					"game4": 1,
+					"game4": 1.0,
 					"game5": 2.0
 				},
-				"hints_used_total": 0,
-				"level": 3,
-				"max_streak_ever": 13,
+				"hints_used_total": 0.0,
+				"level": 3.0,
+				"max_streak_ever": 13.0,
 				"selected_character": "none",
-				"total_coins_earned": 104,
-				"total_games_completed": 10,
-				"total_xp_earned": 273,
+				"total_coins_earned": 104.0,
+				"total_games_completed": 10.0,
+				"total_xp_earned": 273.0,
 				"unlocked_characters": {
 					"caius": false,
 					"lucky": false,
 					"none": true
 				},
-				"xp_total": 273
+				"xp_total": 273.0
 			},
 			"gamification": {
 				"achievements_unlocked": {
@@ -375,7 +377,7 @@
 			},
 			"password": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
 			"performance": {
-				"adaptive_games_played": 0,
+				"adaptive_games_played": 0.0,
 				"adaptive_history": {
 					"game1": [
 						28.5,
@@ -419,78 +421,78 @@
 					]
 				},
 				"adaptive_started_once": true,
-				"diagnostic_runs_completed": 1,
+				"diagnostic_runs_completed": 1.0,
 				"game4": {
 					"accuracy": 36.3636363636364,
 					"completed": true,
-					"correct": 8,
-					"hints_used": 0,
-					"incorrect": 14,
+					"correct": 8.0,
+					"hints_used": 0.0,
+					"incorrect": 14.0,
 					"lesson_title": "Distributed Systems",
-					"max_streak": 3,
-					"pairs_total": 8,
-					"score": 518,
-					"time_spent": 37,
+					"max_streak": 3.0,
+					"pairs_total": 8.0,
+					"score": 518.0,
+					"time_spent": 37.0,
 					"timestamp": 1785826510.239
 				},
 				"game5": {
 					"accuracy": 0.0,
 					"completed": true,
-					"hints_used": 0,
+					"hints_used": 0.0,
 					"lesson_title": "Distributed Systems",
-					"max_streak": 13,
-					"mistakes": 35,
-					"score": 1390,
-					"skips_used": 0,
-					"time_spent": 92,
+					"max_streak": 13.0,
+					"mistakes": 35.0,
+					"score": 1390.0,
+					"skips_used": 0.0,
+					"time_spent": 92.0,
 					"timestamp": 1785826608.199,
-					"words_total": 6
+					"words_total": 6.0
 				},
 				"game_stats": {
 					"game1": {
 						"accuracy": [
-							0,
-							0,
-							0,
-							0
+							0.0,
+							0.0,
+							0.0,
+							0.0
 						],
 						"correct": [
-							0,
-							1,
-							0,
-							1
+							0.0,
+							1.0,
+							0.0,
+							1.0
 						],
 						"incorrect": [
-							1,
-							2,
-							0,
-							2
+							1.0,
+							2.0,
+							0.0,
+							2.0
 						],
 						"item_times": [
 							1.42857142857143
 						],
 						"questions": [
-							1,
-							3,
-							0,
-							3
+							1.0,
+							3.0,
+							0.0,
+							3.0
 						],
-						"questions_answered": 7,
-						"questions_correct": 2,
+						"questions_answered": 7.0,
+						"questions_correct": 2.0,
 						"sum_time": [
-							0,
-							9,
-							0,
-							1
+							0.0,
+							9.0,
+							0.0,
+							1.0
 						],
-						"time_taken": 10,
+						"time_taken": 10.0,
 						"timeout": [
-							0,
-							0,
-							0,
-							0
+							0.0,
+							0.0,
+							0.0,
+							0.0
 						],
-						"total_score": 200,
+						"total_score": 200.0,
 						"type": [
 							"keyword",
 							"simple_terms",
@@ -502,38 +504,38 @@
 						"item_times": [
 							4.0
 						],
-						"questions_answered": 9,
-						"questions_correct": 0,
-						"time_taken": 36,
-						"total_score": -2550
+						"questions_answered": 9.0,
+						"questions_correct": 0.0,
+						"time_taken": 36.0,
+						"total_score": -2550.0
 					},
 					"game3": {
 						"item_times": [
 							22.5
 						],
-						"puzzles_completed": 8,
-						"questions_answered": 8,
-						"questions_correct": 8,
-						"time_taken": 180,
-						"total_score": 0
+						"puzzles_completed": 8.0,
+						"questions_answered": 8.0,
+						"questions_correct": 8.0,
+						"time_taken": 180.0,
+						"total_score": 0.0
 					},
 					"game4": {
 						"item_times": [
 							4.625
 						],
-						"questions_answered": 8,
-						"questions_correct": 8,
-						"time_taken": 37,
-						"total_score": 518
+						"questions_answered": 8.0,
+						"questions_correct": 8.0,
+						"time_taken": 37.0,
+						"total_score": 518.0
 					},
 					"game5": {
 						"item_times": [
 							15.3333333333333
 						],
-						"questions_answered": 6,
-						"questions_correct": 0,
-						"time_taken": 92,
-						"total_score": 1390
+						"questions_answered": 6.0,
+						"questions_correct": 0.0,
+						"time_taken": 92.0,
+						"total_score": 1390.0
 					}
 				},
 				"overall_stats": {
@@ -1051,11 +1053,11 @@
 							25.0,
 							25.0,
 							25.0,
-							36,
-							36,
-							36,
-							36,
-							36
+							36.0,
+							36.0,
+							36.0,
+							36.0,
+							36.0
 						],
 						"average_score": 205.450733752621,
 						"average_time_per_item": 9.22222222222222,
@@ -1350,9 +1352,9 @@
 							180.0,
 							180.0,
 							180.0,
-							180,
-							180,
-							180
+							180.0,
+							180.0,
+							180.0
 						],
 						"average_score": 230.633802816901,
 						"average_time_per_item": 25.7142857142857,
@@ -1613,8 +1615,8 @@
 							37.0,
 							37.0,
 							37.0,
-							37,
-							37
+							37.0,
+							37.0
 						],
 						"average_score": 527.002688172043,
 						"average_time_per_item": 15.0,
@@ -1865,7 +1867,7 @@
 							41.0,
 							41.0,
 							41.0,
-							92
+							92.0
 						],
 						"average_score": 507.082833133253,
 						"average_time_per_item": 5.66666666666667,
@@ -1882,6 +1884,7 @@
 			"saved_lessons": []
 		},
 		"hitler": {
+			"api_key": "",
 			"password": "ebf10d5dee5c67cec93775aef85475a09b4edc3db80f935afe47244999dc427e",
 			"performance": {
 				"adaptive_history": {
@@ -2068,6 +2071,7 @@
 			"saved_lessons": []
 		},
 		"noel": {
+			"api_key": "",
 			"password": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
 			"performance": {
 				"adaptive_games_played": 2.0,
@@ -2401,6 +2405,7 @@
 			"saved_lessons": []
 		},
 		"s": {
+			"api_key": "",
 			"gameinfo": {
 				"achievements_unlocked": {
 					"first_game": 1785522148.545,

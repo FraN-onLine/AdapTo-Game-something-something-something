@@ -49,6 +49,8 @@ func _ensure_user_schema(username: String) -> bool:
 		user_record["role"] = "student"
 	else:
 		user_record["role"] = _normalize_role(str(user_record["role"]))
+	if not user_record.has("api_key") or typeof(user_record["api_key"]) != TYPE_STRING:
+		user_record["api_key"] = ""
 
 	db["users"][username] = user_record
 	return true
@@ -221,6 +223,20 @@ func set_user_role(username: String, role: String) -> bool:
 	db["users"][username]["role"] = _normalize_role(role)
 	save_db()
 	return true
+
+
+func save_user_api_key(username: String, api_key: String) -> bool:
+	if not _ensure_user_schema(username):
+		return false
+	db["users"][username]["api_key"] = api_key.strip_edges()
+	save_db()
+	return true
+
+
+func load_user_api_key(username: String) -> String:
+	if not _ensure_user_schema(username):
+		return ""
+	return str(db["users"][username].get("api_key", ""))
 
 
 func is_instructor(username: String) -> bool:

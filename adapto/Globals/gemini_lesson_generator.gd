@@ -4,7 +4,6 @@ class_name GeminiLessonGenerator
 signal lesson_items_generated(items: Array[LessonItem])
 signal generation_failed(message: String)
 
-@export var api_key: String = ""
 @export var model: String = "gemini-1.5-flash"
 
 var _http: HTTPRequest
@@ -14,9 +13,24 @@ func _ready() -> void:
 	add_child(_http)
 	_http.request_completed.connect(_on_request_completed)
 
+func _get_api_key() -> String:
+	# Use the per-user API key if set, otherwise fall back to the .env value
+	if Global.current_api_key.strip_edges() != "":
+		return Global.current_api_key
+	# Fallback: read from .env file
+	var env_file = FileAccess.open("res://.env", FileAccess.READ)
+	if env_file:
+		var content = env_file.get_as_text()
+		for line in content.split("\n"):
+			line = line.strip_edges()
+			if line.begins_with("GEMINI_API_KEY="):
+				return line.trim_prefix("GEMINI_API_KEY=").strip_edges()
+	return ""
+
 func generate_from_seed(seed_lesson: Lesson, count: int = 8) -> void:
+	var api_key := _get_api_key()
 	if api_key.strip_edges().is_empty():
-		generation_failed.emit("Missing GEMINI API key.")
+		generation_failed.emit("Missing GEMINI API key. Please set one in your account settings.")
 		return
 
 	var seed_examples: Array = []

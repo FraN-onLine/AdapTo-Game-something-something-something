@@ -8,6 +8,7 @@ const DEFAULT_ACCESS_ALL_SAVED_LESSONS := true
 const ADMIN_USERNAMES := ["admin"]
 const GAME_SELECT_PANEL_SCENE := preload("res://Menus/game_select_panel.tscn")
 const SHOP_PANEL_SCENE := preload("res://Menus/shop_panel.tscn")
+const API_KEY_ENTRY_SCENE := preload("res://Menus/api_key_entry.tscn")
 
 var access_all_saved_lessons := DEFAULT_ACCESS_ALL_SAVED_LESSONS
 var admin_all_lessons_toggle: CheckBox
@@ -512,6 +513,8 @@ func _ready():
 		main_menu_control.visible = true
 		_setup_admin_all_lessons_toggle()
 		_apply_instructor_visibility()
+		# Load the user's API key
+		Global.current_api_key = Database.load_user_api_key(Global.current_user)
 	else:
 		login_screen.visible = true
 		register_screen.visible = false
@@ -526,6 +529,35 @@ func _on_login_successful():
 	_setup_admin_all_lessons_toggle()
 	_apply_instructor_visibility()
 	_show_main_menu_for_user()
+	# Load the user's API key
+	Global.current_api_key = Database.load_user_api_key(Global.current_user)
+	# If no API key is set, show the API key entry screen
+	if Global.current_api_key.strip_edges().is_empty():
+		_show_api_key_entry()
+
+func _show_api_key_entry() -> void:
+	if not has_node("ApiKeyEntryPanel"):
+		var panel = API_KEY_ENTRY_SCENE.instantiate()
+		panel.name = "ApiKeyEntryPanel"
+		panel.api_key_saved.connect(_on_api_key_saved)
+		panel.skipped.connect(_on_api_key_skipped)
+		add_child(panel)
+	$ApiKeyEntryPanel.visible = true
+
+
+func _on_api_key_saved(api_key: String) -> void:
+	Global.current_api_key = api_key
+	if Global.current_user != null:
+		Database.save_user_api_key(Global.current_user, api_key)
+	if has_node("ApiKeyEntryPanel"):
+		$ApiKeyEntryPanel.visible = false
+	show_success_dialog("API key saved successfully!")
+
+
+func _on_api_key_skipped() -> void:
+	if has_node("ApiKeyEntryPanel"):
+		$ApiKeyEntryPanel.visible = false
+
 
 func _on_show_registration():
 	login_screen.visible = false
